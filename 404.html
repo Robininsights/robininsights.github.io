@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Robin Insights</title>
+    <!-- Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Premium Light Glassy Theme Variables */
+            --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --accent-blue: #2563eb;
+            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --font-ui: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg-app);
+            color: var(--text-primary);
+            font-family: var(--font-ui);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Prevent scroll on 404 */
+            position: relative;
+        }
+
+        /* --- Glass Card Container --- */
+        .error-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 32px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            z-index: 10;
+            max-width: 500px;
+            width: 90%;
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* --- Branding Section --- */
+        .brand-logo-container {
+                width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    animation: floatLogo 6s ease-in-out infinite;}
+
+        .brand-logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        /* --- Social Media Row --- */
+        .social-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 10px 0 20px 0;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--text-secondary);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            box-shadow: var(--shadow-card);
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #FF0000; /* YouTube Red on hover */
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            background: #fff5f5;
+        }
+        
+        .social-icon:hover svg {
+            transform: scale(1.15);
+        }
+        
+        /* Specific hover colors for other icons */
+        .social-icon:nth-child(1):hover { color: #229ED9; background: #f0f9ff; } /* Telegram */
+        .social-icon:nth-child(2):hover { color: #000000; background: #f8fafc; } /* X */
+
+        /* Staggered entrance for icons */
+        .social-icon:nth-child(1) { animation: slideUp 0.5s ease-out 0.2s backwards; }
+        .social-icon:nth-child(2) { animation: slideUp 0.5s ease-out 0.3s backwards; }
+        .social-icon:nth-child(3) { animation: slideUp 0.5s ease-out 0.4s backwards; }
+
+
+        /* --- Text Content --- */
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+        /* --- The Big Back Button --- */
+        .back-btn {
+            margin-top: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-ui);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 20px -5px rgba(30, 41, 59, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            outline: none;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(30, 41, 59, 0.4);
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+        }
+
+        .back-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Arrow Animation */
+        .arrow-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .back-btn:hover .arrow-icon {
+            transform: translateX(-4px);
+        }
+
+        /* --- Decor Background Elements (Same as Index) --- */
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: float 10s infinite alternate ease-in-out;
+        }
+        .blob-1 { 
+            width: 500px; height: 500px; 
+            top: -100px; left: -100px; 
+            background: radial-gradient(circle, rgba(200, 210, 255, 0.5) 0%, rgba(255,255,255,0) 70%); 
+        }
+        .blob-2 { 
+            width: 600px; height: 600px; 
+            bottom: -150px; right: -150px; 
+            background: radial-gradient(circle, rgba(200, 255, 230, 0.4) 0%, rgba(255,255,255,0) 70%);
+            animation-delay: -5s;
+        }
+
+        /* Animations */
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 40px); }
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .error-card { padding: 40px 24px; width: 85%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Ambience -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <!-- Main Content -->
+    <div class="error-card">
+        
+        <!-- Branding Logo -->
+        <div class="brand-logo-container">
+            <img src="RI.png" alt="RI" onerror="this.style.display='none'; this.parentNode.innerText='RI'">
+        </div>
+        
+        <!-- Brand Name -->
+        <h1>Robin Insights</h1>
+
+        <!-- Animated Social Media Row -->
+        <div class="social-row">
+            <!-- Telegram -->
+            <a href="#" class="social-icon" title="Telegram">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
+            </a>
+            <!-- X (Twitter) -->
+            <a href="#" class="social-icon" title="X / Twitter">
+                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="#" class="social-icon" title="YouTube">
+                <svg viewBox="0 0 24 24"><path d="M21.582 5.184c-.23-.86-.908-1.538-1.768-1.768C18.254 3 12 3 12 3s-6.254 0-7.814.416c-.86.23-1.538.908-1.768 1.768C2 6.744 2 12 2 12s0 5.256.418 6.816c.23.86.908 1.538 1.768 1.768C5.746 21 12 21 12 21s6.254 0 7.814-.416c.86-.23 1.538-.908 1.768-1.768C22 17.256 22 12 22 12s0-5.256-.418-6.816zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+            </a>
+        </div>
+
+        <h2>404 | Page doesn't exist</h2>
+        <p>The journal page you are looking for isn't here.</p>
+
+        <button onclick="handleBack()" class="back-btn">
+            <span class="material-icons-round arrow-icon">arrow_back</span>
+            Go Back
+        </button>
+    </div>
+
+    <script>
+        function handleBack() {
+            // Check if there is a history stack to go back to
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                // If opened in new tab or direct link, go to homepage
+                window.location.href = 'https://robininsights.github.io';
+            }
+        }
+    </script>
+
+</body>
+</html>
