@@ -41,7 +41,7 @@
             color: var(--text-primary);
             font-family: var(--font-ui);
             margin: 0;
-            padding: 20px;
+            padding: 10px; /* Reduced padding */
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -49,10 +49,10 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Main Workspace Container */
+        /* Main Workspace Container - Compacted */
         .workspace {
-            width: 100%;
-            max-width: 1400px;
+            width: 60%;
+            max-width: 1250px; /* Reduced width */
             background: var(--bg-panel);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -63,7 +63,8 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            min-height: 90vh; /* Ensure height for footer positioning */
+            min-height: auto; /* Removed fixed 90vh to reduce scroll need */
+            margin-bottom: 20px;
         }
 
         /* --- Header --- */
@@ -71,23 +72,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 24px;
+            padding: 12px 20px; /* Reduced padding */
             border-bottom: 1px solid var(--border-color);
             background: var(--bg-header);
+            position: relative; 
         }
 
         .brand-area {
             display: flex;
             align-items: center;
-            }
+            z-index: 2; 
+        }
 
         .logo-container {
-             width: 64px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;}
+             width: 50px; /* Reduced */
+            height: 50px; /* Reduced */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
         .logo-img {
             width: 100%;
@@ -97,32 +101,48 @@
 
         .brand-text h1 {
             margin: 0;
-            font-size: 18px;
+            font-size: 16px; /* Reduced */
             font-weight: 700;
             color: var(--text-primary);
             letter-spacing: -0.5px;
         }
 
         .brand-text p {
-            margin: 2px 0 0 0;
-            font-size: 12px;
+            margin: 0;
+            font-size: 11px;
             color: var(--text-secondary);
             font-weight: 500;
+        }
+
+        .header-disclaimer {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px; /* Reduced */
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-align: center;
+            white-space: nowrap;
+            background: rgba(255,255,255,0.6);
+            padding: 2px 10px;
+            border-radius: 12px;
+            z-index: 1;
         }
 
         .controls {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            z-index: 2;
         }
 
         .date-group {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: #fff;
             border: 1px solid var(--border-color);
-            padding: 6px 12px;
+            padding: 4px 10px;
             border-radius: 8px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.03);
         }
@@ -154,7 +174,6 @@
             border-radius: 4px;
         }
         
-        /* Placeholder color */
         ::placeholder { color: #cbd5e1; opacity: 1; }
 
         .header-select, .header-year {
@@ -162,25 +181,25 @@
             border: none;
             color: var(--text-primary);
             font-weight: 600;
-            font-size: 13px;
-            padding: 4px;
+            font-size: 12px;
+            padding: 2px;
             cursor: pointer;
         }
         
-        .header-year { width: 50px; }
+        .header-year { width: 45px; }
         .header-select option { background: #fff; color: var(--text-primary); }
 
         .btn-action {
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 8px 16px;
+            padding: 6px 12px; /* Reduced */
             border-radius: 8px;
             border: 1px solid var(--border-color);
             background: #fff;
             color: var(--text-primary);
             cursor: pointer;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             transition: 0.2s;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
@@ -221,25 +240,25 @@
         }
 
         th {
-            text-align: center;
-            padding: 12px 6px;
-            font-size: 11px;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    text-align: center;
+    padding: 8px 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: #d7d7d7;        }
         
         th:last-child { border-right: none; }
 
         tr {
             border-bottom: 1px solid var(--border-color);
-            height: 36px; 
+            height: 32px; /* Reduced Row Height */
             transition: background 0.1s;
         }
 
@@ -258,12 +277,12 @@
         /* Table Inputs */
         td input, td select {
             width: 100%;
-            height: 35px;
+            height: 31px; /* Reduced Input Height */
             padding: 0 4px;
             border: none;
             border-radius: 0;
             font-family: var(--font-data);
-            font-size: 13px;
+            font-size: 12px; /* Slightly smaller font */
             box-sizing: border-box; 
             text-align: center;
             color: var(--text-primary);
@@ -288,17 +307,30 @@
             position: relative;
         }
 
-        /* Column Widths */
-        .col-id { width: 5%; text-align: center; color: var(--text-secondary); font-size: 12px; font-weight: 500; }
-        .col-coin { width: 12%; }
-        .col-entry { width: 15%; }
-        .col-dir { width: 12%; }
-        .col-lev { width: 10%; }
-        .col-res { width: 15%; }
-        .col-pnl { width: 12%; }
+        /* Column Widths - Adjusted (Entry removed) */
+        .col-id { width: 5%; text-align: center; color:red; font-size: 11px; font-weight: 500; }
+        .col-coin { width: 15%; } 
+        .col-dir { width: 15%; }
+        .col-lev { width: 12%; }
+        .col-res { width: 18%; }
+        .col-pnl { width: 15%; }
         .col-profit { width: 15%; }
-        .col-action { width: 4%; }
+        .col-action { width: 5%; }
         
+        /* Auto-Coloring Classes */
+        /* TP: Only Green Text, No Background */
+        .cell-tp { 
+            color: var(--color-up) !important; 
+            font-weight: 600; 
+        }
+        
+        /* SL: Red Background + Red Text */
+        .cell-sl { 
+            background-color: rgba(239, 68, 68, 0.15); 
+            color: var(--color-down) !important; 
+            font-weight: 600; 
+        }
+
         /* 3-Dot Menu Button */
         .btn-menu {
             opacity: 0.4; 
@@ -323,9 +355,9 @@
         /* --- Compact Centered Footer --- */
         footer {
             align-self: center;
-            margin: 40px auto;
+            margin: 20px auto; /* Reduced margin */
             width: auto;
-            min-width: 600px;
+            min-width: 500px; /* Reduced min-width */
             max-width: 95%;
             
             background: rgba(255, 255, 255, 0.85);
@@ -334,12 +366,13 @@
             border-radius: 16px;
             box-shadow: 0 10px 30px -5px rgba(0,0,0,0.08);
             
-            padding: 20px 30px;
+            padding: 12px 24px; /* Reduced padding */
             display: flex;
             flex-direction: row;
-            justify-content: space-between; /* Spread left branding and right stats */
+            justify-content: space-between; 
             align-items: center;
-            gap: 40px;
+            gap: 30px; /* Reduced gap */
+            position: relative;
         }
 
         /* Left Side: Branding */
@@ -347,25 +380,25 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 4px;
+            gap: 2px;
         }
 
         .brand-row {
             display: flex;
             align-items: center;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 14px; /* Reduced */
             letter-spacing: -0.5px;
             color: var(--text-primary);
         }
         
         .brand-row img {
-            width: 40px; 
-            height: 40px;
+            width: 32px; /* Reduced */
+            height: 32px;
         }
 
         .footer-tagline {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-secondary);
             font-weight: 500;
             letter-spacing: 0.5px;
@@ -373,23 +406,28 @@
             opacity: 0.8;
         }
 
+        .footer-disclaimer {
+              font-size: 10px;
+    color: #000000;
+    font-weight: 800;
+    margin-top: 4px;
+    opacity: 1;}
+
         /* Right Side: Wrapper for Stats */
         .footer-stats-wrapper {
             display: flex;
             flex-direction: column;
-            align-items: flex-end; /* Align right */
-            gap: 10px;
+            align-items: flex-end; 
+            gap: 8px;
         }
 
         /* Top: Net Result (Compact Hero) */
         .net-result-compact {
-            display: flex;
             align-items: center;
-            gap: 10px;
         }
 
         .net-label-compact {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-secondary);
             font-weight: 700;
             }
@@ -398,11 +436,11 @@
             background: transparent;
             border: none;
             font-family: var(--font-data);
-            font-size: 28px; /* Big enough, not huge */
+            font-size: 24px; /* Reduced */
             font-weight: 700;
             color: var(--text-primary);
             text-align: right;
-            width: 160px;
+            width: 140px;
             padding: 0;
             margin: 0;
         }
@@ -411,7 +449,7 @@
         /* Bottom: Gross Stats Row */
         .gross-stats-compact {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
 
@@ -419,12 +457,12 @@
         .metric-block-sm {
             display: flex;
             flex-direction: column;
-            padding: 6px 12px;
+            padding: 4px 10px; /* Reduced */
             background: #fff;
             border: 1px solid var(--border-color);
             border-radius: 6px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-            min-width: 90px;
+            min-width: 80px;
         }
         
         .metric-label-sm {
@@ -438,7 +476,7 @@
             border: none;
             background: transparent;
             font-family: var(--font-data);
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             width: 100%;
             padding: 0;
@@ -448,7 +486,7 @@
         .metric-count-sm {
             border: none;
             background: transparent;
-            font-size: 9px;
+            font-size: 8px;
             color: var(--text-secondary);
             width: 100%;
             padding: 0;
@@ -634,7 +672,7 @@
         /* Mobile adjustment */
         @media (max-width: 768px) {
             body { padding: 4px; }
-            .workspace { border: none; box-shadow: none; border-radius: 0; backdrop-filter: none; background: #fff; }
+            .workspace { width: 100%; border: none; box-shadow: none; border-radius: 0; backdrop-filter: none; background: #fff; }
             
             th { font-size: 9px; padding: 4px 1px; }
             td input, td select { font-size: 10px; padding: 0; height: 32px; }
@@ -642,13 +680,23 @@
             /* Tweak column widths for mobile */
             .col-id { width: 6%; }
             .col-coin { width: 14%; }
-            .col-entry { width: 16%; }
-            .col-dir { width: 10%; }
-            .col-lev { width: 8%; }
-            .col-res { width: 14%; }
-            .col-pnl { width: 12%; }
+            /* .col-entry removed */
+            .col-dir { width: 15%; }
+            .col-lev { width: 12%; }
+            .col-res { width: 18%; }
+            .col-pnl { width: 15%; }
             .col-profit { width: 15%; }
             .col-action { width: 5%; }
+            
+            .header-disclaimer { 
+                position: static; 
+                transform: none; 
+                order: 3; 
+                width: 100%; 
+                margin-top: 10px; 
+                white-space: normal;
+                line-height: 1.4;
+            }
 
             footer { padding: 20px 16px; flex-direction: column; align-items: stretch; gap: 20px; min-width: 0; width: 90%; }
             .footer-branding { align-items: center; text-align: center; }
@@ -717,7 +765,7 @@
                         <th class="col-id">#</th>
                         <!-- Date Column Removed -->
                         <th class="col-coin">Coin Ticker</th>
-                        <th class="col-entry">Entry Price ($)</th>
+                        <!-- Entry Price Column Removed -->
                         <th class="col-dir">Direction</th>
                         <th class="col-lev">Leverage</th>
                         <th class="col-res">Result</th>
@@ -733,7 +781,7 @@
         </div>
 
         <!-- ADD BAR -->
-        <div style="padding: 16px 24px; background: rgba(255,255,255,0.4); border-bottom: 1px solid var(--border-color); display: flex; justify-content: flex-end;">
+        <div style="padding: 12px 24px; background: rgba(255,255,255,0.4); border-bottom: 1px solid var(--border-color); display: flex; justify-content: flex-end;">
             <button class="btn-action btn-primary" onclick="openModal()">
                 <span class="material-icons-round" style="font-size:18px;">add</span> Add Trade
             </button>
@@ -748,6 +796,7 @@
                     <span>ROBIN INSIGHTS</span>
                 </div>
                 <p class="footer-tagline">Trading Journal & Monthly Analysis</p>
+                <div class="footer-disclaimer">All trades are calculated based on $100 margin with corresponding Leverage</div>
             </div>
 
             <!-- Right: Stats Wrapper -->
@@ -804,16 +853,11 @@
             </div>
             
             <div class="form-row">
-                <div class="form-group">
-                    <label>Entry Price</label>
-                    <input type="text" id="inEntry" placeholder="98000">
-                </div>
+                <!-- Entry Price Removed -->
                 <div class="form-group">
                     <label>Leverage</label>
                     <input type="text" id="inLev" placeholder="20x">
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group">
                     <label>Direction</label>
                     <select id="inDir">
@@ -821,6 +865,8 @@
                         <option value="Short">Short</option>
                     </select>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group">
                     <label>Result Status</label>
                     <select id="inRes">
@@ -831,13 +877,13 @@
                         <option value="None">-</option>
                     </select>
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group">
                     <label>PnL</label>
                     <input type="text" id="inPnl" placeholder="+15%">
                 </div>
-                <div class="form-group">
+            </div>
+            <div class="form-row">
+                <div class="form-group" style="grid-column: span 2;">
                     <label>Profit ($)</label>
                     <input type="text" id="inProfit" placeholder="250.00">
                 </div>
@@ -861,18 +907,12 @@
             <span>Load from online</span>
         </div>
     </div>
-
+<script src="SDK.js"></script>
     <script type="module">
         // --- IMPORTS ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-
-        // ==========================================
-        // PASTE YOUR ENCRYPTED STRING HERE (Same as Dashboard)
-        // ==========================================
-        const encryptedConfig = "U2FsdGVkX1/4hYDh+ESIdGwlRQt0GkR20+N6nF4c6f81B+oY0t5UEdMXcMpeLVZcy69ldqdRiELYRkl7EykXQGrLlkTKf4Nqrdn2zOMfPbj00PIPk36I0i3lfvSDml6XwO8M7ht9m0J4O2FnWhcMjZUQedNtDfn/VfxARQW7OvGmi5scYJxdddp4nMAO7rgW95otpeYqEyHPyg5OxdhITEPZ38J/Ckofu5Wn0IJYdSPbnWQVjM9cDzY2BuHpe0hzqW3Yf7Mrfc0haN21Vgr+8pKK6FJz5oflLOFwvBYodyZTwximtpbRWlj9RCODSAET2BSthOL0x95FeWhv/ivE4l2SlR0RAw03UGO2UchkV+bBiPZspSIwnEJPR3nWz1rSjk39YZIt3Nn2zwkFLl+7IkNWMHnVJTcf1K4mFCPKqeDZeDxbXcMOloOSO5ozpdzv";
-        
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";        
         // --- GLOBAL VARS ---
         let app, auth, db, user;
         let activeRowIndex = -1;
@@ -1082,7 +1122,7 @@
             if(user) await syncToCloud();
         }
 
-        // --- Standard App Logic (Same as before) ---
+        // --- Standard App Logic ---
         
         function initColorPicker() {
             colorPickerRow.innerHTML = '';
@@ -1112,6 +1152,25 @@
                 const pnlVal = parseNum(t.profit);
                 const pnlColor = pnlVal > 0 ? 'text-up' : (pnlVal < 0 ? 'text-down' : '');
                 
+                // Color Logic
+                let resClass = '';
+                
+                // TP Hit: Always just green text (no bg)
+                if (t.res === 'TP Hit') {
+                    resClass = 'cell-tp'; // defined in CSS as color-up only
+                }
+                // SL Hit:
+                else if (t.res === 'SL Hit') {
+                    // If row has color -> Text is red, Background is transparent (to show row color)
+                    if (t.rowColor) {
+                        resClass = 'text-down'; 
+                    } 
+                    // If NO row color -> Text is red, Background is red
+                    else {
+                        resClass = 'cell-sl';
+                    }
+                }
+
                 if (t.rowColor) {
                     tr.style.backgroundColor = t.rowColor;
                 } else {
@@ -1121,7 +1180,7 @@
                 tr.innerHTML = `
                     <td class="col-id">${i + 1}</td>
                     <td><input value="${t.coin}" placeholder="-" oninput="edit(${i}, 'coin', this.value, this)" style="font-weight:600; color:var(--text-primary);"></td>
-                    <td><input value="${t.entry}" placeholder="-" oninput="edit(${i}, 'entry', this.value, this)"></td>
+                    <!-- Entry Price Removed -->
                     <td>
                         <select onchange="edit(${i}, 'dir', this.value, this)" class="${dirColor}" style="font-weight:600;">
                             <option value="Long" ${t.dir === 'Long' ? 'selected' : ''}>LONG</option>
@@ -1130,7 +1189,7 @@
                     </td>
                     <td><input value="${t.lev}" placeholder="-" oninput="edit(${i}, 'lev', this.value, this)"></td>
                     <td>
-                        <select onchange="edit(${i}, 'res', this.value, this)">
+                        <select onchange="edit(${i}, 'res', this.value, this)" class="${resClass}">
                             <option value="Running" ${t.res === 'Running' ? 'selected' : ''}>Running</option>
                             <option value="TP Hit" ${t.res === 'TP Hit' ? 'selected' : ''}>TP Hit</option>
                             <option value="SL Hit" ${t.res === 'SL Hit' ? 'selected' : ''}>SL Hit</option>
@@ -1138,8 +1197,8 @@
                             <option value="None" ${t.res === 'None' ? 'selected' : ''}>-</option>
                         </select>
                     </td>
-                    <td><input value="${t.pnl}" placeholder="-" oninput="edit(${i}, 'pnl', this.value, this)" class="${pnlColor}"></td>
-                    <td><input value="${t.profit}" placeholder="-" oninput="edit(${i}, 'profit', this.value, this)" class="${pnlColor}" style="font-weight:700;"></td>
+                    <td><input value="${t.pnl}" placeholder="-" oninput="edit(${i}, 'pnl', this.value, this)" class="${pnlColor} ${resClass}"></td>
+                    <td><input value="${t.profit}" placeholder="-" oninput="edit(${i}, 'profit', this.value, this)" class="${pnlColor} ${resClass}" style="font-weight:700;"></td>
                     <td class="col-action">
                         <button class="btn-menu" onclick="openMenu(event, ${i})">
                             <span class="material-icons-round" style="font-size:18px;">more_vert</span>
@@ -1159,12 +1218,40 @@
             if (field === 'profit' || field === 'pnl') {
                 if (el) {
                     const num = parseNum(val);
-                    if (num > 0) el.className = 'text-up';
-                    else if (num < 0) el.className = 'text-down';
-                    else el.className = '';
+                    // Retain existing background/status classes, only update color direction
+                    const currentClasses = el.className.split(' ');
+                    const statusClasses = currentClasses.filter(c => c === 'cell-tp' || c === 'cell-sl' || c === 'text-down');
+                    // Note: 'text-down' is tricky because it acts as both status for SL (with row color) and negative number color.
+                    // Ideally, we rely on render() for status changes (res), and here just for number updates.
+                    
+                    // Simple approach: re-render if visual complexity is high, 
+                    // but for performance, let's just update text color classes if not status related.
+                    // However, because text-up/text-down conflicts with cell-sl/cell-tp coloring logic,
+                    // it is safest to re-render OR just update the text color if it's not a status cell.
+                    // Given the logic depends on rowColor + res, re-rendering is safest if we want consistency.
+                    // BUT for input lag, we avoid full re-render on keystroke.
+                    
+                    let textColor = '';
+                    if (num > 0) textColor = 'text-up';
+                    else if (num < 0) textColor = 'text-down';
+                    
+                    // If the cell is NOT strictly controlled by res (e.g. not TP/SL hit), apply color.
+                    // If it IS TP/SL hit, those classes might override or coexist.
+                    // Current CSS: .cell-tp sets color !important. .cell-sl sets color !important.
+                    // So adding text-up/text-down won't break TP/SL styling, which is desired.
+                    
+                    // We need to keep the status class.
+                    const statusClass = statusClasses.join(' ');
+                    el.className = `${textColor} ${statusClass}`;
                 }
             }
-            saveLocalOnly(); // Only save locally, sync later
+            
+            saveLocalOnly(); 
+            
+            // If result changes, we must re-render to update background colors of PnL/Profit
+            if (field === 'res') {
+                render();
+            }
         }
 
         function openMenu(e, index) {
@@ -1209,7 +1296,7 @@
 
         function openModal() {
             document.getElementById('inCoin').value = '';
-            document.getElementById('inEntry').value = '';
+            // Entry removed
             document.getElementById('inLev').value = '20x';
             document.getElementById('inPnl').value = '';
             document.getElementById('inProfit').value = '';
@@ -1220,7 +1307,8 @@
         function addTrade() {
             const t = {
                 coin: document.getElementById('inCoin').value.toUpperCase(),
-                entry: document.getElementById('inEntry').value,
+                // Entry removed
+                entry: '', // Keep for schema compatibility if needed, or just remove
                 lev: document.getElementById('inLev').value,
                 dir: document.getElementById('inDir').value,
                 res: document.getElementById('inRes').value,
@@ -1243,40 +1331,36 @@
             if(manualOverride) return;
 
             let grossP = 0, grossL = 0, tpCount = 0, slCount = 0;
-            let compoundMultiplier = 1; 
+            // Removed compound logic
             
             trades.forEach(t => {
                 const val = parseNum(t.pnl);
                 const type = t.res;
 
-                const isRelevant = (type === 'TP Hit' || type === 'SL Hit' || type === 'Closed');
-
-                if (isRelevant) {
-                    compoundMultiplier *= (1 + (val / 100));
-                    if (val > 0) {
-                        grossP += val;
-                        tpCount++;
-                    } else if (val < 0) {
-                        grossL += val;
-                        slCount++;
-                    } else {
-                        if (type === 'TP Hit') tpCount++;
-                        if (type === 'SL Hit') slCount++;
-                    }
-                } else {
-                    if (type === 'TP Hit') tpCount++;
-                    else if (type === 'SL Hit') slCount++;
+                const isRelevant = (type === 'TP Hit' || type === 'SL Hit' || type === 'Closed' || type === 'Running'); 
+                
+                if (val > 0) {
+                    grossP += val;
+                } else if (val < 0) {
+                    grossL += val; 
                 }
+
+                if (type === 'TP Hit') tpCount++;
+                if (type === 'SL Hit') slCount++;
             });
 
             const elP = document.getElementById('valProfit');
             const elL = document.getElementById('valLoss');
             const elN = document.getElementById('valNet');
 
+            // Gross Profit: Sum of Positives
             elP.value = `+${grossP.toFixed(2)}%`;
+            
+            // Gross Loss: Sum of Negatives
             elL.value = `${Math.abs(grossL).toFixed(2)}%`;
             
-            const net = (compoundMultiplier - 1) * 100;
+            // Net Result = Gross Profit + Gross Loss
+            const net = grossP + grossL;
             
             elN.value = (net >= 0 ? '+' : '') + `${net.toFixed(2)}%`;
             
@@ -1333,8 +1417,18 @@
                 span.style.fontFamily = computed.fontFamily;
                 span.style.fontSize = computed.fontSize;
                 span.style.fontWeight = computed.fontWeight;
-                span.style.textAlign = 'center';
-                span.style.display = 'block';
+                
+                // Fix for full cell filling
+                span.style.display = 'flex'; 
+                span.style.alignItems = 'center';
+                span.style.justifyContent = 'center';
+                span.style.width = '100%';
+                span.style.height = '31px';
+                span.style.padding = '0 4px'; 
+                span.style.boxSizing = 'border-box';
+
+                // Copy background if it was set via class
+                span.style.backgroundColor = computed.backgroundColor;
 
                 el.parentNode.replaceChild(span, el);
             }
@@ -1342,10 +1436,11 @@
             clone.querySelectorAll('th.col-action, td.col-action').forEach(el => el.remove());
 
             const month = document.getElementById('monthInput').value;
+            const year = document.getElementById('yearInput').value;
             const blob = new Blob([`<!DOCTYPE html>${clone.outerHTML}`], {type: 'text/html'});
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
-            link.download = `RI_Journal_Future_${month}.html`;
+            link.download = `RI_Journal_Future_${month}_${year}.html`;
             link.click();
         }
 
