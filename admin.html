@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robin Insights - Journal Dashboard</title>
+    <!-- Fonts: Inter (UI) and JetBrains Mono (Data) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- Encryption Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    
+    <style>
+        :root {
+            /* Premium Light Glassy Theme */
+            --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
+            --bg-panel: rgba(255, 255, 255, 0.75);
+            --bg-header: rgba(255, 255, 255, 0.85);
+            
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            
+            /* Financial Colors */
+            --color-up: #059669;
+            --color-down: #dc2626;
+            --accent-blue: #2563eb;
+            --status-green: #10b981;
+            
+            --font-ui: 'Inter', sans-serif;
+            --font-data: 'JetBrains Mono', monospace;
+        }
+
+        body {
+            background: var(--bg-app);
+            color: var(--text-primary);
+            font-family: var(--font-ui);
+            margin: 0;
+            padding: 20px; /* Reduced from 40px */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center vertically if space allows */
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        /* --- Header --- */
+        header {
+            text-align: center;
+            margin-bottom: 24px; /* Reduced from 50px */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px; /* Reduced from 16px */
+            z-index: 2;
+            animation: fadeInDown 0.8s ease-out;
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .header-controls {
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 4px 12px 4px 4px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            font-size: 12px; /* Slight reduction */
+            font-weight: 500;
+        }
+
+        .user-avatar {
+            width: 24px; /* Reduced from 28px */
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+        }
+
+        .btn-logout {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 6px 12px; /* Reduced padding */
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: var(--font-ui);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+        .btn-logout:hover {
+            background: #fff;
+            color: var(--color-down);
+            box-shadow: var(--shadow-card);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px; /* Reduced */
+        }
+
+        .logo-box {
+            width: 60px; /* Reduced from 64px */
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            }
+
+        h1 {
+            margin: 0;
+            font-size: 24px; /* Reduced from 32px */
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* --- Login Overlay --- */
+        #login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(240, 244, 248, 0.8);
+            backdrop-filter: blur(15px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            animation: fadeInDown 0.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-container {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        /* Utility classes for switching steps */
+        .step-1 { display: block; }
+        .step-2 { display: none; opacity: 0; transform: translateY(20px); }
+
+        .btn-google {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #fff;
+            color: #3c4043;
+            border: 1px solid #dadce0;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: var(--font-ui);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 24px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-google:hover {
+            background: #f8fafc;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #d1d5db;
+        }
+
+        .btn-google img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+            margin-top: 20px;
+            font-family: var(--font-ui);
+            background: rgba(255,255,255,0.8);
+        }
+        
+        .password-input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-unlock {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: 0.2s;
+        }
+        .btn-unlock:hover {
+            background: #1d4ed8;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .error-msg {
+            color: var(--color-down);
+            font-size: 12px;
+            margin-top: 8px;
+            min-height: 18px;
+        }
+
+        /* --- Main Content (Hidden initially) --- */
+        #app-content {
+            display: none; /* Hidden by default until logged in */
+            width: 100%;
+            max-width: 1000px;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px; /* Reduced from 40px */
+            z-index: 2;
+        }
+
+        /* --- The Two Main Cards --- */
+        .category-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px; /* Reduced from 40px */
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .category-card {
+            flex: 1;
+            min-width: 260px; /* Reduced from 300px */
+            max-width: 380px; /* Reduced from 450px */
+            height: 220px; /* Reduced from 300px */
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 24px; /* Reduced slightly */
+            padding: 24px; /* Reduced from 40px */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px; /* Thinner accent */
+            background: linear-gradient(90deg, var(--accent-blue), var(--status-green));
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+        
+        .category-card:hover::before {
+            opacity: 1;
+            height: 6px;
+        }
+
+        .cat-icon {
+            font-size: 48px; /* Reduced from 64px */
+            margin-bottom: 16px; /* Reduced */
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        .category-card:hover .cat-icon {
+            color: var(--accent-blue);
+            transform: scale(1.1);
+        }
+
+        .cat-title {
+            font-size: 24px; /* Reduced from 32px */
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+        }
+
+        .cat-subtitle {
+            margin-top: 6px;
+            font-size: 12px; /* Reduced */
+            color: var(--text-secondary);
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- Footer Styles --- */
+        .page-footer {
+            margin-top: 32px; /* Reduced from 60px */
+            padding: 16px 24px; /* Reduced from 24px 40px */
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            z-index: 2;
+            transition: 0.3s;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-right: 24px;
+            border-right: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .footer-logo {
+            width: 24px; /* Reduced */
+            height: 24px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .footer-text {
+            font-size: 13px; /* Reduced */
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px; /* Reduced */
+            height: 30px;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--text-secondary);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .social-icon svg {
+            width: 16px; /* Reduced */
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Decor Background Elements */
+        .bg-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+        }
+        .blob-1 { 
+            width: 600px; height: 600px; 
+            top: -150px; left: -150px; 
+            background: radial-gradient(circle, rgba(200, 210, 255, 0.4) 0%, rgba(255,255,255,0) 70%); 
+        }
+        .blob-2 { 
+            width: 500px; height: 500px; 
+            bottom: -100px; right: -100px; 
+            background: radial-gradient(circle, rgba(200, 255, 230, 0.3) 0%, rgba(255,255,255,0) 70%); 
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hide elements if JS fails */
+        .hidden { display: none !important; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background Ambience -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <!-- Login Overlay -->
+    <div id="login-overlay">
+        <div class="login-card">
+            <div class="logo-area" style="justify-content: center; margin-bottom: 20px;">
+                <div class="logo-box">
+                    <img src="RI.png" alt="RI" onerror="this.style.display='none'; this.parentNode.innerText='RI'">
+                </div>
+            </div>
+            <h2 style="margin:0; font-size: 24px;">Login Admin</h2>
+            <p style="color: var(--text-secondary); margin-top: 8px;">Please sign in to access your journals</p>
+            <p style="color:rgb(255, 111, 111);font-size: 11px;">If you're not an admin,Probably you came here by mistake.</p>
+            
+            <!-- Step 1: Initial Button -->
+            <div id="login-step-1" class="step-1">
+                <button id="google-trigger-btn" class="btn-google">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                    Continue with Admin G-Auth Account
+                </button>
+            </div>
+
+            <!-- Step 2: Password Prompt -->
+            <div id="login-step-2" class="step-2">
+                <input type="password" id="app-password" class="password-input" placeholder="Enter App Password">
+                <div id="password-error" class="error-msg"></div>
+                <button id="unlock-btn" class="btn-unlock">Unlock & Sign In</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Content -->
+    <div id="app-content">
+        <header>
+            <div class="header-controls">
+                <div class="user-chip" id="user-chip" style="display:none;">
+                    <img src="" alt="" class="user-avatar" id="user-avatar">
+                    <span id="user-name">User</span>
+                </div>
+                <button class="btn-logout" id="logout-btn">Sign Out</button>
+            </div>
+
+            <div class="logo-area">
+                <div class="logo-box">
+                    <img src="RI.png" alt="RI" onerror="this.style.display='none'; this.parentNode.innerText='RI'">
+                </div>
+                <h1>Robin Insights</h1>
+            </div>
+            <div class="subtitle">Trading Journals Dashboard</div>
+        </header>
+
+        <!-- The Two Cards Container -->
+        <div class="category-container">
+            
+            <!-- Future Card -->
+            <div class="category-card" onclick="window.location.replace('future-journal-admin.html')">
+                <span class="material-icons-round cat-icon">show_chart</span>
+                <span class="cat-title">Future</span>
+                <span class="cat-subtitle">Perpetual Contracts</span>
+            </div>
+
+            <!-- Spot Card -->
+            <div class="category-card" onclick="window.location.replace('spot-journal-admin.html')">
+                <span class="material-icons-round cat-icon">pie_chart</span>
+                <span class="cat-title">Spot</span>
+                <span class="cat-subtitle">Holdings & Assets</span>
+            </div>
+
+        </div>
+
+        <!-- Page Footer -->
+        <footer class="page-footer">
+            <div class="footer-brand">
+                <img src="RI.png" alt="RI" class="footer-logo" onerror="this.style.display='none';">
+                <span class="footer-text">Robin Insights</span>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-icon" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg></a>
+                <a href="#" class="social-icon" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <a href="#" class="social-icon" title="Discord"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/></svg></a>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+        // ==========================================
+        // PASTE YOUR ENCRYPTED STRING HERE
+        // ==========================================
+        const encryptedConfig = "U2FsdGVkX1+5gIv1Qg61PD7a/aPqHVbpUiYY0roRnmvmyIAS9xrxZyoAznERJ3U4g/XWTlf5QZlSj0nxiiZZZGg4DeejIClHKdaBNLQtQ16vL1C3M1tCevesj5OJuyCKFdO9OQNZk09r51GuMKXmZBolWQlvnwywrxZEHsgmP7ZPLgy5TtV2XunwyODxblIOLi9RyKErOiwlYCPDwUu0x9Wi215BHKjhLfdcmKCqZMCZMUMMRhYWevFbmPhbout9iWNnb0bhpUBOdJVaIc1zTOtfD/X/VQjxT8FHgAdUZZI80nNW5xFamahQWFXLfHdqRFiaT9H3aTPLLlFmqf+YQYWNia0QNqIUBfpOkV9SLnva9GtmM5Li1Ese3Wvwby0dpTkCsvDDRCCpsZYMwCNWxpeQ6C+FuRrCzAhbj+FwrcfLuquaA9n543vIu8JpI2FF"; 
+        
+        // DOM Elements
+        const loginOverlay = document.getElementById('login-overlay');
+        const appContent = document.getElementById('app-content');
+        
+        const step1 = document.getElementById('login-step-1');
+        const step2 = document.getElementById('login-step-2');
+        
+        const googleTriggerBtn = document.getElementById('google-trigger-btn');
+        const unlockBtn = document.getElementById('unlock-btn');
+        const passwordInput = document.getElementById('app-password');
+        const passwordError = document.getElementById('password-error');
+
+        const logoutBtn = document.getElementById('logout-btn');
+        const userChip = document.getElementById('user-chip');
+        const userAvatar = document.getElementById('user-avatar');
+        const userName = document.getElementById('user-name');
+
+        let app, auth, provider;
+
+        // --- NEW: CHECK LOCAL STORAGE ON LOAD ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedPassword = localStorage.getItem('ri_app_config_pass');
+            if (savedPassword) {
+                // Try to unlock silently using saved password
+                attemptUnlock(savedPassword, true); 
+            }
+        });
+
+        // Step 1: Trigger Password Input OR Sign In directly
+        googleTriggerBtn.addEventListener('click', () => {
+            if (auth) {
+                // Config already unlocked (via saved pass), proceed to Google Sign In
+                triggerGoogleSignIn();
+            } else {
+                // Config locked, show password input
+                showPasswordStep();
+            }
+        });
+
+        function showPasswordStep() {
+            step1.style.display = 'none';
+            step2.style.display = 'block';
+            setTimeout(() => step2.style.opacity = '1', 10);
+            setTimeout(() => step2.style.transform = 'translateY(0)', 10);
+            passwordInput.focus();
+        }
+
+        // Step 2: Unlock, Decrypt, and Sign In
+        unlockBtn.addEventListener('click', handleManualUnlock);
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleManualUnlock();
+        });
+
+        function handleManualUnlock() {
+            const password = passwordInput.value;
+            // Attempt unlock. If successful (true), save password and sign in
+            if (attemptUnlock(password, false)) {
+                localStorage.setItem('ri_app_config_pass', password);
+                triggerGoogleSignIn();
+            }
+        }
+
+        function attemptUnlock(password, silent) {
+            passwordError.textContent = "";
+            if (!password && !silent) {
+                passwordError.textContent = "Please enter password";
+                return false;
+            }
+
+            try {
+                // 1. Attempt Decryption
+                const decryptedBytes = CryptoJS.AES.decrypt(encryptedConfig, password);
+                const decryptedString = decryptedBytes.toString(CryptoJS.enc.Utf8);
+                
+                if (!decryptedString) throw new Error("Decryption failed");
+
+                const firebaseConfig = JSON.parse(decryptedString);
+
+                // 2. Initialize Firebase (Only if decryption worked)
+                if (!app) {
+                    app = initializeApp(firebaseConfig);
+                    const analytics = getAnalytics(app); // Optional
+                    auth = getAuth(app);
+                    provider = new GoogleAuthProvider();
+                    
+                    // Setup Auth Listener now that Auth exists
+                    setupAuthListener();
+                }
+                return true; // Success
+
+            } catch (error) {
+                if (silent) {
+                    // If silent (auto-login) fails, clear the bad password
+                    localStorage.removeItem('ri_app_config_pass');
+                } else {
+                    // Show error to user
+                    console.error(error);
+                    passwordError.textContent = "Incorrect password or corrupted data.";
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+                return false; // Failed
+            }
+        }
+
+        function triggerGoogleSignIn() {
+            if (!auth) return; // Safety check
+
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    console.log("User signed in:", result.user);
+                }).catch((error) => {
+                    console.error("Login failed:", error);
+                    alert("Login failed: " + error.message);
+                });
+        }
+
+        function setupAuthListener() {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in
+                    loginOverlay.classList.add('hidden'); 
+                    
+                    setTimeout(() => {
+                        loginOverlay.style.display = 'none';
+                        appContent.style.display = 'flex';
+                    }, 300);
+
+                    userChip.style.display = 'flex';
+                    userAvatar.src = user.photoURL || 'https://via.placeholder.com/40';
+                    userName.textContent = user.displayName || 'Trader';
+                } else {
+                    // User is signed out
+                    loginOverlay.style.display = 'flex';
+                    loginOverlay.classList.remove('hidden');
+                    appContent.style.display = 'none';
+                    
+                    // Reset Login Flow to Step 1
+                    step1.style.display = 'block';
+                    step2.style.display = 'none';
+                    step2.style.opacity = '0';
+                    step2.style.transform = 'translateY(20px)';
+                    passwordInput.value = '';
+                    passwordError.textContent = '';
+                }
+            });
+        }
+
+        // Logout Function
+        logoutBtn.addEventListener('click', () => {
+            if (auth) {
+                signOut(auth).then(() => {
+                    console.log("User signed out");
+                    // Force reload to clear memory of decrypted config
+                    // Note: We do NOT clear localStorage here, so password persists
+                    window.location.reload(); 
+                }).catch((error) => {
+                    console.error("Logout error:", error);
+                });
+            }
+        });
+
+    </script>
+</body>
+</html>

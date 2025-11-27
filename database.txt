@@ -1,0 +1,12 @@
+==============FUTURE=====================
+1.01/25 = RI_Journal_Future_January.html
+2.02/25 = RI_Journal_Future_February.html
+3.03/25 = RI_Journal_Future_March.html
+
+
+
+
+=============SPOT===================
+1.01/25 = RI_Journal_SPOT_January.html
+2.02/25 = RI_Journal_SPOT_February.html
+3.03/25 = RI_Journal_SPOT_March.html
