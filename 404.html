@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | Robin Insights</title>
-    <!-- Fonts: Inter -->
+    <title>Page Not Found | Robin Insights</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <style>
         :root {
-            /* Premium Light Glassy Theme Variables */
             --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
             --text-primary: #1e293b;
             --text-secondary: #64748b;
@@ -38,7 +35,6 @@
             position: relative;
         }
 
-        /* --- Glass Card Container --- */
         .error-card {
             background: rgba(255, 255, 255, 0.65);
             backdrop-filter: blur(20px);
@@ -58,7 +54,6 @@
             gap: 20px;
         }
 
-        /* --- Branding Section --- */
         .brand-logo-container {
                 width: 80px;
     height: 80px;
@@ -82,7 +77,6 @@
             letter-spacing: -0.02em;
         }
 
-        /* --- Social Media Row --- */
         .social-row {
             display: flex;
             align-items: center;
@@ -114,7 +108,7 @@
         }
 
         .social-icon:hover {
-            color: #FF0000; /* YouTube Red on hover */
+            color: #FF0000;
             transform: translateY(-4px);
             box-shadow: var(--shadow-hover);
             background: #fff5f5;
@@ -123,18 +117,12 @@
         .social-icon:hover svg {
             transform: scale(1.15);
         }
-        
-        /* Specific hover colors for other icons */
         .social-icon:nth-child(1):hover { color: #229ED9; background: #f0f9ff; } /* Telegram */
         .social-icon:nth-child(2):hover { color: #000000; background: #f8fafc; } /* X */
-
-        /* Staggered entrance for icons */
         .social-icon:nth-child(1) { animation: slideUp 0.5s ease-out 0.2s backwards; }
         .social-icon:nth-child(2) { animation: slideUp 0.5s ease-out 0.3s backwards; }
         .social-icon:nth-child(3) { animation: slideUp 0.5s ease-out 0.4s backwards; }
 
-
-        /* --- Text Content --- */
         h2 {
             font-size: 20px;
             font-weight: 600;
@@ -152,8 +140,6 @@
             line-height: 1.6;
             max-width: 300px;
         }
-
-        /* --- The Big Back Button --- */
         .back-btn {
             margin-top: 8px;
             display: inline-flex;
@@ -183,8 +169,6 @@
         .back-btn:active {
             transform: translateY(0);
         }
-
-        /* Arrow Animation */
         .arrow-icon {
             transition: transform 0.3s ease;
         }
@@ -192,8 +176,6 @@
         .back-btn:hover .arrow-icon {
             transform: translateX(-4px);
         }
-
-        /* --- Decor Background Elements (Same as Index) --- */
         .bg-blob {
             position: absolute;
             border-radius: 50%;
@@ -213,8 +195,6 @@
             background: radial-gradient(circle, rgba(200, 255, 230, 0.4) 0%, rgba(255,255,255,0) 70%);
             animation-delay: -5s;
         }
-
-        /* Animations */
         @keyframes popIn {
             0% { opacity: 0; transform: scale(0.9) translateY(20px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
@@ -241,17 +221,12 @@
     </style>
 </head>
 <body>
-
-    <!-- Background Ambience -->
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
-
-    <!-- Main Content -->
     <div class="error-card">
         
-        <!-- Branding Logo -->
         <div class="brand-logo-container">
-        <a href="https://robininsights.github.io"><img src="RI.png" alt="RI" onerror="this.style.display='none'; this.parentNode.innerText='RI'"></a>
+        <a href="https://robininsights.github.io"><img src="RI_Logo.webp" alt="RI" onerror="this.style.display='none'; this.parentNode.innerText='RI'"></a>
         </div>
         <a href="https://robininsights.github.io" style="text-decoration: none;"><h1>Robin Insights</h1></a>
 
@@ -277,15 +252,12 @@
 
     <script>
         function handleBack() {
-            // Check if there is a history stack to go back to
             if (window.history.length > 1) {
                 window.history.back();
             } else {
-                // If opened in new tab or direct link, go to homepage
                 window.location.href = 'https://robininsights.github.io';
             }
         }
     </script>
-
 </body>
 </html>
