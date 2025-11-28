@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robin Insights - Journal Dashboard</title>
+    <title>Trading Journal | Robin Insights</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta property="og:title" content="Trading Journal by Robin Insights">
+    <meta property="og:description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta property="og:image" content="preview-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://robininsights.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trading Journal by Robin Insights">
+    <meta name="twitter:description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta name="twitter:image" content="preview-image.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,29 +22,20 @@
     
     <style>
         :root {
-            /* Premium Light Glassy Theme */
             --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
             --bg-panel: rgba(255, 255, 255, 0.75);
             --bg-header: rgba(255, 255, 255, 0.85);
-            
             --border-color: rgba(0, 0, 0, 0.08);
             --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
             --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            
             --text-primary: #1e293b;
             --text-secondary: #64748b;
-            
-            /* Financial Colors */
             --color-up: #059669;
             --color-down: #dc2626;
             --accent-blue: #2563eb;
             --status-green: #10b981;
-            
             --font-ui: 'Inter', sans-serif;
             --font-data: 'JetBrains Mono', monospace;
-
-            /* Animation Physics */
-            /* "The Snap" - High tension spring effect */
             --ease-snappy: cubic-bezier(0.34, 1.56, 0.64, 1); 
             --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
             --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -53,7 +55,6 @@
             overflow-x: hidden;
         }
 
-        /* --- Header --- */
         header {
             text-align: center;
             margin-bottom: 25px;
@@ -106,7 +107,6 @@
             letter-spacing: 0.15em;
         }
 
-        /* --- Dashboard Layout --- */
         .dashboard-layout {
             display: flex;
             flex-direction: column;
@@ -148,7 +148,6 @@
             margin: 5px 0;
         }
 
-        /* --- Grid Layout --- */
         .journal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -156,7 +155,6 @@
             width: 100%;
         }
 
-        /* --- Brand Card Styles --- */
         .card {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
@@ -171,49 +169,39 @@
             text-decoration: none;
             color: var(--text-primary);
             box-shadow: var(--shadow-card);
-            
-            /* Snappy Transition for Hover */
             transition: all 0.4s var(--ease-snappy);
-            
             position: relative;
             overflow: hidden;
             text-align: center;
-            
-            /* Initial State for Entrance Animation */
             opacity: 0;
-            transform: scale(0.8) translateY(40px); /* Start small and lower */
-            /* The Snap Scale Up Entrance */
+            transform: scale(0.8) translateY(40px);
             animation: snapPopIn 0.7s var(--ease-snappy) forwards;
         }
 
         .card:hover {
-            /* Scale Up + Slight Lift for Snappiness */
             transform: translateY(-10px) scale(1.05);
             box-shadow: var(--shadow-hover);
             background: rgba(255, 255, 255, 0.95);
             border-color: var(--accent-blue);
             cursor: pointer;
-            z-index: 10; /* Bring to front on hover */
+            z-index: 10;
         }
-
-        /* Clicked State Animation Class */
         .card.card-clicked {
-            /* Run the click animation once, then stay at the final state (opacity 1) */
             animation: clickEffect 0.5s var(--ease-snappy) forwards !important;
             border-color: var(--status-green);
         }
 
         @keyframes clickEffect {
             0% { 
-                transform: scale(1.05); /* Start from hover state */
+                transform: scale(1.05);
             }
             40% { 
-                transform: scale(0.95); /* Press down / Shrink */
+                transform: scale(0.95);
                 opacity: 0.8; 
             }
             100% { 
-                transform: scale(1); /* Spring back to normal size */
-                opacity: 1; /* Stay fully visible */
+                transform: scale(1);
+                opacity: 1;
                 filter: none;
             }
         }
@@ -234,10 +222,8 @@
         .card:hover::before {
             background: var(--accent-blue);
             opacity: 1;
-            width: 80%; /* Wider blue bar on hover */
+            width: 80%;
         }
-
-        /* Status Dot */
         .status-dot {
             position: absolute;
             top: 20px;
@@ -255,9 +241,7 @@
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.4; transform: scale(0.8); }
         }
-
-        /* Date Section */
-        .card-month {
+         .card-month {
             font-size: 28px;
             font-weight: 800;
             letter-spacing: -0.5px;
@@ -274,7 +258,6 @@
             margin-bottom: 20px;
         }
 
-        /* Meta Info (Professional Stacked) */
         .card-meta {
             display: flex;
             flex-direction: column;
@@ -312,7 +295,6 @@
             opacity: 1;
         }
 
-        /* Branding Section */
         .card-branding {
             display: flex;
             flex-direction: column;
@@ -359,7 +341,6 @@
             letter-spacing: -0.02em;
         }
 
-        /* Empty State */
         .empty-state {
             text-align: center;
             color: var(--text-secondary);
@@ -374,8 +355,53 @@
             box-sizing: border-box;
             animation: snapPopIn 0.8s var(--ease-snappy);
         }
+        .btn-load-more {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-family: var(--font-ui);
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--text-primary);
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s var(--ease-snappy);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 20px;
+        }
+        .btn-load-more:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+            background: #fff;
+            color: var(--accent-blue);
+        }
+        .btn-load-more:active {
+            transform: scale(0.95);
+        }
+        .btn-load-more .spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-top-color: currentColor;
+            border-radius: 50%;
+            display: none;
+            animation: spin 0.8s linear infinite;
+        }
+        .btn-load-more.loading .spinner {
+            display: block;
+        }
+        .btn-load-more.loading span:not(.spinner) {
+            opacity: 0.8;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* --- Footer Styles --- */
+
         .page-footer {
             margin-top: 30px;
             padding: 15px 30px;
@@ -395,7 +421,7 @@
         .page-footer:hover {
             background: rgba(255, 255, 255, 0.9);
             box-shadow: var(--shadow-hover);
-            transform: translateY(-5px);
+            transform: translateY(-1px)scale(1.01);
         }
 
         .footer-brand {
@@ -443,7 +469,7 @@
 .social-icon:hover {
             transform: translateY(-1px) scale(1.2);
             box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-            background-color: #fff; /* White background on hover makes colors pop */
+            background-color: #fff;
         }
 .social-icon:hover svg {
             transform:scale(1.1);}
@@ -466,7 +492,6 @@
             fill: currentColor;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 900px) {
             .dashboard-layout {
                 flex-direction: column;
@@ -487,7 +512,6 @@
             }
         }
 
-        /* Decor Background Elements */
         .bg-blob {
             position: fixed;
             border-radius: 50%;
@@ -508,7 +532,6 @@
             animation-delay: 5s;
         }
 
-        /* Keyframes for the "Snap" effect */
         @keyframes snapDown {
             from { opacity: 0; transform: translateY(-50px) scale(0.9); }
             to { opacity: 1; transform: translateY(0) scale(1); }
@@ -561,10 +584,9 @@
     <header>
         <div class="logo-area">
             <div class="logo-box">
-                    <a href="https://robininsights.github.io" style="text-decoration: none;"><img src="RI.png" alt="RI" onerror="this.style.display='none'; this.parentNode.innerText='RI'"></a>
+                <a href="https://robininsights.github.io" style="text-decoration: none;"><img src="RI_Logo.webp" alt="RI" onerror="this.style.display='none'; this.parentNode.innerText='RI'"></a></div>
+                <a href="https://robininsights.github.io" style="text-decoration: none;"><h1>Robin Insights</h1></a>
             </div>
-                 <a href="https://robininsights.github.io" style="text-decoration: none;"><h1>Robin Insights</h1></a>
-        </div>
         <div class="subtitle">Trading Journals</div>
     </header>
 
@@ -594,7 +616,7 @@
 
     <footer class="page-footer">
         <div class="footer-brand">
-            <img src="RI.png" alt="RI" class="footer-logo" onerror="this.style.display='none';">
+            <img src="RI_Logo.webp" alt="RI" class="footer-logo" onerror="this.style.display='none';">
             <span class="footer-text">Robin Insights</span>
         </div>
         <div class="social-links">
@@ -610,7 +632,6 @@
     </footer>
 
     <script>
-        // Month mapping for sorting
         const monthOrder = {
             "January": 1, "February": 2, "March": 3, "April": 4, "May": 5, "June": 6,
             "July": 7, "August": 8, "September": 9, "October": 10, "November": 11, "December": 12
@@ -620,25 +641,19 @@
         const futuresEmpty = document.getElementById('futuresEmpty');
         const spotGrid = document.getElementById('spotGrid');
         const spotEmpty = document.getElementById('spotEmpty');
+        
+        const BATCH_SIZE = 4;
 
-        // Main Loader
         async function loadDatabase() {
             try {
-                // Fetch plain text database with cache busting
-                const response = await fetch(`./database.txt?t=${new Date().getTime()}`);
-                
-                if (!response.ok) throw new Error('Database file not found');
-
+                const response = await fetch(`./database.txt?t=${new Date().getTime()}`);        
+                if (!response.ok) throw new Error('Database 404');
                 const textData = await response.text();
                 const lines = textData.split('\n').map(l => l.trim()).filter(l => l !== '');
-                
-                // Categorize Data
                 const futuresData = [];
                 const spotData = [];
-                let currentSection = null; // 'FUTURE' | 'SPOT'
-
+                let currentSection = null;
                 lines.forEach(line => {
-                    // Check Section Headers
                     if (line.toUpperCase().includes('FUTURE') && !/^\d/.test(line)) {
                         currentSection = 'FUTURE';
                         return;
@@ -647,83 +662,54 @@
                         currentSection = 'SPOT';
                         return;
                     }
-
-                    // Parse Entries "1.01/25 = filename.html"
                     if (line.includes('=') && /^\d/.test(line)) {
                         const parts = line.split('=');
                         if (parts.length < 2) return;
 
                         const idDatePart = parts[0].trim();
                         const filename = parts[1].trim();
-
+                        const idMatch = idDatePart.match(/^(\d+)/);
+                        const id = idMatch ? parseInt(idMatch[1]) : 0;
                         const dateMatch = idDatePart.match(/\.?(\d{2})\/(\d{2})/);
                         if (!dateMatch) return;
-
                         const monthIndex = parseInt(dateMatch[1]) - 1; 
                         const yearShort = dateMatch[2]; 
-                        
                         const monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                         const monthName = monthsArr[monthIndex] || "Unknown";
                         const fullYear = "20" + yearShort;
-
                         const entry = {
+                            id: id,
                             month: monthName,
                             year: fullYear,
                             link: filename,
                             type: currentSection === 'FUTURE' ? 'Future' : 'Spot',
                             badge: currentSection === 'FUTURE' ? 'Perpetual' : 'Holding'
                         };
-
                         if (currentSection === 'FUTURE') futuresData.push(entry);
                         if (currentSection === 'SPOT') spotData.push(entry);
                     }
                 });
-
-                // Render Grids
                 renderGrid(futuresData, futuresGrid, futuresEmpty);
                 renderGrid(spotData, spotGrid, spotEmpty);
 
             } catch (error) {
                 console.error("Error loading database:", error);
-                futuresEmpty.innerText = "Error loading database.txt";
+                futuresEmpty.innerText = "Error loading database";
                 futuresEmpty.style.display = "block";
-                spotEmpty.innerText = "Error loading database.txt";
+                spotEmpty.innerText = "Error loading database";
                 spotEmpty.style.display = "block";
             }
         }
-
-        function renderGrid(data, gridElement, emptyElement) {
-            if (data.length === 0) {
-                emptyElement.style.display = 'block';
-                return;
-            }
-            
-            emptyElement.style.display = 'none';
-
-            // Sort descending
-            data.sort((a, b) => {
-                if (b.year !== a.year) return b.year - a.year;
-                return monthOrder[b.month] - monthOrder[a.month];
-            });
-
-            data.forEach((item, index) => {
+        function renderBatch(items, gridElement) {
+            items.forEach((item, index) => {
                 const card = document.createElement('a');
                 card.href = item.link;
                 card.className = 'card';
-                
-                // Add Staggered Animation Delay for the "Snap Scale Up" effect
                 card.style.animationDelay = `${index * 0.08}s`;
-
-                // Add Click Event Listener for Animation + Delay
                 card.addEventListener('click', function(e) {
-                    e.preventDefault(); // Prevent immediate redirect
+                    e.preventDefault();
                     const targetLink = this.getAttribute('href');
-
-                    // Add the 'clicked' class to trigger CSS animation
-                    // This class is removed after redirection (if user comes back) or handled by page reload
                     this.classList.add('card-clicked');
-
-                    // Wait 1 second before redirecting
                     setTimeout(() => {
                         window.location.href = targetLink;
                     }, 250);
@@ -745,7 +731,7 @@
                     <div class="card-branding">
                         <span class="brand-label">Trading Journal by</span>
                         <div class="brand-logo-row">
-                            <img src="RI.png" alt="RI" class="brand-logo-img" onerror="this.style.display='none';">
+                            <img src="RI_Logo.webp" alt="RI" class="brand-logo-img" onerror="this.style.display='none';">
                             <span class="brand-name">Robin Insights</span>
                         </div>
                     </div>
@@ -755,8 +741,54 @@
             });
         }
 
-        loadDatabase();
+        function renderGrid(data, gridElement, emptyElement) {
+            if (data.length === 0) {
+                emptyElement.style.display = 'block';
+                return;
+            }
+            
+            emptyElement.style.display = 'none';
+            data.sort((a, b) => b.id - a.id);
+            let shownCount = 0;
+            const initialBatch = data.slice(0, BATCH_SIZE);
+            renderBatch(initialBatch, gridElement);
+            shownCount += initialBatch.length;
+            if (shownCount < data.length) {
+                const btnContainer = document.createElement('div');
+                btnContainer.style.textAlign = 'center';
+                btnContainer.style.width = '100%';
+                
+                const btn = document.createElement('button');
+                btn.className = 'btn-load-more';
+                btn.innerHTML = `<span class="spinner"></span><span>Load More</span>`;
+                
+                btn.onclick = () => {
+                    btn.classList.add('loading');
+                    const originalText = btn.querySelector('span:not(.spinner)').innerText;
+                    btn.querySelector('span:not(.spinner)').innerText = 'Loading...';
+                    setTimeout(() => {
+                        const nextBatch = data.slice(shownCount, shownCount + BATCH_SIZE);
+                        const firstNewIndex = gridElement.children.length;
+                        renderBatch(nextBatch, gridElement);
+                        shownCount += nextBatch.length;
+                        btn.classList.remove('loading');
+                        btn.querySelector('span:not(.spinner)').innerText = 'Load More';
+                        if (shownCount >= data.length) {
+                            btnContainer.style.display = 'none';
+                        }                        
+                        const cards = gridElement.children;
+                        if (cards.length > firstNewIndex) {
+                             const firstNewCard = cards[firstNewIndex];
+                             firstNewCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
 
+                    }, 600);
+                };
+                btnContainer.appendChild(btn);
+                gridElement.parentNode.appendChild(btnContainer);
+            }
+        }
+        loadDatabase();
     </script>
 </body>
 </html>
