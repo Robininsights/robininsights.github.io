@@ -585,6 +585,7 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
+            position: relative;
         }
 
         .form-group label {
@@ -816,6 +817,7 @@
                         <option value="Long Term">Long Term</option>
                         <option value="Short Term">Short Term</option>
                         <option value="Swing">Swing</option>
+                        <option value="Holding">Holding</option>
                         <option value="DCA">DCA</option>
                         <option value="Scalp">Scalp</option>
                     </select>
@@ -1196,14 +1198,15 @@
             document.getElementById('inPnl').value = '';
             document.getElementById('inProfit').value = '';
             modal.classList.add('active');
+            setTimeout(() => document.getElementById('inCoin').focus(), 100);
         }
         function closeModal() { modal.classList.remove('active'); }
 
         function addTrade() {
             const t = {
                 coin: document.getElementById('inCoin').value.toUpperCase(),
-                entry: document.getElementById('inEntry').value, // AVG Entry
-                type: document.getElementById('inType').value,   // Spot Type
+                entry: document.getElementById('inEntry').value, 
+                type: document.getElementById('inType').value,  
                 res: document.getElementById('inRes').value,
                 pnl: document.getElementById('inPnl').value,
                 profit: document.getElementById('inProfit').value,
@@ -1324,8 +1327,107 @@
         
         initColorPicker();
         initApp();
+        function expandSelect(el) {
+            el.size = el.options.length; 
+            el.style.position = 'absolute'; 
+            el.style.zIndex = '100'; 
+            el.style.height = 'auto'; 
+            el.style.width = el.parentElement.offsetWidth + 'px';
+        }
+        
+        function collapseSelect(el) {
+            el.size = 1; 
+            el.style.position = ''; 
+            el.style.zIndex = ''; 
+            el.style.height = ''; 
+            el.style.width = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.key === 'n' || e.key === 'N') && !modal.classList.contains('active')) {
+                const tag = document.activeElement.tagName;
+                if (tag !== 'INPUT' && tag !== 'SELECT' && tag !== 'TEXTAREA') {
+                    e.preventDefault();
+                    openModal();
+                }
+            }
+        });
+
+        const inCoin = document.getElementById('inCoin');
+        const inEntry = document.getElementById('inEntry');
+        const inType = document.getElementById('inType');
+        const inRes = document.getElementById('inRes');
+        const inPnl = document.getElementById('inPnl');
+        const inProfit = document.getElementById('inProfit');
+        inType.addEventListener('focus', function() { expandSelect(this); });
+        inType.addEventListener('blur', function() { collapseSelect(this); });
+        inRes.addEventListener('focus', function() { expandSelect(this); });
+        inRes.addEventListener('blur', function() { collapseSelect(this); });
+        inCoin.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                inEntry.focus();
+            }
+        });
+
+        inEntry.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                inType.focus();
+            }
+        });
+        inType.addEventListener('keydown', (e) => {
+             const key = e.key.toLowerCase();
+             let matched = false;
+             if (key === 'l') { inType.value = 'Long Term'; matched = true; }
+             else if (key === 's') { inType.value = 'Short Term'; matched = true; }
+             else if (key === 'w') { inType.value = 'Swing'; matched = true; }
+             else if (key === 'h') { inType.value = 'Holding'; matched = true; }
+             else if (key === 'd') { inType.value = 'DCA'; matched = true; }
+             else if (key === 'c') { inType.value = 'Scalp'; matched = true; }
+             
+             if (matched) {
+                 e.preventDefault();
+                 inRes.focus();
+             } else if (e.key === 'Enter') {
+                 e.preventDefault();
+                 inRes.focus();
+             }
+        });
+
+        inRes.addEventListener('keydown', (e) => {
+            const key = e.key.toLowerCase();
+            let matched = false;
+            
+            if (key === 'r') { inRes.value = 'Running'; matched = true; }
+            else if (key === 't') { inRes.value = 'TP Hit'; matched = true; }
+            else if (key === 's') { inRes.value = 'SL Hit'; matched = true; }
+            else if (key === 'c') { inRes.value = 'Closed'; matched = true; }
+            else if (e.key === ' ') { inRes.value = 'None'; matched = true; } 
+            
+            if (matched) {
+                e.preventDefault();
+                inPnl.focus();
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                inPnl.focus();
+            }
+        });
+
+        inPnl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                inProfit.focus();
+            }
+        });
+
+        inProfit.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addTrade();
+            }
+        });
 
     </script>
 </body>
 </html>
-
