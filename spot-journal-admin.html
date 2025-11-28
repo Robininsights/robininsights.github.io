@@ -4,33 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robin Insights - Spot Portfolio</title>
-    <!-- Fonts: Inter (UI) and JetBrains Mono (Data) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta property="og:title" content="Trading Journal by Robin Insights">
+    <meta property="og:description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta property="og:image" content="https://robininsights.github.io/preview-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://robininsights.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trading Journal by Robin Insights">
+    <meta name="twitter:description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta name="twitter:image" content="https://robininsights.github.io/preview-image.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <!-- Encryption Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     
     <style>
         :root {
-            /* Premium Light Glassy Theme */
             --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
-            --bg-panel: rgba(255, 255, 255, 0.75); /* Frosted Glass */
+            --bg-panel: rgba(255, 255, 255, 0.75);
             --bg-header: rgba(255, 255, 255, 0.85);
             --bg-hover: rgba(0, 0, 0, 0.03);
-            
-            --border-color: rgba(0, 0, 0, 0.08); /* Subtle crisp borders */
+            --border-color: rgba(0, 0, 0, 0.08); 
             --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.1);
-            
-            --text-primary: #1e293b; /* Slate 800 */
-            --text-secondary: #64748b; /* Slate 500 */
-            
-            /* Financial Colors - Adjusted for Light Mode */
-            --color-up: #059669;     /* Deep Emerald */
-            --color-down: #dc2626;   /* Deep Red */
-            --accent-blue: #2563eb;  /* Royal Blue */
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;            
+            --color-up: #059669;     
+            --color-down: #dc2626;   
+            --accent-blue: #2563eb; 
             
             --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-data: 'JetBrains Mono', monospace;
@@ -41,18 +44,16 @@
             color: var(--text-primary);
             font-family: var(--font-ui);
             margin: 0;
-            padding: 10px; /* Reduced padding */
+            padding: 10px; 
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             -webkit-font-smoothing: antialiased;
         }
-
-        /* Main Workspace Container - Compacted */
-        .workspace {
+       .workspace {
             width: 60%;
-            max-width: 1250px; /* Reduced width */
+            max-width: 1250px; 
             background: var(--bg-panel);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -63,16 +64,15 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            min-height: auto; /* Removed fixed 90vh to reduce scroll need */
+            min-height: auto; 
             margin-bottom: 20px;
         }
 
-        /* --- Header --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 20px; /* Reduced padding */
+            padding: 12px 20px; 
             border-bottom: 1px solid var(--border-color);
             background: var(--bg-header);
             position: relative; 
@@ -85,8 +85,8 @@
         }
 
         .logo-container {
-             width: 50px; /* Reduced */
-            height: 50px; /* Reduced */
+             width: 50px; 
+            height: 50px; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -101,7 +101,7 @@
 
         .brand-text h1 {
             margin: 0;
-            font-size: 16px; /* Reduced */
+            font-size: 16px; 
             font-weight: 700;
             color: var(--text-primary);
             letter-spacing: -0.5px;
@@ -118,7 +118,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 12px; /* Reduced */
+            font-size: 12px;
             font-weight: 600;
             color: var(--text-secondary);
             text-align: center;
@@ -152,7 +152,6 @@
             font-weight: bold;
         }
 
-        /* --- Inputs --- */
         input, select {
             background: transparent;
             border: 1px solid transparent; 
@@ -193,7 +192,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 6px 12px; /* Reduced */
+            padding: 6px 12px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
             background: #fff;
@@ -222,7 +221,6 @@
             border-color: #1d4ed8;
         }
 
-        /* --- Data Grid (Table) --- */
         .grid-container {
             width: 100%;
             background: rgba(255, 255, 255, 0.4);
@@ -259,11 +257,10 @@
 
         tr {
             border-bottom: 1px solid var(--border-color);
-            height: 32px; /* Reduced Row Height */
+            height: 32px; 
             transition: background 0.1s;
         }
 
-        /* Zebra Striping */
         tbody tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.3); 
         }
@@ -275,15 +272,14 @@
         }
         td:last-child { border-right: none; }
 
-        /* Table Inputs */
         td input, td select {
             width: 100%;
-            height: 31px; /* Reduced Input Height */
+            height: 31px;
             padding: 0 4px;
             border: none;
             border-radius: 0;
             font-family: var(--font-data);
-            font-size: 12px; /* Slightly smaller font */
+            font-size: 12px;
             box-sizing: border-box; 
             text-align: center;
             color: var(--text-primary);
@@ -308,7 +304,6 @@
             position: relative;
         }
 
-        /* Column Widths - Spot Adjusted */
         .col-id { width: 5%; text-align: center; color:red; font-size: 11px; font-weight: 500; }
         .col-coin { width: 15%; } 
         .col-entry { width: 15%; }
@@ -317,22 +312,15 @@
         .col-pnl { width: 15%; }
         .col-profit { width: 15%; }
         .col-action { width: 5%; }
-        
-        /* Auto-Coloring Classes */
-        /* TP: Only Green Text, No Background */
         .cell-tp { 
             color: var(--color-up) !important; 
             font-weight: 600; 
         }
-        
-        /* SL: Red Background + Red Text */
         .cell-sl { 
             background-color: rgba(239, 68, 68, 0.15); 
             color: var(--color-down) !important; 
             font-weight: 600; 
         }
-
-        /* 3-Dot Menu Button */
         .btn-menu {
             opacity: 0.4; 
             background: transparent;
@@ -352,13 +340,11 @@
 
         .text-up { color: var(--color-up) !important; font-weight: 600 !important; }
         .text-down { color: var(--color-down) !important; font-weight: 600 !important; }
-
-        /* --- Compact Centered Footer --- */
         footer {
             align-self: center;
-            margin: 20px auto; /* Reduced margin */
+            margin: 20px auto;
             width: auto;
-            min-width: 500px; /* Reduced min-width */
+            min-width: 500px;
             max-width: 95%;
             
             background: rgba(255, 255, 255, 0.85);
@@ -367,16 +353,15 @@
             border-radius: 16px;
             box-shadow: 0 10px 30px -5px rgba(0,0,0,0.08);
             
-            padding: 12px 24px; /* Reduced padding */
+            padding: 12px 24px;
             display: flex;
             flex-direction: row;
             justify-content: space-between; 
             align-items: center;
-            gap: 30px; /* Reduced gap */
+            gap: 30px;
             position: relative;
         }
 
-        /* Left Side: Branding */
         .footer-branding {
             display: flex;
             flex-direction: column;
@@ -388,13 +373,13 @@
             display: flex;
             align-items: center;
             font-weight: 700;
-            font-size: 14px; /* Reduced */
+            font-size: 14px; 
             letter-spacing: -0.5px;
             color: var(--text-primary);
         }
         
         .brand-row img {
-            width: 32px; /* Reduced */
+            width: 32px; 
             height: 32px;
         }
 
@@ -414,7 +399,6 @@
     margin-top: 4px;
     opacity: 1;}
 
-        /* Right Side: Wrapper for Stats */
         .footer-stats-wrapper {
             display: flex;
             flex-direction: column;
@@ -422,7 +406,6 @@
             gap: 8px;
         }
 
-        /* Top: Net Result (Compact Hero) */
         .net-result-compact {
             align-items: center;
         }
@@ -437,7 +420,7 @@
             background: transparent;
             border: none;
             font-family: var(--font-data);
-            font-size: 24px; /* Reduced */
+            font-size: 24px;
             font-weight: 700;
             color: var(--text-primary);
             text-align: right;
@@ -446,19 +429,15 @@
             margin: 0;
         }
         .net-value-compact:focus { outline: none; border-bottom: 1px solid var(--accent-blue); }
-
-        /* Bottom: Gross Stats Row */
         .gross-stats-compact {
             display: flex;
             gap: 10px;
             align-items: center;
         }
-
-        /* Small Metric Block */
         .metric-block-sm {
             display: flex;
             flex-direction: column;
-            padding: 4px 10px; /* Reduced */
+            padding: 4px 10px;
             background: #fff;
             border: 1px solid var(--border-color);
             border-radius: 6px;
@@ -494,8 +473,6 @@
             text-align: right;
         }
 
-
-        /* --- Context Menu --- */
         .context-menu {
             position: absolute;
             background: #fff;
@@ -540,7 +517,6 @@
         .menu-item.delete:hover { color: var(--color-down); background: #fef2f2; }
         .menu-item.delete:hover .material-icons-round { color: var(--color-down); }
 
-        /* Color Picker in Menu */
         .color-picker-row {
             display: flex;
             gap: 8px;
@@ -560,7 +536,6 @@
         }
         .color-swatch:hover { transform: scale(1.15); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
 
-        /* --- Modal --- */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -639,7 +614,6 @@
             margin-top: 24px;
         }
 
-        /* --- CONTROLS CONTAINER (Fixed Bottom Left) --- */
         .floating-controls {
             position: fixed;
             bottom: 20px;
@@ -670,7 +644,6 @@
         .sync-icon.active { display: block; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
         
-        /* Mobile adjustment */
         @media (max-width: 768px) {
             body { padding: 4px; }
             .workspace { width: 100%; border: none; box-shadow: none; border-radius: 0; backdrop-filter: none; background: #fff; }
@@ -678,7 +651,6 @@
             th { font-size: 9px; padding: 4px 1px; }
             td input, td select { font-size: 10px; padding: 0; height: 32px; }
             
-            /* Tweak column widths for mobile */
             .col-id { width: 6%; }
             .col-coin { width: 14%; }
             .col-entry { width: 15%; }
@@ -718,11 +690,10 @@
 <body>
 
     <div class="workspace" id="workspace">
-        <!-- HEADER -->
         <header>
             <div class="brand-area">
                 <div class="logo-container">
-                    <img src="RI.png" alt="RI" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <img src="RI_Logo.webp" alt="RI" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                     <span style="display:none; color:#000; font-size:12px; font-weight:bold;">RI</span>
                 </div>
                 <div class="brand-text">
@@ -757,7 +728,6 @@
             </div>
         </header>
 
-        <!-- DATA GRID -->
         <div class="grid-container">
             <table>
                 <thead>
@@ -773,49 +743,37 @@
                     </tr>
                 </thead>
                 <tbody id="tableBody">
-                    <!-- Javascript will populate rows -->
                 </tbody>
             </table>
         </div>
 
-        <!-- ADD BAR -->
         <div style="padding: 12px 24px; background: rgba(255,255,255,0.4); border-bottom: 1px solid var(--border-color); display: flex; justify-content: flex-end;">
             <button class="btn-action btn-primary" onclick="openModal()">
                 <span class="material-icons-round" style="font-size:18px;">add</span> Add Spot Trade
             </button>
         </div>
 
-        <!-- FOOTER -->
         <footer>
-            <!-- Left: Branding -->
             <div class="footer-branding">
                 <div class="brand-row">
-                    <img src="RI.png" alt="RI Logo" onerror="this.style.display='none';">
+                    <img src="RI_Logo.webp" alt="RI Logo" onerror="this.style.display='none';">
                     <span>ROBIN INSIGHTS</span>
                 </div>
                 <p class="footer-tagline">Spot Journal & Monthly Analysis</p>
                 <div class="footer-disclaimer">Profits and losses reflect trader’s quick decisions, including timely buys and sells.</div>
             </div>
-
-            <!-- Right: Stats Wrapper -->
             <div class="footer-stats-wrapper">
-                
-                <!-- 1. Top: Net Result (Compact Hero) -->
                 <div class="net-result-compact">
                     <span class="net-label-compact">NET Monthly Result</span>
                     <input id="valNet" class="net-value-compact" value="0.00%" oninput="manualOverride=true">
                 </div>
 
-                <!-- 2. Bottom: Gross Stats Row -->
                 <div class="gross-stats-compact">
-                    <!-- Gross Profit -->
                     <div class="metric-block-sm">
                         <span class="metric-label-sm">GROSS Profit</span>
                         <input id="valProfit" class="metric-value-sm text-up" value="0.00%" oninput="manualOverride=true">
                         <input id="cntProfit" class="metric-count-sm" placeholder="" oninput="manualOverride=true">
                     </div>
-
-                    <!-- Gross Loss -->
                     <div class="metric-block-sm">
                         <span class="metric-label-sm">GROSS Loss</span>
                         <input id="valLoss" class="metric-value-sm text-down" value="0.00%" oninput="manualOverride=true">
@@ -827,18 +785,15 @@
         </footer>
     </div>
 
-    <!-- CONTEXT MENU -->
     <div id="rowMenu" class="context-menu">
         <div class="menu-header">Highlight Row</div>
         <div class="color-picker-row" id="colorPickerRow">
-            <!-- Populated via JS based on rowDefColors -->
         </div>
         <div class="menu-item delete" onclick="menuAction('delete')">
             <span class="material-icons-round">delete</span> Delete Row
         </div>
     </div>
 
-    <!-- MODAL -->
     <div class="modal-overlay" id="entryModal">
         <div class="modal-box">
             <div class="modal-header">New Spot Entry</div>
@@ -862,7 +817,6 @@
                         <option value="Short Term">Short Term</option>
                         <option value="Swing">Swing</option>
                         <option value="DCA">DCA</option>
-                        <!--TO ADD NEW OPTION HERE -->
                         <option value="Scalp">Scalp</option>
                     </select>
                 </div>
@@ -897,7 +851,6 @@
         </div>
     </div>
 
-    <!-- FLOATING CONTROLS (Sync + Force Load) -->
     <div class="floating-controls">
         <div class="control-pill" onclick="manualSync()">
             <span class="material-icons-round" style="font-size:16px; color:var(--accent-blue);">cloud_download</span>
@@ -910,15 +863,11 @@
     </div>
 <script src="SDK.js"></script>
     <script type="module">
-        // --- IMPORTS ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
         import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";        
-        // --- GLOBAL VARS ---
         let app, auth, db, user;
         let activeRowIndex = -1;
-        
-        // Expose functions to window for HTML onclicks
         window.loadData = loadData;
         window.exportHTML = exportHTML;
         window.openModal = openModal;
@@ -928,8 +877,6 @@
         window.openMenu = openMenu;
         window.menuAction = menuAction;
         window.manualSync = manualSync;
-
-        // --- Configuration ---
         const rowDefColors = [
             'rgba(16, 185, 129, 0.15)', // Green
             'rgba(239, 68, 68, 0.15)',  // Red
@@ -947,37 +894,26 @@
         const colorPickerRow = document.getElementById('colorPickerRow');
         const syncText = document.getElementById('syncText');
         const syncIcon = document.getElementById('syncIcon');
-
-        // --- AUTH & INIT ---
         async function initApp() {
-            // 1. Get Password
             const password = localStorage.getItem('ri_app_config_pass');
             if (!password) {
                 window.location.href = 'admin.html';
                 return;
             }
-
-            // 2. Decrypt
             try {
                 const decryptedBytes = CryptoJS.AES.decrypt(encryptedConfig, password);
                 const decryptedString = decryptedBytes.toString(CryptoJS.enc.Utf8);
                 if (!decryptedString) throw new Error("Decryption failed");
                 
                 const firebaseConfig = JSON.parse(decryptedString);
-                
-                // 3. Init Firebase
                 app = initializeApp(firebaseConfig);
                 auth = getAuth(app);
                 db = getFirestore(app);
-
-                // 4. Check User Status
                 onAuthStateChanged(auth, (u) => {
                     if (u) {
                         user = u;
                         syncText.textContent = "Synced";
-                        loadData(); // Initial Load
-                        // Start Auto Sync (10s)
-                        setInterval(syncToCloud, 10000); 
+                        loadData();  
                     } else {
                         window.location.href = 'admin.html';
                     }
@@ -988,9 +924,6 @@
                 window.location.href = 'admin.html';
             }
         }
-
-        // --- SYNC LOGIC ---
-
         function getKey() {
             const m = document.getElementById('monthInput').value || 'Default';
             const y = document.getElementById('yearInput').value || '2025';
@@ -998,23 +931,19 @@
         }
 
         async function loadData(force = false) {
-            // Restore UI state
             const m = document.getElementById('monthInput').value;
             const y = document.getElementById('yearInput').value;
             localStorage.setItem('RI_Last_Month', m);
             localStorage.setItem('RI_Last_Year', y);
             
             const key = getKey();
-            const syncKey = `${key}_last_cloud_pull`; // Key for tracking last cloud load
+            const syncKey = `${key}_last_cloud_pull`;
             
             const localRaw = localStorage.getItem(key);
             const lastPull = parseInt(localStorage.getItem(syncKey) || '0');
             const now = Date.now();
-            const isStale = (now - lastPull) > (10 * 60 * 1000); // 10 Minutes in ms
-
-            // 1. Check if Local Data is available and fresh (< 10 mins) AND NOT FORCED
+            const isStale = (now - lastPull) > (10 * 60 * 1000);
             if (!force && localRaw && !isStale) {
-                // Scenario A: Local data exists AND is fresh
                 console.log("Loading Local (Fresh)");
                 trades = JSON.parse(localRaw);
                 render();
@@ -1022,7 +951,6 @@
                 syncText.textContent = "Loaded Local";
                 setTimeout(() => {syncText.textContent = "Tap to Sync";}, 1000);
             } else {
-                // Scenario B: Force Load OR Data is Stale (>10 mins) OR Missing locally -> Fetch Cloud
                 if (user) {
                     syncText.textContent = force ? "Forcing Cloud..." : "Checking Cloud...";
                     syncIcon.classList.add('active');
@@ -1033,16 +961,12 @@
 
                         if (docSnap.exists()) {
                             trades = docSnap.data().data || [];
-                            // Save to LocalStorage (Replace)
                             localStorage.setItem(key, JSON.stringify(trades));
-                            // Update Last Pull Timestamp
                             localStorage.setItem(syncKey, now.toString());
-                            
                             render();
                             calculate();
                             syncText.textContent = force ? "Force Loaded" : "Cloud Synced";
                         } else {
-                            // Cloud empty? Fallback to local if exists, else new
                             if (localRaw) {
                                 trades = JSON.parse(localRaw);
                                 syncText.textContent = "Local (Cloud Empty)";
@@ -1055,7 +979,6 @@
                         }
                     } catch (e) {
                         console.error("Fetch Error", e);
-                        // Fallback to local if offline/error
                         if (localRaw) {
                             trades = JSON.parse(localRaw);
                             render();
@@ -1069,11 +992,9 @@
                         }
                     } finally {
                         syncIcon.classList.remove('active');
-                        // Reset text after short delay if forced
                         if(force) setTimeout(() => { if(syncText.textContent === "Force Loaded") syncText.textContent = "Synced"; }, 3000);
                     }
                 } else {
-                    // Not logged in -> Local fallback
                     if (localRaw) {
                         trades = JSON.parse(localRaw);
                         render();
@@ -1086,8 +1007,6 @@
                 }
             }
         }
-
-        // Renamed from saveData to indicate cost
         async function syncToCloud() {
             const key = getKey();
             
@@ -1111,8 +1030,6 @@
                 }
             }
         }
-
-        // Cheap local save for responsiveness
         function saveLocalOnly() {
              const key = getKey();
              localStorage.setItem(key, JSON.stringify(trades));
@@ -1122,8 +1039,6 @@
         async function manualSync() {
             if(user) await syncToCloud();
         }
-
-        // --- Standard App Logic ---
         
         function initColorPicker() {
             colorPickerRow.innerHTML = '';
@@ -1152,7 +1067,6 @@
                 const pnlVal = parseNum(t.profit);
                 const pnlColor = pnlVal > 0 ? 'text-up' : (pnlVal < 0 ? 'text-down' : '');
                 
-                // Color Logic
                 let resClass = '';
                 
                 if (t.res === 'TP Hit') {
@@ -1173,7 +1087,6 @@
                     tr.style.backgroundColor = '';
                 }
 
-                // Updated Render Logic for Spot Columns
                 tr.innerHTML = `
                     <td class="col-id">${i + 1}</td>
                     <td><input value="${t.coin}" placeholder="-" oninput="edit(${i}, 'coin', this.value, this)" style="font-weight:600; color:var(--text-primary);"></td>
@@ -1231,8 +1144,6 @@
             }
             
             saveLocalOnly(); 
-            
-            // If result changes, we must re-render to update background colors of PnL/Profit
             if (field === 'res') {
                 render();
             }
@@ -1333,32 +1244,21 @@
             const elP = document.getElementById('valProfit');
             const elL = document.getElementById('valLoss');
             const elN = document.getElementById('valNet');
-
-            // Gross Profit: Sum of Positives
             elP.value = `+${grossP.toFixed(2)}%`;
-            
-            // Gross Loss: Sum of Negatives
             elL.value = `${Math.abs(grossL).toFixed(2)}%`;
-            
-            // Net Result = Gross Profit + Gross Loss
             const net = grossP + grossL;
-            
             elN.value = (net >= 0 ? '+' : '') + `${net.toFixed(2)}%`;
-            
             if(net > 0) elN.style.color = 'var(--color-up)';
             else if(net < 0) elN.style.color = 'var(--color-down)';
             else elN.style.color = 'var(--text-primary)';
-
             const cntP = document.getElementById('cntProfit');
             const cntL = document.getElementById('cntLoss');
-
             cntP.value = tpCount > 0 ? `(${tpCount} TP)` : '';
             cntL.value = slCount > 0 ? `(${slCount} SL)` : '';
         }
         function exportHTML() {
             const clone = document.documentElement.cloneNode(true);
             clone.querySelectorAll('script').forEach(e => e.remove());
-            // Added .floating-controls to removal list
             clone.querySelectorAll('.btn-action, .btn-menu, .modal-overlay, .context-menu, .col-action, .sync-btn-container, .floating-controls').forEach(e => e.remove());
             
             const originals = document.querySelectorAll('input, select');
@@ -1397,8 +1297,6 @@
                 span.style.fontFamily = computed.fontFamily;
                 span.style.fontSize = computed.fontSize;
                 span.style.fontWeight = computed.fontWeight;
-                
-                // Fix for full cell filling
                 span.style.display = 'flex'; 
                 span.style.alignItems = 'center';
                 span.style.justifyContent = 'center';
@@ -1406,10 +1304,7 @@
                 span.style.height = '31px';
                 span.style.padding = '0 4px'; 
                 span.style.boxSizing = 'border-box';
-
-                // Copy background if it was set via class
                 span.style.backgroundColor = computed.backgroundColor;
-
                 el.parentNode.replaceChild(span, el);
             }
             
@@ -1422,8 +1317,6 @@
             link.download = `RI_Journal_Spot_${month}_${document.getElementById('yearInput').value}.html`;
             link.click();
         }
-
-        // --- RUN ---
         const savedM = localStorage.getItem('RI_Last_Month');
         const savedY = localStorage.getItem('RI_Last_Year');
         if (savedM) document.getElementById('monthInput').value = savedM;
