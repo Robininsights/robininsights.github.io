@@ -1,14 +1,22 @@
 ==============FUTURE=====================
 1.08/25 = RI_Journal_Future_August_2025.html
-2.02/25 = RI_Journal_Future_February.html
-3.03/25 = RI_Journal_Future_March.html
+2.07/25 = RI_Journal_Future_July_2025.html
+3.06/25 = RI_Journal_Future_June_2025.html
+4.05/25 = RI_Journal_Future_May_2025.html
+5.04/25 = RI_Journal_Future_April_2025.html
+6.03/25 = RI_Journal_Future_March_2025.html
 
 
 
 
 =============SPOT===================
-1.01/25 = RI_Journal_SPOT_January.html
-2.02/25 = RI_Journal_SPOT_February.html
-3.03/25 = RI_Journal_SPOT_March.html
+1.08/25 = RI_Journal_Spot_August_2025.html
+2.07/25 = RI_Journal_Spot_July_2025.html
+3.06/25 = RI_Journal_Spot_June_2025.html
+4.05/25 = RI_Journal_Spot_May_2025.html
+5.04/25 = RI_Journal_Spot_April_2025.html
+6.03/25 = RI_Journal_Spot_March_2025.html
+
+
 
 
