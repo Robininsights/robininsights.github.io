@@ -4,34 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robin Insights - Professional Portfolio</title>
-    <!-- Fonts: Inter (UI) and JetBrains Mono (Data) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta property="og:title" content="Trading Journal by Robin Insights">
+    <meta property="og:description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta property="og:image" content="https://robininsights.github.io/preview-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://robininsights.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trading Journal by Robin Insights">
+    <meta name="twitter:description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta name="twitter:image" content="https://robininsights.github.io/preview-image.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <!-- Encryption Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     
     <style>
         :root {
-            /* Premium Light Glassy Theme */
             --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
-            --bg-panel: rgba(255, 255, 255, 0.75); /* Frosted Glass */
+            --bg-panel: rgba(255, 255, 255, 0.75);
             --bg-header: rgba(255, 255, 255, 0.85);
             --bg-hover: rgba(0, 0, 0, 0.03);
-            
-            --border-color: rgba(0, 0, 0, 0.08); /* Subtle crisp borders */
+            --border-color: rgba(0, 0, 0, 0.08);
             --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.1);
-            
-            --text-primary: #1e293b; /* Slate 800 */
-            --text-secondary: #64748b; /* Slate 500 */
-            
-            /* Financial Colors - Adjusted for Light Mode */
-            --color-up: #059669;     /* Deep Emerald */
-            --color-down: #dc2626;   /* Deep Red */
-            --accent-blue: #2563eb;  /* Royal Blue */
-            
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --color-up: #059669;
+            --color-down: #dc2626;
+            --accent-blue: #2563eb;
             --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-data: 'JetBrains Mono', monospace;
         }
@@ -41,7 +43,7 @@
             color: var(--text-primary);
             font-family: var(--font-ui);
             margin: 0;
-            padding: 10px; /* Reduced padding */
+            padding: 10px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -49,10 +51,9 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Main Workspace Container - Compacted */
         .workspace {
             width: 60%;
-            max-width: 1250px; /* Reduced width */
+            max-width: 1250px;
             background: var(--bg-panel);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -63,16 +64,15 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            min-height: auto; /* Removed fixed 90vh to reduce scroll need */
+            min-height: auto;
             margin-bottom: 20px;
         }
 
-        /* --- Header --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 20px; /* Reduced padding */
+            padding: 12px 20px;
             border-bottom: 1px solid var(--border-color);
             background: var(--bg-header);
             position: relative; 
@@ -85,8 +85,8 @@
         }
 
         .logo-container {
-             width: 50px; /* Reduced */
-            height: 50px; /* Reduced */
+             width: 50px; 
+            height: 50px; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -101,7 +101,7 @@
 
         .brand-text h1 {
             margin: 0;
-            font-size: 16px; /* Reduced */
+            font-size: 16px;
             font-weight: 700;
             color: var(--text-primary);
             letter-spacing: -0.5px;
@@ -118,7 +118,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 12px; /* Reduced */
+            font-size: 12px;
             font-weight: 600;
             color: var(--text-secondary);
             text-align: center;
@@ -152,7 +152,6 @@
             font-weight: bold;
         }
 
-        /* --- Inputs --- */
         input, select {
             background: transparent;
             border: 1px solid transparent; 
@@ -193,7 +192,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 6px 12px; /* Reduced */
+            padding: 6px 12px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
             background: #fff;
@@ -222,7 +221,6 @@
             border-color: #1d4ed8;
         }
 
-        /* --- Data Grid (Table) --- */
         .grid-container {
             width: 100%;
             background: rgba(255, 255, 255, 0.4);
@@ -258,11 +256,10 @@
 
         tr {
             border-bottom: 1px solid var(--border-color);
-            height: 32px; /* Reduced Row Height */
+            height: 32px;
             transition: background 0.1s;
         }
 
-        /* Zebra Striping */
         tbody tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.3); 
         }
@@ -274,15 +271,14 @@
         }
         td:last-child { border-right: none; }
 
-        /* Table Inputs */
         td input, td select {
             width: 100%;
-            height: 31px; /* Reduced Input Height */
+            height: 31px;
             padding: 0 4px;
             border: none;
             border-radius: 0;
             font-family: var(--font-data);
-            font-size: 12px; /* Slightly smaller font */
+            font-size: 12px;
             box-sizing: border-box; 
             text-align: center;
             color: var(--text-primary);
@@ -307,7 +303,6 @@
             position: relative;
         }
 
-        /* Column Widths - Adjusted (Entry removed) */
         .col-id { width: 5%; text-align: center; color:red; font-size: 11px; font-weight: 500; }
         .col-coin { width: 15%; } 
         .col-dir { width: 15%; }
@@ -316,22 +311,16 @@
         .col-pnl { width: 15%; }
         .col-profit { width: 15%; }
         .col-action { width: 5%; }
-        
-        /* Auto-Coloring Classes */
-        /* TP: Only Green Text, No Background */
         .cell-tp { 
             color: var(--color-up) !important; 
             font-weight: 600; 
         }
         
-        /* SL: Red Background + Red Text */
         .cell-sl { 
             background-color: rgba(239, 68, 68, 0.15); 
             color: var(--color-down) !important; 
             font-weight: 600; 
         }
-
-        /* 3-Dot Menu Button */
         .btn-menu {
             opacity: 0.4; 
             background: transparent;
@@ -351,13 +340,11 @@
 
         .text-up { color: var(--color-up) !important; font-weight: 600 !important; }
         .text-down { color: var(--color-down) !important; font-weight: 600 !important; }
-
-        /* --- Compact Centered Footer --- */
         footer {
             align-self: center;
-            margin: 20px auto; /* Reduced margin */
+            margin: 20px auto;
             width: auto;
-            min-width: 500px; /* Reduced min-width */
+            min-width: 500px;
             max-width: 95%;
             
             background: rgba(255, 255, 255, 0.85);
@@ -365,17 +352,15 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 16px;
             box-shadow: 0 10px 30px -5px rgba(0,0,0,0.08);
-            
-            padding: 12px 24px; /* Reduced padding */
+            padding: 12px 24px;
             display: flex;
             flex-direction: row;
             justify-content: space-between; 
             align-items: center;
-            gap: 30px; /* Reduced gap */
+            gap: 30px;
             position: relative;
         }
 
-        /* Left Side: Branding */
         .footer-branding {
             display: flex;
             flex-direction: column;
@@ -387,13 +372,13 @@
             display: flex;
             align-items: center;
             font-weight: 700;
-            font-size: 14px; /* Reduced */
+            font-size: 14px;
             letter-spacing: -0.5px;
             color: var(--text-primary);
         }
         
         .brand-row img {
-            width: 32px; /* Reduced */
+            width: 32px;
             height: 32px;
         }
 
@@ -413,15 +398,12 @@
     margin-top: 4px;
     opacity: 1;}
 
-        /* Right Side: Wrapper for Stats */
         .footer-stats-wrapper {
             display: flex;
             flex-direction: column;
             align-items: flex-end; 
             gap: 8px;
         }
-
-        /* Top: Net Result (Compact Hero) */
         .net-result-compact {
             align-items: center;
         }
@@ -446,18 +428,16 @@
         }
         .net-value-compact:focus { outline: none; border-bottom: 1px solid var(--accent-blue); }
 
-        /* Bottom: Gross Stats Row */
         .gross-stats-compact {
             display: flex;
             gap: 10px;
             align-items: center;
         }
 
-        /* Small Metric Block */
         .metric-block-sm {
             display: flex;
             flex-direction: column;
-            padding: 4px 10px; /* Reduced */
+            padding: 4px 10px;
             background: #fff;
             border: 1px solid var(--border-color);
             border-radius: 6px;
@@ -493,8 +473,6 @@
             text-align: right;
         }
 
-
-        /* --- Context Menu --- */
         .context-menu {
             position: absolute;
             background: #fff;
@@ -538,8 +516,6 @@
         .menu-item .material-icons-round { font-size: 18px; color: var(--text-secondary); }
         .menu-item.delete:hover { color: var(--color-down); background: #fef2f2; }
         .menu-item.delete:hover .material-icons-round { color: var(--color-down); }
-
-        /* Color Picker in Menu */
         .color-picker-row {
             display: flex;
             gap: 8px;
@@ -558,8 +534,6 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .color-swatch:hover { transform: scale(1.15); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
-
-        /* --- Modal --- */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -638,7 +612,6 @@
             margin-top: 24px;
         }
 
-        /* --- CONTROLS CONTAINER (Fixed Bottom Left) --- */
         .floating-controls {
             position: fixed;
             bottom: 20px;
@@ -668,19 +641,14 @@
         .sync-icon { font-size: 16px; color: var(--status-green); animation: spin 2s linear infinite; display: none; }
         .sync-icon.active { display: block; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
-        
-        /* Mobile adjustment */
         @media (max-width: 768px) {
             body { padding: 4px; }
             .workspace { width: 100%; border: none; box-shadow: none; border-radius: 0; backdrop-filter: none; background: #fff; }
             
             th { font-size: 9px; padding: 4px 1px; }
             td input, td select { font-size: 10px; padding: 0; height: 32px; }
-            
-            /* Tweak column widths for mobile */
             .col-id { width: 6%; }
             .col-coin { width: 14%; }
-            /* .col-entry removed */
             .col-dir { width: 15%; }
             .col-lev { width: 12%; }
             .col-res { width: 18%; }
@@ -718,11 +686,10 @@
 <body>
 
     <div class="workspace" id="workspace">
-        <!-- HEADER -->
         <header>
             <div class="brand-area">
                 <div class="logo-container">
-                    <img src="RI.png" alt="RI" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <img src="RI_Logo.webp" alt="RI" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                     <span style="display:none; color:#000; font-size:12px; font-weight:bold;">RI</span>
                 </div>
                 <div class="brand-text">
@@ -756,16 +723,12 @@
                 </button>
             </div>
         </header>
-
-        <!-- DATA GRID -->
         <div class="grid-container">
             <table>
                 <thead>
                     <tr>
                         <th class="col-id">#</th>
-                        <!-- Date Column Removed -->
                         <th class="col-coin">Coin Ticker</th>
-                        <!-- Entry Price Column Removed -->
                         <th class="col-dir">Direction</th>
                         <th class="col-lev">Leverage</th>
                         <th class="col-res">Result</th>
@@ -775,49 +738,38 @@
                     </tr>
                 </thead>
                 <tbody id="tableBody">
-                    <!-- Javascript will populate rows -->
                 </tbody>
             </table>
         </div>
 
-        <!-- ADD BAR -->
         <div style="padding: 12px 24px; background: rgba(255,255,255,0.4); border-bottom: 1px solid var(--border-color); display: flex; justify-content: flex-end;">
             <button class="btn-action btn-primary" onclick="openModal()">
                 <span class="material-icons-round" style="font-size:18px;">add</span> Add Trade
             </button>
         </div>
 
-        <!-- FOOTER -->
         <footer>
-            <!-- Left: Branding -->
             <div class="footer-branding">
                 <div class="brand-row">
-                    <img src="RI.png" alt="RI Logo" onerror="this.style.display='none';">
+                    <img src="RI_Logo.webp" alt="RI Logo" onerror="this.style.display='none';">
                     <span>ROBIN INSIGHTS</span>
                 </div>
                 <p class="footer-tagline">Trading Journal & Monthly Analysis</p>
                 <div class="footer-disclaimer">All trades are calculated based on $100 margin with corresponding Leverage</div>
             </div>
-
-            <!-- Right: Stats Wrapper -->
             <div class="footer-stats-wrapper">
                 
-                <!-- 1. Top: Net Result (Compact Hero) -->
                 <div class="net-result-compact">
                     <span class="net-label-compact">NET Monthly Result</span>
                     <input id="valNet" class="net-value-compact" value="0.00%" oninput="manualOverride=true">
                 </div>
 
-                <!-- 2. Bottom: Gross Stats Row -->
                 <div class="gross-stats-compact">
-                    <!-- Gross Profit -->
                     <div class="metric-block-sm">
                         <span class="metric-label-sm">GROSS Profit</span>
                         <input id="valProfit" class="metric-value-sm text-up" value="0.00%" oninput="manualOverride=true">
                         <input id="cntProfit" class="metric-count-sm" placeholder="" oninput="manualOverride=true">
                     </div>
-
-                    <!-- Gross Loss -->
                     <div class="metric-block-sm">
                         <span class="metric-label-sm">GROSS Loss</span>
                         <input id="valLoss" class="metric-value-sm text-down" value="0.00%" oninput="manualOverride=true">
@@ -829,18 +781,14 @@
         </footer>
     </div>
 
-    <!-- CONTEXT MENU -->
     <div id="rowMenu" class="context-menu">
         <div class="menu-header">Highlight Row</div>
         <div class="color-picker-row" id="colorPickerRow">
-            <!-- Populated via JS based on rowDefColors -->
         </div>
         <div class="menu-item delete" onclick="menuAction('delete')">
             <span class="material-icons-round">delete</span> Delete Row
         </div>
     </div>
-
-    <!-- MODAL -->
     <div class="modal-overlay" id="entryModal">
         <div class="modal-box">
             <div class="modal-header">New Trade Entry</div>
@@ -853,7 +801,6 @@
             </div>
             
             <div class="form-row">
-                <!-- Entry Price Removed -->
                 <div class="form-group">
                     <label>Leverage</label>
                     <input type="text" id="inLev" placeholder="20x">
@@ -885,7 +832,7 @@
             <div class="form-row">
                 <div class="form-group" style="grid-column: span 2;">
                     <label>Profit ($)</label>
-                    <input type="text" id="inProfit" placeholder="250.00">
+                    <input type="text" id="inProfit" placeholder="250$">
                 </div>
             </div>
 
@@ -896,7 +843,6 @@
         </div>
     </div>
 
-    <!-- FLOATING CONTROLS (Sync + Force Load) -->
     <div class="floating-controls">
         <div class="control-pill" onclick="manualSync()">
             <span class="material-icons-round" style="font-size:16px; color:var(--accent-blue);">cloud_download</span>
@@ -909,15 +855,11 @@
     </div>
 <script src="SDK.js"></script>
     <script type="module">
-        // --- IMPORTS ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
         import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";        
-        // --- GLOBAL VARS ---
         let app, auth, db, user;
         let activeRowIndex = -1;
-        
-        // Expose functions to window for HTML onclicks
         window.loadData = loadData;
         window.exportHTML = exportHTML;
         window.openModal = openModal;
@@ -927,8 +869,6 @@
         window.openMenu = openMenu;
         window.menuAction = menuAction;
         window.manualSync = manualSync;
-
-        // --- Configuration ---
         const rowDefColors = [
             'rgba(16, 185, 129, 0.15)', // Green
             'rgba(239, 68, 68, 0.15)',  // Red
@@ -947,16 +887,12 @@
         const syncText = document.getElementById('syncText');
         const syncIcon = document.getElementById('syncIcon');
 
-        // --- AUTH & INIT ---
         async function initApp() {
-            // 1. Get Password
             const password = localStorage.getItem('ri_app_config_pass');
             if (!password) {
                 window.location.href = 'admin.html';
                 return;
             }
-
-            // 2. Decrypt
             try {
                 const decryptedBytes = CryptoJS.AES.decrypt(encryptedConfig, password);
                 const decryptedString = decryptedBytes.toString(CryptoJS.enc.Utf8);
@@ -964,19 +900,15 @@
                 
                 const firebaseConfig = JSON.parse(decryptedString);
                 
-                // 3. Init Firebase
                 app = initializeApp(firebaseConfig);
                 auth = getAuth(app);
                 db = getFirestore(app);
 
-                // 4. Check User Status
                 onAuthStateChanged(auth, (u) => {
                     if (u) {
                         user = u;
                         syncText.textContent = "Synced";
-                        loadData(); // Initial Load
-                        // Start Auto Sync (10s)
-                        setInterval(syncToCloud, 10000); 
+                        loadData();  
                     } else {
                         window.location.href = 'admin.html';
                     }
@@ -988,8 +920,6 @@
             }
         }
 
-        // --- SYNC LOGIC ---
-
         function getKey() {
             const m = document.getElementById('monthInput').value || 'Default';
             const y = document.getElementById('yearInput').value || '2025';
@@ -997,23 +927,20 @@
         }
 
         async function loadData(force = false) {
-            // Restore UI state
             const m = document.getElementById('monthInput').value;
             const y = document.getElementById('yearInput').value;
             localStorage.setItem('RI_Last_Month', m);
             localStorage.setItem('RI_Last_Year', y);
             
             const key = getKey();
-            const syncKey = `${key}_last_cloud_pull`; // Key for tracking last cloud load
+            const syncKey = `${key}_last_cloud_pull`;
             
             const localRaw = localStorage.getItem(key);
             const lastPull = parseInt(localStorage.getItem(syncKey) || '0');
             const now = Date.now();
-            const isStale = (now - lastPull) > (10 * 60 * 1000); // 10 Minutes in ms
+            const isStale = (now - lastPull) > (10 * 60 * 1000);
 
-            // 1. Check if Local Data is available and fresh (< 10 mins) AND NOT FORCED
             if (!force && localRaw && !isStale) {
-                // Scenario A: Local data exists AND is fresh
                 console.log("Loading Local (Fresh)");
                 trades = JSON.parse(localRaw);
                 render();
@@ -1021,7 +948,6 @@
                 syncText.textContent = "Loaded Local";
                 setTimeout(() => {syncText.textContent = "Tap to Sync";}, 1000);
             } else {
-                // Scenario B: Force Load OR Data is Stale (>10 mins) OR Missing locally -> Fetch Cloud
                 if (user) {
                     syncText.textContent = force ? "Forcing Cloud..." : "Checking Cloud...";
                     syncIcon.classList.add('active');
@@ -1032,16 +958,12 @@
 
                         if (docSnap.exists()) {
                             trades = docSnap.data().data || [];
-                            // Save to LocalStorage (Replace)
                             localStorage.setItem(key, JSON.stringify(trades));
-                            // Update Last Pull Timestamp
-                            localStorage.setItem(syncKey, now.toString());
-                            
+                            localStorage.setItem(syncKey, now.toString());                            
                             render();
                             calculate();
                             syncText.textContent = force ? "Force Loaded" : "Cloud Synced";
                         } else {
-                            // Cloud empty? Fallback to local if exists, else new
                             if (localRaw) {
                                 trades = JSON.parse(localRaw);
                                 syncText.textContent = "Local (Cloud Empty)";
@@ -1054,7 +976,6 @@
                         }
                     } catch (e) {
                         console.error("Fetch Error", e);
-                        // Fallback to local if offline/error
                         if (localRaw) {
                             trades = JSON.parse(localRaw);
                             render();
@@ -1068,11 +989,9 @@
                         }
                     } finally {
                         syncIcon.classList.remove('active');
-                        // Reset text after short delay if forced
                         if(force) setTimeout(() => { if(syncText.textContent === "Force Loaded") syncText.textContent = "Synced"; }, 3000);
                     }
                 } else {
-                    // Not logged in -> Local fallback
                     if (localRaw) {
                         trades = JSON.parse(localRaw);
                         render();
@@ -1086,7 +1005,6 @@
             }
         }
 
-        // Renamed from saveData to indicate cost
         async function syncToCloud() {
             const key = getKey();
             
@@ -1111,7 +1029,6 @@
             }
         }
 
-        // Cheap local save for responsiveness
         function saveLocalOnly() {
              const key = getKey();
              localStorage.setItem(key, JSON.stringify(trades));
@@ -1121,8 +1038,6 @@
         async function manualSync() {
             if(user) await syncToCloud();
         }
-
-        // --- Standard App Logic ---
         
         function initColorPicker() {
             colorPickerRow.innerHTML = '';
@@ -1151,21 +1066,14 @@
                 const dirColor = t.dir === 'Long' ? 'text-up' : 'text-down';
                 const pnlVal = parseNum(t.profit);
                 const pnlColor = pnlVal > 0 ? 'text-up' : (pnlVal < 0 ? 'text-down' : '');
-                
-                // Color Logic
                 let resClass = '';
-                
-                // TP Hit: Always just green text (no bg)
                 if (t.res === 'TP Hit') {
-                    resClass = 'cell-tp'; // defined in CSS as color-up only
+                    resClass = 'cell-tp';
                 }
-                // SL Hit:
                 else if (t.res === 'SL Hit') {
-                    // If row has color -> Text is red, Background is transparent (to show row color)
                     if (t.rowColor) {
                         resClass = 'text-down'; 
                     } 
-                    // If NO row color -> Text is red, Background is red
                     else {
                         resClass = 'cell-sl';
                     }
@@ -1218,38 +1126,18 @@
             if (field === 'profit' || field === 'pnl') {
                 if (el) {
                     const num = parseNum(val);
-                    // Retain existing background/status classes, only update color direction
                     const currentClasses = el.className.split(' ');
                     const statusClasses = currentClasses.filter(c => c === 'cell-tp' || c === 'cell-sl' || c === 'text-down');
-                    // Note: 'text-down' is tricky because it acts as both status for SL (with row color) and negative number color.
-                    // Ideally, we rely on render() for status changes (res), and here just for number updates.
-                    
-                    // Simple approach: re-render if visual complexity is high, 
-                    // but for performance, let's just update text color classes if not status related.
-                    // However, because text-up/text-down conflicts with cell-sl/cell-tp coloring logic,
-                    // it is safest to re-render OR just update the text color if it's not a status cell.
-                    // Given the logic depends on rowColor + res, re-rendering is safest if we want consistency.
-                    // BUT for input lag, we avoid full re-render on keystroke.
-                    
                     let textColor = '';
                     if (num > 0) textColor = 'text-up';
                     else if (num < 0) textColor = 'text-down';
-                    
-                    // If the cell is NOT strictly controlled by res (e.g. not TP/SL hit), apply color.
-                    // If it IS TP/SL hit, those classes might override or coexist.
-                    // Current CSS: .cell-tp sets color !important. .cell-sl sets color !important.
-                    // So adding text-up/text-down won't break TP/SL styling, which is desired.
-                    
-                    // We need to keep the status class.
                     const statusClass = statusClasses.join(' ');
                     el.className = `${textColor} ${statusClass}`;
                 }
             }
             
             saveLocalOnly(); 
-            
-            // If result changes, we must re-render to update background colors of PnL/Profit
-            if (field === 'res') {
+             if (field === 'res') {
                 render();
             }
         }
@@ -1307,8 +1195,7 @@
         function addTrade() {
             const t = {
                 coin: document.getElementById('inCoin').value.toUpperCase(),
-                // Entry removed
-                entry: '', // Keep for schema compatibility if needed, or just remove
+                entry: '', 
                 lev: document.getElementById('inLev').value,
                 dir: document.getElementById('inDir').value,
                 res: document.getElementById('inRes').value,
@@ -1317,7 +1204,7 @@
                 rowColor: '' 
             };
             trades.push(t);
-            saveLocalOnly(); // Save locally, sync via interval
+            saveLocalOnly();
             render();
             closeModal();
         }
@@ -1329,10 +1216,7 @@
 
         function calculate() {
             if(manualOverride) return;
-
-            let grossP = 0, grossL = 0, tpCount = 0, slCount = 0;
-            // Removed compound logic
-            
+            let grossP = 0, grossL = 0, tpCount = 0, slCount = 0;            
             trades.forEach(t => {
                 const val = parseNum(t.pnl);
                 const type = t.res;
@@ -1352,45 +1236,30 @@
             const elP = document.getElementById('valProfit');
             const elL = document.getElementById('valLoss');
             const elN = document.getElementById('valNet');
-
-            // Gross Profit: Sum of Positives
             elP.value = `+${grossP.toFixed(2)}%`;
-            
-            // Gross Loss: Sum of Negatives
             elL.value = `${Math.abs(grossL).toFixed(2)}%`;
-            
-            // Net Result = Gross Profit + Gross Loss
-            const net = grossP + grossL;
-            
+            const net = grossP + grossL;            
             elN.value = (net >= 0 ? '+' : '') + `${net.toFixed(2)}%`;
-            
             if(net > 0) elN.style.color = 'var(--color-up)';
             else if(net < 0) elN.style.color = 'var(--color-down)';
             else elN.style.color = 'var(--text-primary)';
-
             const cntP = document.getElementById('cntProfit');
             const cntL = document.getElementById('cntLoss');
-
             cntP.value = tpCount > 0 ? `(${tpCount} TP)` : '';
             cntL.value = slCount > 0 ? `(${slCount} SL)` : '';
         }
-
         function exportHTML() {
             const clone = document.documentElement.cloneNode(true);
             clone.querySelectorAll('script').forEach(e => e.remove());
-            // Added .floating-controls to removal list
             clone.querySelectorAll('.btn-action, .btn-menu, .modal-overlay, .context-menu, .col-action, .sync-btn-container, .floating-controls').forEach(e => e.remove());
-            
             const originals = document.querySelectorAll('input, select');
             const clones = clone.querySelectorAll('input, select');
-
             for (let i = 0; i < clones.length; i++) {
                 const orig = originals[i];
                 const el = clones[i];
-                
                 if (el.id === 'monthInput') {
                     el.removeAttribute('onchange'); 
-                    el.setAttribute('onchange', "window.location.href='RI_Journal_Future_' + this.value + '.html'");
+                    el.setAttribute('onchange', `window.location.href="RI_Journal_Future_"+this.value+"_${document.getElementById('yearInput').value}.html"`);
                     const opts = el.querySelectorAll('option');
                     opts.forEach(opt => {
                         if(opt.value === orig.value) opt.setAttribute('selected', 'selected');
@@ -1398,7 +1267,6 @@
                     });
                     continue; 
                 }
-
                 const span = document.createElement('span');
                 let text = '';
                 if (orig.tagName === 'SELECT') {
@@ -1417,8 +1285,6 @@
                 span.style.fontFamily = computed.fontFamily;
                 span.style.fontSize = computed.fontSize;
                 span.style.fontWeight = computed.fontWeight;
-                
-                // Fix for full cell filling
                 span.style.display = 'flex'; 
                 span.style.alignItems = 'center';
                 span.style.justifyContent = 'center';
@@ -1426,25 +1292,17 @@
                 span.style.height = '31px';
                 span.style.padding = '0 4px'; 
                 span.style.boxSizing = 'border-box';
-
-                // Copy background if it was set via class
                 span.style.backgroundColor = computed.backgroundColor;
-
                 el.parentNode.replaceChild(span, el);
             }
-            
             clone.querySelectorAll('th.col-action, td.col-action').forEach(el => el.remove());
-
             const month = document.getElementById('monthInput').value;
-            const year = document.getElementById('yearInput').value;
             const blob = new Blob([`<!DOCTYPE html>${clone.outerHTML}`], {type: 'text/html'});
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
-            link.download = `RI_Journal_Future_${month}_${year}.html`;
+            link.download = `RI_Journal_Future_${month}_${document.getElementById('yearInput').value}.html`;
             link.click();
         }
-
-        // --- RUN ---
         const savedM = localStorage.getItem('RI_Last_Month');
         const savedY = localStorage.getItem('RI_Last_Year');
         if (savedM) document.getElementById('monthInput').value = savedM;
