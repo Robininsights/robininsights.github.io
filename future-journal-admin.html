@@ -418,7 +418,7 @@
             background: transparent;
             border: none;
             font-family: var(--font-data);
-            font-size: 24px; /* Reduced */
+            font-size: 24px; 
             font-weight: 700;
             color: var(--text-primary);
             text-align: right;
@@ -583,6 +583,7 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
+            position: relative;
         }
 
         .form-group label {
@@ -1184,11 +1185,11 @@
 
         function openModal() {
             document.getElementById('inCoin').value = '';
-            // Entry removed
             document.getElementById('inLev').value = '20x';
             document.getElementById('inPnl').value = '';
             document.getElementById('inProfit').value = '';
             modal.classList.add('active');
+            setTimeout(() => document.getElementById('inCoin').focus(), 100);
         }
         function closeModal() { modal.classList.remove('active'); }
 
@@ -1310,8 +1311,109 @@
         
         initColorPicker();
         initApp();
+        function expandSelect(el) {
+            el.size = el.options.length; 
+            el.style.position = 'absolute'; 
+            el.style.zIndex = '100'; 
+            el.style.height = 'auto'; 
+            el.style.width = el.parentElement.offsetWidth + 'px';
+        }
+        
+        function collapseSelect(el) {
+            el.size = 1; 
+            el.style.position = ''; 
+            el.style.zIndex = ''; 
+            el.style.height = ''; 
+            el.style.width = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.key === 'n' || e.key === 'N') && !modal.classList.contains('active')) {
+                const tag = document.activeElement.tagName;
+                if (tag !== 'INPUT' && tag !== 'SELECT' && tag !== 'TEXTAREA') {
+                    e.preventDefault();
+                    openModal();
+                }
+            }
+        });
+
+        const inCoin = document.getElementById('inCoin');
+        const inLev = document.getElementById('inLev');
+        const inDir = document.getElementById('inDir');
+        const inRes = document.getElementById('inRes');
+        const inPnl = document.getElementById('inPnl');
+        const inProfit = document.getElementById('inProfit');
+
+        inDir.addEventListener('focus', function() { expandSelect(this); });
+        inDir.addEventListener('blur', function() { collapseSelect(this); });
+        inRes.addEventListener('focus', function() { expandSelect(this); });
+        inRes.addEventListener('blur', function() { collapseSelect(this); });
+        inCoin.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                inLev.focus();
+            }
+        });
+
+        inLev.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                inDir.focus();
+            }
+        });
+
+        inDir.addEventListener('keydown', (e) => {
+             const key = e.key.toLowerCase();
+             
+             if (key === 'l') {
+                 inDir.value = 'Long';
+                 e.preventDefault();
+                 inRes.focus();
+             } 
+             else if (key === 's') {
+                 inDir.value = 'Short';
+                 e.preventDefault();
+                 inRes.focus();
+             } 
+             else if (e.key === 'Enter') {
+                 e.preventDefault();
+                 inRes.focus();
+             }
+        });
+
+        inRes.addEventListener('keydown', (e) => {
+            const key = e.key.toLowerCase();
+            let matched = false;
+            
+            if (key === 'r') { inRes.value = 'Running'; matched = true; }
+            else if (key === 't') { inRes.value = 'TP Hit'; matched = true; }
+            else if (key === 's') { inRes.value = 'SL Hit'; matched = true; }
+            else if (key === 'c') { inRes.value = 'Closed'; matched = true; }
+            else if (e.key === ' ') { inRes.value = 'None'; matched = true; }
+            
+            if (matched) {
+                e.preventDefault();
+                inPnl.focus();
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                inPnl.focus();
+            }
+        });
+
+        inPnl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                inProfit.focus();
+            }
+        });
+
+        inProfit.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addTrade();
+            }
+        });
 
     </script>
 </body>
 </html>
-
