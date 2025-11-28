@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robin Insights - Journal Dashboard</title>
-    <!-- Fonts: Inter (UI) and JetBrains Mono (Data) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <style>
@@ -33,6 +31,12 @@
             
             --font-ui: 'Inter', sans-serif;
             --font-data: 'JetBrains Mono', monospace;
+
+            /* Animation Physics */
+            /* "The Snap" - High tension spring effect */
+            --ease-snappy: cubic-bezier(0.34, 1.56, 0.64, 1); 
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         body {
@@ -40,7 +44,7 @@
             color: var(--text-primary);
             font-family: var(--font-ui);
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px 20px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -52,50 +56,50 @@
         /* --- Header --- */
         header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 10px;
             z-index: 2;
-            animation: fadeInDown 0.8s ease-out;
+            animation: snapDown 0.8s var(--ease-snappy);
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         .logo-box {
-            width: 64px;
-            height: 64px;
-            background: #fff;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-card);
-            border: 1px solid white;
+             width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s var(--ease-snappy);}
+        
+        .logo-box:hover {
+            transform: rotate(1deg) scale(1.1);
         }
 
         .logo-box img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 16px;
+            border-radius: 12px;
         }
 
         h1 {
             margin: 0;
-            font-size: 32px;
+            font-size: 26px;
             font-weight: 700;
             letter-spacing: -0.02em;
             color: var(--text-primary);
         }
 
         .subtitle {
-            font-size: 13px;
+            font-size: 11px;
             color: var(--text-secondary);
             font-weight: 500;
             text-transform: uppercase;
@@ -108,7 +112,7 @@
             flex-direction: column;
             width: 100%;
             max-width: 1100px;
-            gap: 60px;
+            gap: 30px;
             z-index: 2;
             flex-grow: 1;
         }
@@ -116,7 +120,7 @@
         .market-section {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 16px;
             width: 100%;
         }
 
@@ -125,12 +129,12 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            padding-bottom: 12px;
-            margin-bottom: 10px;
+            padding-bottom: 8px;
+            margin-bottom: 5px;
         }
 
         .section-title {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 800;
             color: var(--text-primary);
             letter-spacing: 0.05em;
@@ -141,14 +145,14 @@
             width: 100%;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
-            margin: 10px 0;
+            margin: 5px 0;
         }
 
         /* --- Grid Layout --- */
         .journal-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
             width: 100%;
         }
 
@@ -157,27 +161,61 @@
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.9);
-            border-radius: 24px;
-            padding: 32px;
+            border-radius: 20px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 320px;
+            height: 260px; 
             text-decoration: none;
             color: var(--text-primary);
             box-shadow: var(--shadow-card);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Snappy Transition for Hover */
+            transition: all 0.4s var(--ease-snappy);
+            
             position: relative;
             overflow: hidden;
             text-align: center;
+            
+            /* Initial State for Entrance Animation */
+            opacity: 0;
+            transform: scale(0.8) translateY(40px); /* Start small and lower */
+            /* The Snap Scale Up Entrance */
+            animation: snapPopIn 0.7s var(--ease-snappy) forwards;
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            /* Scale Up + Slight Lift for Snappiness */
+            transform: translateY(-10px) scale(1.05);
             box-shadow: var(--shadow-hover);
             background: rgba(255, 255, 255, 0.95);
             border-color: var(--accent-blue);
+            cursor: pointer;
+            z-index: 10; /* Bring to front on hover */
+        }
+
+        /* Clicked State Animation Class */
+        .card.card-clicked {
+            /* Run the click animation once, then stay at the final state (opacity 1) */
+            animation: clickEffect 0.5s var(--ease-snappy) forwards !important;
+            border-color: var(--status-green);
+        }
+
+        @keyframes clickEffect {
+            0% { 
+                transform: scale(1.05); /* Start from hover state */
+            }
+            40% { 
+                transform: scale(0.95); /* Press down / Shrink */
+                opacity: 0.8; 
+            }
+            100% { 
+                transform: scale(1); /* Spring back to normal size */
+                opacity: 1; /* Stay fully visible */
+                filter: none;
+            }
         }
 
         .card::before {
@@ -187,30 +225,30 @@
             left: 50%;
             transform: translateX(-50%);
             width: 40%;
-            height: 4px;
+            height: 3px;
             background: var(--text-secondary);
             border-radius: 0 0 4px 4px;
             opacity: 0.2;
-            transition: 0.3s;
+            transition: 0.4s var(--ease-snappy);
         }
         .card:hover::before {
             background: var(--accent-blue);
             opacity: 1;
-            width: 60%;
+            width: 80%; /* Wider blue bar on hover */
         }
 
         /* Status Dot */
         .status-dot {
             position: absolute;
-            top: 24px;
-            right: 24px;
-            width: 10px;
-            height: 10px;
+            top: 20px;
+            right: 20px;
+            width: 8px;
+            height: 8px;
             background-color: var(--status-green);
             border-radius: 50%;
             box-shadow: 0 0 0 2px rgba(255,255,255,0.5), 0 0 8px rgba(16, 185, 129, 0.6);
             z-index: 5;
-            animation: blink 1s infinite ease-in-out;
+            animation: blink 2s infinite ease-in-out;
         }
 
         @keyframes blink {
@@ -220,20 +258,20 @@
 
         /* Date Section */
         .card-month {
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             color: var(--text-primary);
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .card-year {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-secondary);
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         /* Meta Info (Professional Stacked) */
@@ -241,12 +279,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px; /* Tight gap */
-            margin-bottom: 30px;
+            gap: 4px;
+            margin-bottom: 20px;
         }
 
         .meta-type {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 700;
             color: var(--text-primary);
             text-transform: uppercase;
@@ -257,13 +295,14 @@
             font-size: 9px;
             font-weight: 600;
             text-transform: uppercase;
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 3px 8px;
+            border-radius: 6px;
             letter-spacing: 0.5px;
             background: rgba(241, 245, 249, 0.8);
             color: var(--text-secondary);
             border: 1px solid rgba(0,0,0,0.05);
             opacity: 0.9;
+            transition: 0.3s;
         }
         
         .card:hover .meta-badge {
@@ -278,12 +317,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             margin-top: auto; 
         }
 
         .brand-label {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -293,22 +332,28 @@
         .brand-logo-row {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: #fff;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 50px;
             border: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: 0.3s var(--ease-snappy);
+        }
+        
+        .card:hover .brand-logo-row {
+             transform: scale(1.1);
+             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .brand-logo-img {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             object-fit: contain;
         }
 
         .brand-name {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 700;
             color: var(--text-primary);
             letter-spacing: -0.02em;
@@ -318,55 +363,58 @@
         .empty-state {
             text-align: center;
             color: var(--text-secondary);
-            margin-top: 20px;
+            margin-top: 10px;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 13px;
             background: rgba(255,255,255,0.3);
-            padding: 30px;
+            padding: 15px;
             border-radius: 12px;
             border: 1px dashed rgba(0,0,0,0.1);
             width: 100%;
             box-sizing: border-box;
+            animation: snapPopIn 0.8s var(--ease-snappy);
         }
 
         /* --- Footer Styles --- */
         .page-footer {
-            margin-top: 60px;
-            padding: 24px 40px;
+            margin-top: 30px;
+            padding: 15px 30px;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
+            border-radius: 16px;
             box-shadow: var(--shadow-card);
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 20px;
             z-index: 2;
-            transition: 0.3s;
+            transition: 0.3s var(--ease-snappy);
+            animation: snapPopIn 1s var(--ease-snappy);
         }
 
         .page-footer:hover {
             background: rgba(255, 255, 255, 0.9);
             box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
         }
 
         .footer-brand {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding-right: 32px;
+            gap: 8px;
+            padding-right: 20px;
             border-right: 1px solid rgba(0,0,0,0.08);
         }
 
         .footer-logo {
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
             object-fit: contain;
-            border-radius: 8px;
+            border-radius: 6px;
         }
 
         .footer-text {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 700;
             color: var(--text-primary);
             letter-spacing: -0.02em;
@@ -375,32 +423,46 @@
         .social-links {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         .social-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: #fff;
             color: var(--text-secondary);
             border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.2s;
+            transition: all 0.3s var(--ease-snappy);
             text-decoration: none;
         }
 
-        .social-icon:hover {
+.social-icon:hover {
+            transform: translateY(-1px) scale(1.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            background-color: #fff; /* White background on hover makes colors pop */
+        }
+.social-icon:hover svg {
+            transform:scale(1.1);}
+
+        .social-icon.telegram:hover {
             color: var(--accent-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .social-icon.twitter:hover {
+            color: #000000;
+        }
+
+        .social-icon.youtube:hover {
+            color: #FF0000;
         }
 
         .social-icon svg {
-            width: 18px;
-            height: 18px;
+            width: 14px;
+            height: 14px;
             fill: currentColor;
         }
 
@@ -411,15 +473,15 @@
             }
             .page-footer {
                 flex-direction: column;
-                gap: 16px;
-                padding: 20px;
+                gap: 12px;
+                padding: 15px;
                 width: 90%;
             }
             .footer-brand {
                 border-right: none;
                 border-bottom: 1px solid rgba(0,0,0,0.08);
                 padding-right: 0;
-                padding-bottom: 16px;
+                padding-bottom: 12px;
                 width: 100%;
                 justify-content: center;
             }
@@ -432,90 +494,119 @@
             filter: blur(80px);
             z-index: 0;
             opacity: 0.6;
+            animation: floatBlob 10s infinite ease-in-out alternate;
         }
         .blob-1 { 
-            width: 600px; height: 600px; 
-            top: -150px; left: -150px; 
+            width: 500px; height: 500px; 
+            top: -200px; left: -200px; 
             background: radial-gradient(circle, rgba(200, 210, 255, 0.4) 0%, rgba(255,255,255,0) 70%); 
         }
         .blob-2 { 
-            width: 500px; height: 500px; 
-            bottom: -100px; right: -100px; 
+            width: 400px; height: 400px; 
+            bottom: -150px; right: -150px; 
             background: radial-gradient(circle, rgba(200, 255, 230, 0.3) 0%, rgba(255,255,255,0) 70%); 
+            animation-delay: 5s;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Keyframes for the "Snap" effect */
+        @keyframes snapDown {
+            from { opacity: 0; transform: translateY(-50px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
+        @keyframes snapPopIn {
+            0% { 
+                opacity: 0; 
+                transform: scale(0.6) translateY(40px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) translateY(0); 
+            }
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 50px); }
+        }
+@media (max-width: 768px) {
+    .journal-grid{    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    gap: 15px;
+    width: 100%;
+    align-self: center;}
+
+    .brand-name{    font-size: 8px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;}
+
+    .brand-logo-img{
+            width: 15px;
+    height: 15px;
+    object-fit: contain;
+    }
+    .card{height: 200px;}
+    .brand-label{font-size: 6px;}
+    .card-month{font-size: 25px;}
+    .card-year{font-size: 8px;}
+}
     </style>
 </head>
 <body>
 
-    <!-- Background Ambience -->
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
 
     <header>
         <div class="logo-area">
             <div class="logo-box">
-                <img src="RI.png" alt="RI">
+                    <a href="https://robininsights.github.io" style="text-decoration: none;"><img src="RI.png" alt="RI" onerror="this.style.display='none'; this.parentNode.innerText='RI'"></a>
             </div>
-            <h1>Robin Insights</h1>
+                 <a href="https://robininsights.github.io" style="text-decoration: none;"><h1>Robin Insights</h1></a>
         </div>
         <div class="subtitle">Trading Journals</div>
     </header>
 
     <div class="dashboard-layout">
         
-        <!-- Top Section: Futures -->
         <div class="market-section">
             <div class="section-header">
                 <span class="section-title">Futures</span>
             </div>
             <div class="journal-grid" id="futuresGrid">
-                <!-- Futures Cards -->
-            </div>
+                </div>
             <div id="futuresEmpty" class="empty-state" style="display:none;">No Futures journals found.</div>
         </div>
 
-        <!-- Horizontal Divider -->
         <div class="section-divider"></div>
 
-        <!-- Bottom Section: Spot -->
         <div class="market-section">
             <div class="section-header">
                 <span class="section-title">Spot</span>
             </div>
             <div class="journal-grid" id="spotGrid">
-                <!-- Spot Cards -->
-            </div>
+                </div>
             <div id="spotEmpty" class="empty-state" style="display:none;">No Spot journals found.</div>
         </div>
 
     </div>
 
-    <!-- Page Footer with Socials -->
     <footer class="page-footer">
         <div class="footer-brand">
             <img src="RI.png" alt="RI" class="footer-logo" onerror="this.style.display='none';">
             <span class="footer-text">Robin Insights</span>
         </div>
         <div class="social-links">
-            <!-- Telegram Icon -->
-            <a href="#" class="social-icon" title="Telegram">
+                        <a href="https://t.me/robininsight1" class="social-icon telegram" title="Telegram">
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
             </a>
-            <!-- X (Twitter) Icon -->
-            <a href="#" class="social-icon" title="X / Twitter">
+            <a href="https://x.com/RobinInsig56614" class="social-icon twitter" title="X / Twitter">
                 <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <!-- Discord Icon -->
-            <a href="#" class="social-icon" title="Discord">
-                <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/></svg>
-            </a>
-        </div>
+            <a href="https://www.youtube.com/@robininsight" class="social-icon youtube" title="YouTube">
+            <svg viewBox="0 0 32 32"><path d="M29.41,9.26a3.5,3.5,0,0,0-2.47-2.47C24.76,6.2,16,6.2,16,6.2s-8.76,0-10.94.59A3.5,3.5,0,0,0,2.59,9.26,36.13,36.13,0,0,0,2,16a36.13,36.13,0,0,0,.59,6.74,3.5,3.5,0,0,0,2.47,2.47C7.24,25.8,16,25.8,16,25.8s8.76,0,10.94-.59a3.5,3.5,0,0,0,2.47-2.47A36.13,36.13,0,0,0,30,16,36.13,36.13,0,0,0,29.41,9.26ZM13.2,20.2V11.8L20.47,16Z"/><rect style="fill: none;"/></svg></a>
+</div>
     </footer>
 
     <script>
@@ -547,8 +638,7 @@
                 let currentSection = null; // 'FUTURE' | 'SPOT'
 
                 lines.forEach(line => {
-                    // Check Section Headers (Flexible matching) — ensure we don't mistake filenames for headers
-                    // Filenames/entries start with digits (e.g. "1.01/25 = ..."), header lines do not start with a digit.
+                    // Check Section Headers
                     if (line.toUpperCase().includes('FUTURE') && !/^\d/.test(line)) {
                         currentSection = 'FUTURE';
                         return;
@@ -559,8 +649,6 @@
                     }
 
                     // Parse Entries "1.01/25 = filename.html"
-                    // Strict check: must start with number (e.g. 1.01/25 or 1.01/25)
-                    // Updated Regex to be more permissive: Starts with digits
                     if (line.includes('=') && /^\d/.test(line)) {
                         const parts = line.split('=');
                         if (parts.length < 2) return;
@@ -618,10 +706,28 @@
                 return monthOrder[b.month] - monthOrder[a.month];
             });
 
-            data.forEach(item => {
+            data.forEach((item, index) => {
                 const card = document.createElement('a');
                 card.href = item.link;
                 card.className = 'card';
+                
+                // Add Staggered Animation Delay for the "Snap Scale Up" effect
+                card.style.animationDelay = `${index * 0.08}s`;
+
+                // Add Click Event Listener for Animation + Delay
+                card.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent immediate redirect
+                    const targetLink = this.getAttribute('href');
+
+                    // Add the 'clicked' class to trigger CSS animation
+                    // This class is removed after redirection (if user comes back) or handled by page reload
+                    this.classList.add('card-clicked');
+
+                    // Wait 1 second before redirecting
+                    setTimeout(() => {
+                        window.location.href = targetLink;
+                    }, 250);
+                });
                 
                 card.innerHTML = `
                     <div class="status-dot"></div>
@@ -654,4 +760,3 @@
     </script>
 </body>
 </html>
-
