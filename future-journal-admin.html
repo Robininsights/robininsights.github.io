@@ -23,9 +23,11 @@
     
     <style>
         :root {
+            /* Light Theme Defaults */
             --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
             --bg-panel: rgba(255, 255, 255, 0.75);
             --bg-header: rgba(255, 255, 255, 0.85);
+            --bg-selector: #fff;
             --bg-hover: rgba(0, 0, 0, 0.03);
             --border-color: rgba(0, 0, 0, 0.08);
             --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.1);
@@ -34,8 +36,35 @@
             --color-up: #059669;
             --color-down: #dc2626;
             --accent-blue: #2563eb;
+            --th-bg: #d7d7d7;
+            --th-text: #000000;
+            --row-even: rgba(255, 255, 255, 0.3);
+            --row-odd: transparent;
+            --sl-bg: rgba(239, 68, 68, 0.15);
             --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-data: 'JetBrains Mono', monospace;
+            --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* Dark Theme Overrides */
+        [data-theme="dark"] {
+            --bg-app: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --bg-panel: rgba(30, 41, 59, 0.85);
+            --bg-header: rgba(30, 41, 59, 0.95);
+            --bg-selector: #334155;
+            --bg-hover: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --color-up: #34d399;
+            --color-down: #f87171;
+            --accent-blue: #60a5fa;
+            --th-bg: #334155;
+            --th-text: #f1f5f9;
+            --row-even: rgba(255, 255, 255, 0.03);
+            --row-odd: transparent;
+            --sl-bg: rgba(239, 68, 68, 0.25);
         }
 
         body {
@@ -49,6 +78,7 @@
             justify-content: center;
             align-items: flex-start;
             -webkit-font-smoothing: antialiased;
+            transition: background 0.3s ease;
         }
 
         .workspace {
@@ -66,6 +96,7 @@
             position: relative;
             min-height: auto;
             margin-bottom: 20px;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         header {
@@ -75,7 +106,8 @@
             padding: 12px 20px;
             border-bottom: 1px solid var(--border-color);
             background: var(--bg-header);
-            position: relative; 
+            position: relative;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .brand-area {
@@ -129,6 +161,70 @@
             z-index: 1;
         }
 
+        /* Theme Toggle Button - Expanded Logic */
+        .theme-toggle-container {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            border-radius: 20px;
+            padding: 0;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-snappy);
+            position: relative;
+            width: 32px;
+            height: 32px;
+            border: 1px solid transparent;
+        }
+
+        .theme-toggle-container:hover {
+            background: var(--bg-selector);
+            border-color: var(--border-color);
+        }
+
+        /* Expanded State Class */
+        .theme-toggle-container.expanded {
+            width: 110px; 
+            background: var(--bg-selector);
+            padding-right: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-icon-wrapper {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--text-secondary);
+        }
+
+        .theme-text {
+            white-space: nowrap;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s var(--ease-snappy);
+            pointer-events: none;
+        }
+
+        /* Show text when expanded */
+        .theme-toggle-container.expanded .theme-text {
+            opacity: 1;
+            transform: translateX(0);
+            margin-left: 4px;
+        }
+
+        .theme-toggle-container.expanded .theme-icon-wrapper {
+            color: var(--accent-blue);
+        }
+
+        .theme-icon-wrapper .material-icons-round { font-size: 20px; }
+
         .controls {
             display: flex;
             align-items: center;
@@ -140,7 +236,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            background: #fff;
+            background: var(--bg-selector);
             border: 1px solid var(--border-color);
             padding: 4px 10px;
             border-radius: 8px;
@@ -169,7 +265,7 @@
 
         input:focus, select:focus {
             border-color: var(--accent-blue);
-            background: rgba(255, 255, 255, 0.5);
+            background: var(--bg-selector);
             border-radius: 4px;
         }
         
@@ -186,7 +282,7 @@
         }
         
         .header-year { width: 45px; }
-        .header-select option { background: #fff; color: var(--text-primary); }
+        .header-select option { background: var(--bg-selector); color: var(--text-primary); }
 
         .btn-action {
             display: flex;
@@ -195,7 +291,7 @@
             padding: 6px 12px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
-            background: #fff;
+            background: var(--bg-selector);
             color: var(--text-primary);
             cursor: pointer;
             font-size: 11px;
@@ -223,7 +319,7 @@
 
         .grid-container {
             width: 100%;
-            background: rgba(255, 255, 255, 0.4);
+            background: transparent;
         }
 
         table {
@@ -233,7 +329,7 @@
         }
 
         thead {
-            background: rgba(255, 255, 255, 0.5);
+            background: var(--bg-header);
             backdrop-filter: blur(5px);
         }
 
@@ -242,7 +338,7 @@
     padding: 8px 4px;
     font-size: 11px;
     text-transform: uppercase;
-    color: #000000;
+    color: var(--th-text);
     font-weight: 700;
     letter-spacing: 0.5px;
     border-bottom: 1px solid var(--border-color);
@@ -250,7 +346,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    background: #d7d7d7;        }
+    background: var(--th-bg);        }
         
         th:last-child { border-right: none; }
 
@@ -261,7 +357,10 @@
         }
 
         tbody tr:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.3); 
+            background-color: var(--row-even); 
+        }
+        tbody tr:nth-child(odd) {
+            background-color: var(--row-odd);
         }
 
         td {
@@ -294,11 +393,11 @@
             font-weight: 500;
         }
         
-        td select option { background: #fff; color: var(--text-primary); }
+        td select option { background: var(--bg-selector); color: var(--text-primary); }
 
         td input:focus, td select:focus {
             box-shadow: inset 0 0 0 2px var(--accent-blue);
-            background: #fff;
+            background: var(--bg-selector);
             z-index: 2;
             position: relative;
         }
@@ -317,7 +416,7 @@
         }
         
         .cell-sl { 
-            background-color: rgba(239, 68, 68, 0.15); 
+            background-color: var(--sl-bg); 
             color: var(--color-down) !important; 
             font-weight: 600; 
         }
@@ -347,9 +446,9 @@
             min-width: 500px;
             max-width: 95%;
             
-            background: rgba(255, 255, 255, 0.85);
+            background: var(--bg-panel);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--border-color);
             border-radius: 16px;
             box-shadow: 0 10px 30px -5px rgba(0,0,0,0.08);
             padding: 12px 24px;
@@ -359,6 +458,7 @@
             align-items: center;
             gap: 30px;
             position: relative;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .footer-branding {
@@ -393,7 +493,7 @@
 
         .footer-disclaimer {
               font-size: 10px;
-    color: #000000;
+    color: var(--text-primary);
     font-weight: 800;
     margin-top: 4px;
     opacity: 1;}
@@ -438,7 +538,7 @@
             display: flex;
             flex-direction: column;
             padding: 4px 10px;
-            background: #fff;
+            background: var(--bg-selector);
             border: 1px solid var(--border-color);
             border-radius: 6px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.02);
@@ -475,7 +575,7 @@
 
         .context-menu {
             position: absolute;
-            background: #fff;
+            background: var(--bg-selector);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -511,10 +611,10 @@
             transition: 0.1s;
         }
 
-        .menu-item:hover { background: #f1f5f9; }
+        .menu-item:hover { background: var(--bg-hover); }
 
         .menu-item .material-icons-round { font-size: 18px; color: var(--text-secondary); }
-        .menu-item.delete:hover { color: var(--color-down); background: #fef2f2; }
+        .menu-item.delete:hover { color: var(--color-down); background: rgba(239, 68, 68, 0.1); }
         .menu-item.delete:hover .material-icons-round { color: var(--color-down); }
         .color-picker-row {
             display: flex;
@@ -547,11 +647,15 @@
             visibility: hidden;
             transition: 0.2s;
         }
+        
+        [data-theme="dark"] .modal-overlay {
+            background: rgba(0,0,0,0.6);
+        }
 
         .modal-overlay.active { opacity: 1; visibility: visible; }
 
         .modal-box {
-            background: #fff;
+            background: var(--bg-panel);
             border: 1px solid var(--border-color);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
             border-radius: 16px;
@@ -593,16 +697,17 @@
         }
 
         .form-group input, .form-group select {
-            background: #f8fafc;
+            background: var(--bg-selector);
             border: 1px solid var(--border-color);
             padding: 10px;
             border-radius: 8px;
             text-align: left;
             font-size: 14px;
+            color: var(--text-primary);
         }
         
         .form-group input:focus, .form-group select:focus {
-            background: #fff;
+            background: var(--bg-selector);
             border-color: var(--accent-blue);
         }
         
@@ -623,7 +728,7 @@
         }
 
         .control-pill {
-            background: #fff;
+            background: var(--bg-selector);
             padding: 8px 16px;
             border-radius: 50px;
             border: 1px solid var(--border-color);
@@ -639,12 +744,12 @@
         }
         .control-pill:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
         
-        .sync-icon { font-size: 16px; color: var(--status-green); animation: spin 2s linear infinite; display: none; }
+        .sync-icon { font-size: 16px; color: var(--color-up); animation: spin 2s linear infinite; display: none; }
         .sync-icon.active { display: block; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
         @media (max-width: 768px) {
             body { padding: 4px; }
-            .workspace { width: 100%; border: none; box-shadow: none; border-radius: 0; backdrop-filter: none; background: #fff; }
+            .workspace { width: 100%; border: none; box-shadow: none; border-radius: 0; backdrop-filter: none; background: var(--bg-selector); }
             
             th { font-size: 9px; padding: 4px 1px; }
             td input, td select { font-size: 10px; padding: 0; height: 32px; }
@@ -700,6 +805,14 @@
             </div>
 
             <div class="controls">
+                <!-- Theme Toggle -->
+                <div class="theme-toggle-container" id="themeToggleContainer" onclick="toggleTheme()" title="Toggle Theme">
+                    <div class="theme-icon-wrapper">
+                        <span class="material-icons-round" id="themeIcon">wb_sunny</span>
+                    </div>
+                    <span class="theme-text" id="themeText">Light Mode</span>
+                </div>
+
                 <div class="date-group">
                     <select class="header-select" id="monthInput" onchange="loadData()">
                         <option value="January">January</option>
@@ -719,7 +832,7 @@
                     <input type="text" class="header-year" id="yearInput" value="2025" oninput="loadData()">
                 </div>
                 
-                <button class="btn-action" onclick="exportHTML()">
+                <button class="btn-action" onclick="exportData()">
                     <span class="material-icons-round" style="font-size:18px;">file_download</span> Export
                 </button>
             </div>
@@ -743,7 +856,7 @@
             </table>
         </div>
 
-        <div style="padding: 12px 24px; background: rgba(255,255,255,0.4); border-bottom: 1px solid var(--border-color); display: flex; justify-content: flex-end;">
+        <div style="padding: 12px 24px; background: var(--bg-panel); border-bottom: 1px solid var(--border-color); display: flex; justify-content: flex-end;">
             <button class="btn-action btn-primary" onclick="openModal()">
                 <span class="material-icons-round" style="font-size:18px;">add</span> Add Trade
             </button>
@@ -782,6 +895,7 @@
         </footer>
     </div>
 
+    <!-- Context Menu, Modal, Controls etc... same structure -->
     <div id="rowMenu" class="context-menu">
         <div class="menu-header">Highlight Row</div>
         <div class="color-picker-row" id="colorPickerRow">
@@ -862,7 +976,7 @@
         let app, auth, db, user;
         let activeRowIndex = -1;
         window.loadData = loadData;
-        window.exportHTML = exportHTML;
+        window.exportData = exportData;
         window.openModal = openModal;
         window.closeModal = closeModal;
         window.addTrade = addTrade;
@@ -870,6 +984,60 @@
         window.openMenu = openMenu;
         window.menuAction = menuAction;
         window.manualSync = manualSync;
+        
+        // Theme Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('themechoice');
+            let themeName = 'Light Mode';
+            
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('themeIcon').textContent = 'dark_mode';
+                themeName = 'Dark Mode';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                document.getElementById('themeIcon').textContent = 'wb_sunny';
+                themeName = 'Light Mode';
+            }
+            
+            const toggleContainer = document.getElementById('themeToggleContainer');
+            const themeText = document.getElementById('themeText');
+            themeText.textContent = themeName;
+            
+            requestAnimationFrame(() => {
+                toggleContainer.classList.add('expanded');
+                setTimeout(() => {
+                    toggleContainer.classList.remove('expanded');
+                }, 1000);
+            });
+        });
+
+        window.toggleTheme = function() {
+            const current = document.documentElement.getAttribute('data-theme');
+            let newThemeName = '';
+            
+            if (current === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('themechoice', '');
+                document.getElementById('themeIcon').textContent = 'wb_sunny';
+                newThemeName = 'Light Mode';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('themechoice', 'dark');
+                document.getElementById('themeIcon').textContent = 'dark_mode';
+                newThemeName = 'Dark Mode';
+            }
+            
+            const toggleContainer = document.getElementById('themeToggleContainer');
+            const themeText = document.getElementById('themeText');
+            themeText.textContent = newThemeName;
+            
+            toggleContainer.classList.add('expanded');
+            setTimeout(() => {
+                toggleContainer.classList.remove('expanded');
+            }, 1000);
+        };
+
         const rowDefColors = [
             'rgba(16, 185, 129, 0.15)', // Green
             'rgba(239, 68, 68, 0.15)',  // Red
@@ -921,6 +1089,8 @@
             }
         }
 
+        // ... [Rest of the existing logic: getKey, loadData, render, etc. kept as is] ...
+        
         function getKey() {
             const m = document.getElementById('monthInput').value || 'Default';
             const y = document.getElementById('yearInput').value || '2025';
@@ -1249,61 +1419,37 @@
             cntP.value = tpCount > 0 ? `(${tpCount} TP)` : '';
             cntL.value = slCount > 0 ? `(${slCount} SL)` : '';
         }
-        function exportHTML() {
-            const clone = document.documentElement.cloneNode(true);
-            clone.querySelectorAll('script').forEach(e => e.remove());
-            clone.querySelectorAll('.btn-action, .btn-menu, .modal-overlay, .context-menu, .col-action, .sync-btn-container, .floating-controls').forEach(e => e.remove());
-            const originals = document.querySelectorAll('input, select');
-            const clones = clone.querySelectorAll('input, select');
-            for (let i = 0; i < clones.length; i++) {
-                const orig = originals[i];
-                const el = clones[i];
-                if (el.id === 'monthInput') {
-                    el.removeAttribute('onchange'); 
-                    el.setAttribute('onchange', `window.location.href="RI_Journal_Future_"+this.value+"_${document.getElementById('yearInput').value}.html"`);
-                    const opts = el.querySelectorAll('option');
-                    opts.forEach(opt => {
-                        if(opt.value === orig.value) opt.setAttribute('selected', 'selected');
-                        else opt.removeAttribute('selected');
-                    });
-                    continue; 
-                }
-                const span = document.createElement('span');
-                let text = '';
-                if (orig.tagName === 'SELECT') {
-                    if (orig.selectedIndex >= 0) {
-                        text = orig.options[orig.selectedIndex].text;
-                    }
-                } else {
-                     text = orig.value;
-                }
-                if (text === '' || text === null) text = '-';
 
-                span.textContent = text;
-                const computed = getComputedStyle(orig);
-                span.className = orig.className;
-                span.style.color = computed.color;
-                span.style.fontFamily = computed.fontFamily;
-                span.style.fontSize = computed.fontSize;
-                span.style.fontWeight = computed.fontWeight;
-                span.style.display = 'flex'; 
-                span.style.alignItems = 'center';
-                span.style.justifyContent = 'center';
-                span.style.width = '100%';
-                span.style.height = '31px';
-                span.style.padding = '0 4px'; 
-                span.style.boxSizing = 'border-box';
-                span.style.backgroundColor = computed.backgroundColor;
-                el.parentNode.replaceChild(span, el);
-            }
-            clone.querySelectorAll('th.col-action, td.col-action').forEach(el => el.remove());
-            const month = document.getElementById('monthInput').value;
-            const blob = new Blob([`<!DOCTYPE html>${clone.outerHTML}`], {type: 'text/html'});
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = `RI_Journal_Future_${month}_${document.getElementById('yearInput').value}.html`;
-            link.click();
+        function getMonthNumber(monthName) {
+            const months = {
+                'January': '01', 'February': '02', 'March': '03', 'April': '04',
+                'May': '05', 'June': '06', 'July': '07', 'August': '08',
+                'September': '09', 'October': '10', 'November': '11', 'December': '12'
+            };
+            return months[monthName] || '00';
         }
+
+        function exportData() {
+            const monthName = document.getElementById('monthInput').value;
+            const fullYear = document.getElementById('yearInput').value;
+            const mm = getMonthNumber(monthName);
+            const yy = fullYear.slice(-2);
+            
+            const filename = `RI_monthdata_future_${mm}_${yy}.data`;
+            
+            // We export the raw 'trades' array as a JSON string
+            const dataStr = JSON.stringify(trades, null, 2);
+            const blob = new Blob([dataStr], { type: "text/plain;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
         const savedM = localStorage.getItem('RI_Last_Month');
         const savedY = localStorage.getItem('RI_Last_Year');
         if (savedM) document.getElementById('monthInput').value = savedM;
