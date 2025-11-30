@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Page Not Found | Robin Insights</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,14 +10,36 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         :root {
+            /* Light Theme Defaults */
             --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
+            --bg-panel: rgba(255, 255, 255, 0.65);
+            --bg-selector: #fff;
             --text-primary: #1e293b;
             --text-secondary: #64748b;
             --accent-blue: #2563eb;
+            --border-color: rgba(255, 255, 255, 0.8);
             --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
             --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --font-ui: 'Inter', sans-serif;
+            --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* Dark Theme Overrides */
+        [data-theme="dark"] {
+            --bg-app: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --bg-panel: rgba(30, 41, 59, 0.75);
+            --bg-selector: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-blue: #60a5fa;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-card: 0 10px 30px -5px rgba(0,0,0,0.3);
+            --shadow-hover: 0 20px 40px -5px rgba(0,0,0,0.4);
         }
 
         body {
@@ -26,20 +48,88 @@
             font-family: var(--font-ui);
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 100dvh; /* Dynamic Viewport Height for mobile browsers */
+            width: 100vw;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Prevent scroll on 404 */
+            overflow: hidden; /* Strictly prevent scrolling */
             position: relative;
+            transition: background 0.3s ease;
         }
 
+        /* Theme Toggle Button - Expanded Logic */
+        .theme-toggle-container {
+            display: flex;
+            align-items: center;
+            background: var(--bg-panel);
+            border-radius: 20px; /* Pill shape */
+            padding: 0;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-snappy);
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 32px; /* Collapsed width */
+            height: 32px;
+            z-index: 100;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+        }
+
+        .theme-toggle-container:hover {
+            background: var(--bg-selector);
+        }
+
+        /* Expanded State Class */
+        .theme-toggle-container.expanded {
+            width: 110px; /* Width to fit text */
+            background: var(--bg-selector);
+            padding-right: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .theme-icon-wrapper {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--text-secondary);
+        }
+
+        .theme-text {
+            white-space: nowrap;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s var(--ease-snappy);
+            pointer-events: none;
+        }
+
+        /* Show text when expanded */
+        .theme-toggle-container.expanded .theme-text {
+            opacity: 1;
+            transform: translateX(0);
+            margin-left: 4px;
+        }
+
+        .theme-toggle-container.expanded .theme-icon-wrapper {
+            color: var(--accent-blue);
+        }
+
+        .theme-icon-wrapper .material-icons-round { font-size: 20px; }
+
         .error-card {
-            background: rgba(255, 255, 255, 0.65);
+            background: var(--bg-panel);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--border-color);
             border-radius: 32px;
             padding: 50px 40px;
             text-align: center;
@@ -47,21 +137,24 @@
             z-index: 10;
             max-width: 500px;
             width: 90%;
-            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            /* Flex layout to ensuring centering */
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 20px;
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
         .brand-logo-container {
-                width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
-    animation: floatLogo 6s ease-in-out infinite;}
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            animation: floatLogo 6s ease-in-out infinite;
+        }
 
         .brand-logo-container img {
             width: 100%;
@@ -92,7 +185,7 @@
             width: 42px;
             height: 42px;
             border-radius: 50%;
-            background: #fff;
+            background: var(--bg-selector);
             color: var(--text-secondary);
             border: 1px solid rgba(0,0,0,0.05);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -111,17 +204,20 @@
             color: #FF0000;
             transform: translateY(-4px);
             box-shadow: var(--shadow-hover);
-            background: #fff5f5;
+            background: var(--bg-panel);
         }
         
         .social-icon:hover svg {
             transform: scale(1.15);
         }
         .social-icon:nth-child(1):hover { color: #229ED9; background: #f0f9ff; } /* Telegram */
-        .social-icon:nth-child(2):hover { color: #000000; background: #f8fafc; } /* X */
+        .social-icon:nth-child(2):hover { color: var(--text-primary); background: #f8fafc; } /* X */
         .social-icon:nth-child(1) { animation: slideUp 0.5s ease-out 0.2s backwards; }
         .social-icon:nth-child(2) { animation: slideUp 0.5s ease-out 0.3s backwards; }
         .social-icon:nth-child(3) { animation: slideUp 0.5s ease-out 0.4s backwards; }
+
+        [data-theme="dark"] .social-icon:nth-child(1):hover { background: rgba(34, 158, 217, 0.2); }
+        [data-theme="dark"] .social-icon:nth-child(2):hover { background: rgba(255, 255, 255, 0.1); }
 
         h2 {
             font-size: 20px;
@@ -195,6 +291,14 @@
             background: radial-gradient(circle, rgba(200, 255, 230, 0.4) 0%, rgba(255,255,255,0) 70%);
             animation-delay: -5s;
         }
+
+        [data-theme="dark"] .blob-1 {
+            background: radial-gradient(circle, rgba(30, 58, 138, 0.4) 0%, rgba(15, 23, 42, 0) 70%);
+        }
+        [data-theme="dark"] .blob-2 {
+            background: radial-gradient(circle, rgba(6, 78, 59, 0.3) 0%, rgba(15, 23, 42, 0) 70%);
+        }
+
         @keyframes popIn {
             0% { opacity: 0; transform: scale(0.9) translateY(20px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
@@ -215,14 +319,61 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* --- Mobile Optimizations (Strict Fit) --- */
         @media (max-width: 600px) {
-            .error-card { padding: 40px 24px; width: 85%; }
+            .error-card { 
+                padding: 25px 20px; 
+                width: 90%; 
+                max-width: none;
+                gap: 12px;
+                border-radius: 24px;
+            }
+
+            h1 { font-size: 22px; } 
+            p { font-size: 13px; max-width: 100%; line-height: 1.4; }
+            h2 { font-size: 12px; margin-bottom: 4px; }
+
+            .brand-logo-container { width: 50px; height: 50px; margin-bottom: 4px; }
+            .social-row { margin: 8px 0 15px 0; gap: 12px; }
+            .social-icon { width: 34px; height: 34px; }
+            .social-icon svg { width: 16px; height: 16px; }
+            
+            .back-btn { 
+                padding: 12px 24px; 
+                font-size: 13px; 
+                margin-top: 5px;
+            }
+
+            /* Optimized Theme Toggle for Mobile */
+            .theme-toggle-container {
+                top: 15px;
+                right: 15px;
+                transform: scale(0.85); /* Make it smaller */
+                transform-origin: top right;
+            }
+            
+            .theme-toggle-container.expanded {
+                width: 105px; /* Tighter width */
+            }
+            
+            .theme-text {
+                font-size: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
+
+    <!-- Expanding Theme Toggle -->
+    <div class="theme-toggle-container" id="themeToggleContainer" onclick="toggleTheme()" title="Toggle Theme">
+        <div class="theme-icon-wrapper">
+            <span class="material-icons-round" id="themeIcon">wb_sunny</span>
+        </div>
+        <span class="theme-text" id="themeText">Light Mode</span>
+    </div>
+
     <div class="error-card">
         
         <div class="brand-logo-container">
@@ -251,6 +402,58 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('themechoice');
+            let themeName = 'Light Mode';
+            
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('themeIcon').textContent = 'dark_mode';
+                themeName = 'Dark Mode';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                document.getElementById('themeIcon').textContent = 'wb_sunny';
+                themeName = 'Light Mode';
+            }
+            
+            const toggleContainer = document.getElementById('themeToggleContainer');
+            const themeText = document.getElementById('themeText');
+            themeText.textContent = themeName;
+            
+            requestAnimationFrame(() => {
+                toggleContainer.classList.add('expanded');
+                setTimeout(() => {
+                    toggleContainer.classList.remove('expanded');
+                }, 1000);
+            });
+        });
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            let newThemeName = '';
+            
+            if (current === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('themechoice', '');
+                document.getElementById('themeIcon').textContent = 'wb_sunny';
+                newThemeName = 'Light Mode';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('themechoice', 'dark');
+                document.getElementById('themeIcon').textContent = 'dark_mode';
+                newThemeName = 'Dark Mode';
+            }
+            
+            const toggleContainer = document.getElementById('themeToggleContainer');
+            const themeText = document.getElementById('themeText');
+            themeText.textContent = newThemeName;
+            
+            toggleContainer.classList.add('expanded');
+            setTimeout(() => {
+                toggleContainer.classList.remove('expanded');
+            }, 1000);
+        }
+
         function handleBack() {
             if (window.history.length > 1) {
                 window.history.back();
