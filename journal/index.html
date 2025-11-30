@@ -22,7 +22,6 @@
     
     <style>
         :root {
-            /* Light Theme Defaults */
             --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
             --bg-panel: rgba(255, 255, 255, 0.75);
             --bg-header: rgba(255, 255, 255, 0.85);
@@ -43,7 +42,6 @@
             --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        /* Dark Theme Overrides */
         [data-theme="dark"] {
             --bg-app: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             --bg-panel: rgba(30, 41, 59, 0.85);
@@ -76,22 +74,20 @@
             position: relative;
         }
 
-        /* Theme Toggle Button - Expanded Logic */
         .theme-toggle-container {
             display: flex;
             align-items: center;
             background: var(--bg-panel);
-            border-radius: 20px; /* Pill shape */
+            border-radius: 20px; 
             padding: 0;
             cursor: pointer;
             overflow: hidden;
             transition: all 0.4s var(--ease-snappy);
             
-            /* Positioning in flow */
             position: relative;
-            align-self: flex-end; /* Push to right in flex col */
-            margin-bottom: 5px; /* Spacing before header */
-            width: 32px; /* Collapsed width */
+            align-self: flex-end;
+            margin-bottom: 5px;
+            width: 32px; 
             height: 32px;
             z-index: 100;
             border: 1px solid var(--border-color);
@@ -102,9 +98,8 @@
             background: var(--bg-selector);
         }
 
-        /* Expanded State Class */
         .theme-toggle-container.expanded {
-            width: 105px; /* Width to fit text */
+            width: 105px;
             background: var(--bg-selector);
             padding-right: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -131,7 +126,6 @@
             pointer-events: none;
         }
 
-        /* Show text when expanded */
         .theme-toggle-container.expanded .theme-text {
             opacity: 1;
             transform: translateX(0);
@@ -686,7 +680,6 @@
             .card-month{font-size: 25px;}
             .card-year{font-size: 8px;}
             
-            /* Clean up toggle position for mobile */
             .theme-toggle-container {
                 transform: scale(0.9);
                 margin-bottom: 10px;
