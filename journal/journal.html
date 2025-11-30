@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Robin Insights - Trading Journal</title>
+    <link rel="icon" type="image/png" href="https://robininsights.github.io/favicon.png">
+    <meta name="description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta property="og:title" content="Trading Journal by Robin Insights">
+    <meta property="og:description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta property="og:image" content="https://robininsights.github.io/preview-image.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://robininsights.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trading Journal by Robin Insights">
+    <meta name="twitter:description" content="Improve your spot and futures trades with Robin Insights and make smarter trading decisions.">
+    <meta name="twitter:image" content="https://robininsights.github.io/preview-image.jpg">
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+        :root {
+            --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
+            --bg-panel: rgba(255, 255, 255, 0.75);
+            --bg-header: rgba(255, 255, 255, 0.85);
+            --bg-selector: #fff;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.1);
+            --shadow-card: 0 10px 30px -5px rgba(0,0,0,0.08);
+            --shadow-hover: 0 20px 40px -5px rgba(0,0,0,0.12);
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --color-up: #059669;
+            --color-down: #dc2626;
+            --accent-blue: #2563eb;
+            --th-bg: #d7d7d7;
+            --th-text: #000000;
+            --row-even: rgba(255, 255, 255, 0.3);
+            --row-odd: transparent;
+            --sl-bg: rgba(239, 68, 68, 0.15);
+            
+            --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+            --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-data: 'JetBrains Mono', monospace;
+        }
+
+        [data-theme="dark"] {
+            --bg-app: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --bg-panel: rgba(30, 41, 59, 0.85);
+            --bg-header: rgba(30, 41, 59, 0.95);
+            --bg-selector: #334155;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-card: 0 10px 30px -5px rgba(0,0,0,0.3);
+            --shadow-hover: 0 20px 40px -5px rgba(0,0,0,0.4);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --color-up: #34d399;
+            --color-down: #f87171;
+            --accent-blue: #60a5fa;
+            --th-bg: #334155;
+            --th-text: #f1f5f9;
+            --row-even: rgba(255, 255, 255, 0.03);
+            --row-odd: transparent;
+            --sl-bg: rgba(239, 68, 68, 0.25);
+        }
+
+        body {
+            background: var(--bg-app);
+            color: var(--text-primary);
+            font-family: var(--font-ui);
+            margin: 0;
+            padding: 10px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s ease;
+        }
+
+        .workspace {
+            width: 60%;
+            max-width: 1250px;
+            background: var(--bg-panel);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            min-height: auto;
+            margin-bottom: 20px;
+            padding-bottom: 0; 
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-header);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .brand-area { display: flex; align-items: center; }
+        .logo-container { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
+        .logo-img { width: 100%; height: 100%; object-fit: contain; }
+        
+        .brand-text h1 { margin: 0; font-size: 16px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.5px; }
+        .brand-text p { margin: 0; font-size: 11px; color: var(--text-secondary); font-weight: 500; }
+
+        .controls-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .type-switcher {
+            display: flex;
+            background: var(--bg-selector);
+            border-radius: 6px;
+            padding: 2px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .type-option {
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            color: var(--text-secondary);
+            transition: all 0.2s var(--ease-snappy);
+            user-select: none;
+        }
+
+        .type-option.active {
+            background: var(--bg-panel);
+            color: var(--accent-blue);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        [data-theme="dark"] .type-option.active {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        .month-selector {
+            font-family: var(--font-ui);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            background: var(--bg-selector);
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            outline: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .month-selector:hover { border-color: var(--accent-blue); }
+        .month-selector:focus { border-color: var(--accent-blue); box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1); }
+        .theme-toggle-container {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            border-radius: 20px; 
+            padding: 0;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-snappy);
+            position: relative;
+            width: 32px; 
+            height: 32px;
+        }
+
+        .theme-toggle-container:hover {
+            background: var(--bg-selector);
+        }
+
+        .theme-toggle-container.expanded {
+            width: 100px;
+            background: var(--bg-selector);
+            padding-right: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-icon-wrapper {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--text-secondary);
+        }
+
+        .theme-text {
+            white-space: nowrap;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s var(--ease-snappy);
+            pointer-events: none;
+        }
+
+        .theme-toggle-container.expanded .theme-text {
+            opacity: 1;
+            transform: translateX(0);
+            margin-left: 4px;
+        }
+
+        .theme-toggle-container.expanded .theme-icon-wrapper {
+            color: var(--accent-blue);
+        }
+
+        .theme-icon-wrapper .material-icons-round { font-size: 20px; }
+
+        .grid-container { 
+            width: 100%; 
+            background: transparent; 
+            min-height: 200px;
+            flex-grow: 1; 
+        }
+
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        thead { background: var(--bg-header); backdrop-filter: blur(5px); }
+
+        th {
+            text-align: center;
+            padding: 8px 4px;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--th-text);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: var(--th-bg);
+        }
+        th:last-child { border-right: none; }
+
+        tr { border-bottom: 1px solid var(--border-color); height: 32px; }
+        tbody tr:nth-child(even) { background-color: var(--row-even); }
+        tbody tr:nth-child(odd) { background-color: var(--row-odd); }
+        td {
+            padding: 0 4px;
+            border-right: 1px solid var(--border-color);
+            vertical-align: middle;
+            font-family: var(--font-ui);
+            font-size: 12px;
+            text-align: center;
+            color: var(--text-primary);
+            height: 31px;
+        }
+        td:last-child { border-right: none; }
+        .no-data-cell { padding: 40px; color: var(--text-secondary); font-style: italic; }
+        .col-coin, 
+        .col-lev, 
+        .col-entry, 
+        .col-pnl, 
+        .col-profit {
+            font-family: var(--font-data);
+        }
+
+        .col-type {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .col-coin, 
+        .col-dir, 
+        .col-type, 
+        .col-res, 
+        .col-pnl, 
+        .col-profit {
+            font-weight: 700;
+        }
+
+        .text-up { color: var(--color-up) !important; }
+        .text-down { color: var(--color-down) !important; }
+        .cell-tp { color: var(--color-up) !important; }
+        .cell-sl { background-color: var(--sl-bg); color: var(--color-down) !important; }
+
+        .journal-footer {
+            align-self: center;
+            margin: 20px auto; 
+            width: auto;
+            min-width: 500px;
+            max-width: 95%;
+            background: var(--bg-panel);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.08);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: left;
+            gap: 30px;
+            transition: background 0.3s ease, border-color 0.3s ease;
+            margin-top: auto; 
+        }
+
+        .footer-branding { display: flex; flex-direction: column; gap: 4px; }
+        .brand-row { display: flex; align-items: center; font-weight: 700; font-size: 14px; color: var(--text-primary); }
+        .brand-row img { width: 32px; height: 32px; margin-right: 8px; border-radius: 6px; }
+        
+        .social-links { display: flex; align-items: center; gap: 10px; margin: 4px 0; }
+
+        .social-icon {
+            display: flex; align-items: center; justify-content: center;
+            width: 26px; height: 26px; border-radius: 50%;
+            background: var(--bg-selector); color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s var(--ease-snappy); text-decoration: none;
+        }
+
+        .social-icon svg { width: 14px; height: 14px; fill: currentColor; transition: transform 0.3s var(--ease-snappy); }
+        .social-icon:hover { transform: translateY(-1px) scale(1.15); box-shadow: 0 4px 12px rgba(0,0,0,0.1); background-color: var(--bg-panel); }
+        .social-icon:hover svg { transform: scale(1.1); }
+        .social-icon.telegram:hover { color: var(--accent-blue); }
+        .social-icon.twitter:hover { color: var(--text-primary); }
+        .social-icon.youtube:hover { color: #FF0000; }
+
+        .footer-tagline { font-size: 9px; color: var(--text-secondary); font-weight: 500; margin: 0; opacity: 0.8; }
+        .footer-disclaimer { font-size: 10px; color: var(--text-primary); font-weight: 800; margin-top: 2px; }
+
+        .footer-stats-wrapper { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+        .net-result-compact { display: flex; align-items: center; }
+        .net-label-compact { font-size: 9px; color: var(--text-secondary); font-weight: 700; }
+        .net-value-compact { font-family: var(--font-data); font-size: 24px; font-weight: 700; color: var(--text-primary); text-align: right; margin-left: 10px; }
+        
+        .gross-stats-compact { display: flex; gap: 10px; align-items: center; }
+        .metric-block-sm { display: flex; flex-direction: column; padding: 4px 10px; background: var(--bg-selector); border: 1px solid var(--border-color); border-radius: 6px; min-width: 80px; }
+        .metric-label-sm { font-size: 8px; color: var(--text-secondary); font-weight: 700; }
+        .metric-value-sm { font-family: var(--font-data); font-size: 12px; font-weight: 600; text-align: right; }
+        .metric-count-sm { font-size: 8px; color: var(--text-secondary); text-align: right; }
+
+        @media (max-width: 768px) {
+            body { padding: 0; align-items: stretch; }
+            .workspace {
+                width: 100%; max-width: 100%; border-radius: 0; border: none; box-shadow: none;
+                min-height: 100dvh; margin-bottom: 0; display: flex; flex-direction: column;
+            }
+            .grid-container { flex-grow: 1; display: flex; flex-direction: column; }
+            
+            header { padding: 12px 15px; gap: 15px; flex-direction: column; align-items: stretch; }
+            .brand-area { justify-content: center; margin-right: 30px; } 
+            .controls-area { width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-right: 0; }
+            
+            .theme-toggle-container {
+                position: fixed;
+                top: 15px;
+                right: 15px;
+                z-index: 1000;
+                background: var(--bg-panel);
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-card);
+                transform: scale(0.9);
+            }
+            
+            .journal-footer {
+                width: 100%; max-width: 100%; min-width: 0; border-radius: 0; border: none; border-top: 1px solid var(--border-color);
+                margin: 0; margin-top: auto; padding: 20px 15px; box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+                flex-direction: column; text-align: center; gap: 5px;
+            }
+            .footer-disclaimer{padding: 20px;}
+            .footer-branding { align-items: center; border-right: none; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; padding-right: 0; width: 100%; }
+            .social-links { justify-content: center; }
+            .footer-stats-wrapper { align-items: center; width: 100%; }
+            .net-result-compact { justify-content: center; width: 100%; }
+            th { font-size: 9px; padding: 6px 2px; }
+            td { font-size: 10px; padding: 0 2px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="workspace" id="workspace">
+        <header>
+            <div class="brand-area">
+                <div class="logo-container">
+                    <img src="https://robininsights.github.io/RI_Logo.webp" alt="RI" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <span style="display:none; color:#000; font-size:12px; font-weight:bold;">RI</span>
+                </div>
+                <div class="brand-text">
+                    <h1>ROBIN INSIGHTS</h1>
+                    <p id="journalTypeLabel">TRADING JOURNAL</p>
+                </div>
+            </div>
+
+            <div class="controls-area">
+                <div class="theme-toggle-container" id="themeToggleContainer" onclick="toggleTheme()" title="Toggle Theme">
+                    <div class="theme-icon-wrapper">
+                        <span class="material-icons-round" id="themeIcon">wb_sunny</span>
+                    </div>
+                    <span class="theme-text" id="themeText">Light Mode</span>
+                </div>
+
+                <!-- Type Switcher -->
+                <div class="type-switcher">
+                    <div class="type-option" id="btnFuture" onclick="switchType('future')">Futures</div>
+                    <div class="type-option" id="btnSpot" onclick="switchType('spot')">Spot</div>
+                </div>
+
+                <!-- Month Selector -->
+                <select id="monthSelector" class="month-selector">
+                    <!-- 2025 -->
+                    <option value="01/25">January 2025</option>
+                    <option value="02/25">February 2025</option>
+                    <option value="03/25">March 2025</option>
+                    <option value="04/25">April 2025</option>
+                    <option value="05/25">May 2025</option>
+                    <option value="06/25">June 2025</option>
+                    <option value="07/25">July 2025</option>
+                    <option value="08/25">August 2025</option>
+                    <option value="09/25">September 2025</option>
+                    <option value="10/25">October 2025</option>
+                    <option value="11/25">November 2025</option>
+                    <option value="12/25">December 2025</option>
+                    <!-- 2026 -->
+                    <option value="01/26">January 2026</option>
+                    <option value="02/26">February 2026</option>
+                    <option value="03/26">March 2026</option>
+                    <option value="04/26">April 2026</option>
+                    <option value="05/26">May 2026</option>
+                    <option value="06/26">June 2026</option>
+                    <option value="07/26">July 2026</option>
+                    <option value="08/26">August 2026</option>
+                    <option value="09/26">September 2026</option>
+                    <option value="10/26">October 2026</option>
+                    <option value="11/26">November 2026</option>
+                    <option value="12/26">December 2026</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="grid-container">
+            <table>
+                <thead id="tableHead">
+                    <!-- Headers injected via JS -->
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data injected via JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Consolidated Footer -->
+        <div class="journal-footer">
+            <div class="footer-branding">
+                <div class="brand-row">
+                    <img src="https://robininsights.github.io/RI_Logo.webp" alt="RI Logo" onerror="this.style.display='none';">
+                    <span>ROBIN INSIGHTS</span>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://t.me/robininsight1" class="social-icon telegram" title="Telegram" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
+                    </a>
+                    <a href="https://x.com/RobinInsig56614" class="social-icon twitter" title="X / Twitter" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@robininsight" class="social-icon youtube" title="YouTube" target="_blank">
+                        <svg viewBox="0 0 32 32"><path d="M29.41,9.26a3.5,3.5,0,0,0-2.47-2.47C24.76,6.2,16,6.2,16,6.2s-8.76,0-10.94.59A3.5,3.5,0,0,0,2.59,9.26,36.13,36.13,0,0,0,2,16a36.13,36.13,0,0,0,.59,6.74,3.5,3.5,0,0,0,2.47,2.47C7.24,25.8,16,25.8,16,25.8s8.76,0,10.94-.59a3.5,3.5,0,0,0,2.47-2.47A36.13,36.13,0,0,0,30,16,36.13,36.13,0,0,0,29.41,9.26ZM13.2,20.2V11.8L20.47,16Z"/><rect style="fill: none;"/></svg>
+                    </a>
+                </div>
+
+                <p class="footer-tagline" id="footerTagline">Trading Journal & Monthly Analysis</p>
+                <div class="footer-disclaimer" id="footerDisclaimer"></div>
+            </div>
+            <div class="footer-stats-wrapper">
+                <div class="net-result-compact">
+                    <span class="net-label-compact">NET Monthly Result</span>
+                    <span id="valNet" class="net-value-compact">0.00%</span>
+                </div>
+
+                <div class="gross-stats-compact">
+                    <div class="metric-block-sm">
+                        <span class="metric-label-sm">GROSS Profit</span>
+                        <span id="valProfit" class="metric-value-sm text-up">0.00%</span>
+                        <span id="cntProfit" class="metric-count-sm"></span>
+                    </div>
+                    <div class="metric-block-sm">
+                        <span class="metric-label-sm">GROSS Loss</span>
+                        <span id="valLoss" class="metric-value-sm text-down">0.00%</span>
+                        <span id="cntLoss" class="metric-count-sm"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentJournalType = 'future';
+        let currentMonthYear = '01/25';
+
+        const COLS_FUTURE = [
+            { id: 'id', name: '#', width: '5%' },
+            { id: 'coin', name: 'Coin Ticker', width: '15%' },
+            { id: 'dir', name: 'Direction', width: '15%' },
+            { id: 'lev', name: 'Leverage', width: '12%' },
+            { id: 'res', name: 'Result', width: '18%' },
+            { id: 'pnl', name: 'PnL(%)', width: '15%' },
+            { id: 'profit', name: 'Profit/Loss', width: '15%' }
+        ];
+
+        const COLS_SPOT = [
+            { id: 'id', name: '#', width: '5%' },
+            { id: 'coin', name: 'Coin Ticker', width: '15%' },
+            { id: 'entry', name: 'AVG Entry', width: '15%' },
+            { id: 'type', name: 'Type', width: '15%' },
+            { id: 'res', name: 'Result', width: '15%' },
+            { id: 'pnl', name: 'PnL(%)', width: '15%' },
+            { id: 'profit', name: 'Profit/Loss', width: '15%' }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('themechoice');
+            let themeName = 'Light Mode';
+            
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('themeIcon').textContent = 'dark_mode';
+                themeName = 'Dark Mode';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                document.getElementById('themeIcon').textContent = 'wb_sunny';
+                themeName = 'Light Mode';
+            }
+            
+            const toggleContainer = document.getElementById('themeToggleContainer');
+            const themeText = document.getElementById('themeText');
+            themeText.textContent = themeName;
+            
+            requestAnimationFrame(() => {
+                toggleContainer.classList.add('expanded');
+                setTimeout(() => {
+                    toggleContainer.classList.remove('expanded');
+                }, 1000);
+            });
+
+
+            const params = new URLSearchParams(window.location.search);
+            const journalType = params.get('journal'); 
+            const dateParam = params.get('d'); 
+            if (!journalType || !dateParam) {
+                window.location.href = "https://robininsights.github.io/";
+                return;
+            }
+
+            currentJournalType = journalType;
+            currentMonthYear = dateParam;
+
+            const selector = document.getElementById('monthSelector');
+            selector.value = currentMonthYear;
+            updateSwitcherUI(currentJournalType);
+            loadData(currentJournalType, currentMonthYear);
+            selector.addEventListener('change', (e) => {
+                currentMonthYear = e.target.value;
+                updateURL();
+                loadData(currentJournalType, currentMonthYear);
+            });
+        });
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            let newThemeName = '';
+            
+            if (current === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('themechoice', '');
+                document.getElementById('themeIcon').textContent = 'wb_sunny';
+                newThemeName = 'Light Mode';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('themechoice', 'dark');
+                document.getElementById('themeIcon').textContent = 'dark_mode';
+                newThemeName = 'Dark Mode';
+            }
+            const toggleContainer = document.getElementById('themeToggleContainer');
+            const themeText = document.getElementById('themeText');
+            themeText.textContent = newThemeName;
+            
+            toggleContainer.classList.add('expanded');
+            setTimeout(() => {
+                toggleContainer.classList.remove('expanded');
+            }, 1000);
+        }
+
+        function switchType(type) {
+            if (currentJournalType === type) return;
+            currentJournalType = type;
+            updateSwitcherUI(type);
+            updateURL();
+            loadData(currentJournalType, currentMonthYear);
+        }
+
+        function updateSwitcherUI(type) {
+            document.getElementById('btnFuture').classList.toggle('active', type === 'future');
+            document.getElementById('btnSpot').classList.toggle('active', type === 'spot');
+        }
+
+        function updateURL() {
+            const newUrl = `${window.location.pathname}?journal=${currentJournalType}&d=${currentMonthYear}`;
+            window.history.pushState({ path: newUrl }, '', newUrl);
+        }
+
+        function loadData(type, dateStr) {
+            const [mm, yy] = dateStr.split('/');
+            const filename = `https://robininsights.github.io/RI_monthdata_${type}_${mm}_${yy}.data`;
+            
+            if (type === 'spot') {
+                document.getElementById('journalTypeLabel').textContent = "TRADING JOURNAL";
+                document.getElementById('footerTagline').textContent = "Spot Journal & Monthly Analysis";
+                document.getElementById('footerDisclaimer').textContent = "Profits and losses reflect trader’s quick decisions, including timely buys and sells.";
+                renderHeaders(COLS_SPOT);
+            } else {
+                document.getElementById('journalTypeLabel').textContent = "TRADING JOURNAL";
+                document.getElementById('footerTagline').textContent = "Future Trading Journal & Monthly Analysis";
+                document.getElementById('footerDisclaimer').textContent = "All trades are calculated based on $100 margin with corresponding Leverage";
+                renderHeaders(COLS_FUTURE);
+            }
+
+            fetch(filename)
+                .then(res => {
+                    if(!res.ok) throw new Error("File not found");
+                    return res.json();
+                })
+                .then(data => {
+                    renderTable(type, data);
+                    calculateStats(data);
+                })
+                .catch(err => {
+                    console.warn(err);
+                    showNoData();
+                });
+        }
+
+        function showNoData() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '<tr><td colspan="7" class="no-data-cell">No data found for this month</td></tr>';
+            
+            document.getElementById('valProfit').textContent = "0.00%";
+            document.getElementById('valLoss').textContent = "0.00%";
+            document.getElementById('valNet').textContent = "0.00%";
+            document.getElementById('valNet').style.color = "var(--text-primary)";
+            document.getElementById('cntProfit').textContent = "";
+            document.getElementById('cntLoss').textContent = "";
+        }
+
+        function renderHeaders(cols) {
+            const thead = document.getElementById('tableHead');
+            let hRow = '<tr>';
+            cols.forEach(c => {
+                hRow += `<th style="width:${c.width}">${c.name}</th>`;
+            });
+            hRow += '</tr>';
+            thead.innerHTML = hRow;
+        }
+
+        function renderTable(type, data) {
+            const cols = type === 'spot' ? COLS_SPOT : COLS_FUTURE;
+            const tbody = document.getElementById('tableBody');
+            
+            tbody.innerHTML = '';
+            
+            if(!data || data.length === 0) {
+                showNoData();
+                return;
+            }
+
+            data.forEach((row, i) => {
+                const tr = document.createElement('tr');
+                if (row.rowColor) tr.style.backgroundColor = row.rowColor;
+
+                let html = '';
+                cols.forEach(col => {
+                    let val = row[col.id];
+                    if (col.id === 'id') val = i + 1;
+                    if (!val) val = '-';
+
+                    let classes = `col-${col.id}`; 
+                    
+                    if (col.id === 'dir') {
+                        if (val === 'Long') classes += ' text-up';
+                        else if (val === 'Short') classes += ' text-down';
+                    }
+
+                    if (col.id === 'res') {
+                        if (val === 'TP Hit') classes += ' cell-tp';
+                        else if (val === 'SL Hit') {
+                            classes += row.rowColor ? ' text-down' : ' cell-sl';
+                        }
+                    }
+
+                    if (col.id === 'pnl' || col.id === 'profit') {
+                        const num = parseFloat(String(val).replace(/[^0-9.-]/g, '')) || 0;
+                        let textClass = '';
+                        if (num > 0) textClass = 'text-up';
+                        else if (num < 0) textClass = 'text-down';
+                        
+                        let bgClass = '';
+                        if (row.res === 'TP Hit') bgClass = 'cell-tp';
+                        else if (row.res === 'SL Hit') {
+                            bgClass = row.rowColor ? 'text-down' : 'cell-sl';
+                        }
+                        classes += ` ${textClass} ${bgClass}`;
+                    }
+
+                    html += `<td class="${classes}">${val}</td>`;
+                });
+                tr.innerHTML = html;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function calculateStats(data) {
+            let grossP = 0, grossL = 0, tpCount = 0, slCount = 0;
+            
+            if(data) {
+                data.forEach(t => {
+                    const val = parseFloat(String(t.pnl).replace(/[^0-9.-]/g, '')) || 0;
+                    const type = t.res;
+                    
+                    if (val > 0) grossP += val;
+                    else if (val < 0) grossL += val;
+
+                    if (type === 'TP Hit') tpCount++;
+                    if (type === 'SL Hit') slCount++;
+                });
+            }
+
+            document.getElementById('valProfit').textContent = `+${grossP.toFixed(2)}%`;
+            document.getElementById('valLoss').textContent = `${Math.abs(grossL).toFixed(2)}%`;
+            
+            const net = grossP + grossL;
+            const netEl = document.getElementById('valNet');
+            netEl.textContent = (net >= 0 ? '+' : '') + `${net.toFixed(2)}%`;
+            
+            if (net > 0) netEl.style.color = 'var(--color-up)';
+            else if (net < 0) netEl.style.color = 'var(--color-down)';
+            else netEl.style.color = 'var(--text-primary)';
+
+            document.getElementById('cntProfit').textContent = tpCount > 0 ? `(${tpCount} TP)` : '';
+            document.getElementById('cntLoss').textContent = slCount > 0 ? `(${slCount} SL)` : '';
+        }
+    </script>
+</body>
+</html>
