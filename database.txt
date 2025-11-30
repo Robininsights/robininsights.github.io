@@ -1,24 +1,25 @@
 ==============FUTURE=====================
-1.03/25 = RI_Journal_Future_March_2025.html
-2.04/25 = RI_Journal_Future_April_2025.html
-3.05/25 = RI_Journal_Future_May_2025.html
-4.06/25 = RI_Journal_Future_June_2025.html
-5.07/25 = RI_Journal_Future_July_2025.html
-6.08/25 = RI_Journal_Future_August_2025.html
-//7.09/25 = RI_Journal_Future_September_2025.html
-//8.10/25 = RI_Journal_Future_October_2025.html
-//9.11/25 = RI_Journal_Future_November_2025.html
-
+//1.01/25
+//2.02/25
+3.03/25
+4.04/25
+5.05/25
+6.06/25
+7.07/25
+8.08/25
+9.09/25
+10.10/25
+11.11/25
 
 
 
 =============SPOT===================
-1.03/25 = RI_Journal_Spot_March_2025.html
-2.04/25 = RI_Journal_Spot_April_2025.html
-3.05/25 = RI_Journal_Spot_May_2025.html
-4.06/25 = RI_Journal_Spot_June_2025.html
-5.07/25 = RI_Journal_Spot_July_2025.html
-6.08/25 = RI_Journal_Spot_August_2025.html
-//7.09/25 = RI_Journal_Spot_September_2025.html
-//8.10/25 = RI_Journal_Spot_October_2025.html
-//9.11/25 = RI_Journal_Spot_November_2025.html
+1.03/25
+2.04/25
+3.05/25
+4.06/25
+5.07/25
+6.08/25
+7.09/25
+8.10/25
+//9.11/25
