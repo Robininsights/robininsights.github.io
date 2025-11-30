@@ -1,0 +1,200 @@
+[
+  {
+    "res": "SL Hit",
+    "rowColor": "",
+    "entry": "",
+    "type": "Short Term",
+    "coin": "RAD",
+    "pnl": "-10%",
+    "profit": "-10$"
+  },
+  {
+    "pnl": "200%",
+    "entry": "",
+    "profit": "200$",
+    "coin": "CGPT",
+    "type": "Swing",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "res": "Closed"
+  },
+  {
+    "profit": "14$",
+    "coin": "FLT",
+    "pnl": "14%",
+    "entry": "",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "rowColor": ""
+  },
+  {
+    "entry": "",
+    "type": "Swing",
+    "res": "TP Hit",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "pnl": "25%",
+    "coin": "SAGA",
+    "profit": "25$"
+  },
+  {
+    "type": "Short Term",
+    "rowColor": "",
+    "profit": "13$",
+    "entry": "",
+    "pnl": "13%",
+    "coin": "WLD",
+    "res": "TP Hit"
+  },
+  {
+    "coin": "JUP",
+    "profit": "57$",
+    "type": "Swing",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "res": "TP Hit",
+    "pnl": "57%",
+    "entry": ""
+  },
+  {
+    "rowColor": "",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "coin": "ZIG",
+    "entry": "",
+    "pnl": "16%",
+    "profit": "16$"
+  },
+  {
+    "res": "TP Hit",
+    "coin": "TOSHI",
+    "profit": "300$",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "pnl": "300%",
+    "type": "Long Term",
+    "entry": ""
+  },
+  {
+    "pnl": "36%",
+    "coin": "FIDA",
+    "profit": "36$",
+    "type": "Short Term",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "res": "TP Hit",
+    "entry": ""
+  },
+  {
+    "pnl": "12%",
+    "type": "Short Term",
+    "entry": "",
+    "rowColor": "",
+    "coin": "TAI",
+    "profit": "12$",
+    "res": "TP Hit"
+  },
+  {
+    "type": "Short Term",
+    "res": "TP Hit",
+    "profit": "18$",
+    "rowColor": "",
+    "entry": "",
+    "pnl": "18%",
+    "coin": "WLD"
+  },
+  {
+    "profit": "34$",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "entry": "",
+    "type": "Swing",
+    "pnl": "34%",
+    "res": "TP Hit",
+    "coin": "KEKUS"
+  },
+  {
+    "entry": "",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "pnl": "29%",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "profit": "29$",
+    "coin": "GFI"
+  },
+  {
+    "profit": "74$",
+    "entry": "",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "coin": "TOSHI",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "pnl": "74%"
+  },
+  {
+    "coin": "TAO",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "pnl": "50%",
+    "profit": "50$",
+    "entry": "",
+    "type": "Short Term",
+    "res": "TP Hit"
+  },
+  {
+    "profit": "21$",
+    "pnl": "21%",
+    "res": "TP Hit",
+    "rowColor": "",
+    "entry": "",
+    "type": "Short Term",
+    "coin": "PENGU"
+  },
+  {
+    "type": "Swing",
+    "profit": "23$",
+    "rowColor": "",
+    "pnl": "23%",
+    "coin": "ALB",
+    "entry": "",
+    "res": "TP Hit"
+  },
+  {
+    "coin": "REDO",
+    "entry": "",
+    "profit": "22$",
+    "rowColor": "",
+    "res": "TP Hit",
+    "pnl": "22%",
+    "type": "Short Term"
+  },
+  {
+    "entry": "",
+    "type": "Short Term",
+    "profit": "6$",
+    "pnl": "6%",
+    "coin": "COW",
+    "rowColor": "",
+    "res": "TP Hit"
+  },
+  {
+    "profit": "14$",
+    "type": "Short Term",
+    "pnl": "14%",
+    "rowColor": "",
+    "entry": "",
+    "coin": "RENDER",
+    "res": "Closed"
+  },
+  {
+    "res": "SL Hit",
+    "pnl": "-12%",
+    "profit": "-12$",
+    "type": "Short Term",
+    "entry": "",
+    "rowColor": "",
+    "coin": "ENA"
+  },
+  {
+    "profit": "5$",
+    "pnl": "5%",
+    "type": "Short Term",
+    "entry": "",
+    "res": "TP Hit",
+    "rowColor": "",
+    "coin": "ETHFI"
+  }
+]
