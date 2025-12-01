@@ -1,0 +1,202 @@
+[
+  {
+    "pnl": "15%",
+    "rowColor": "",
+    "dir": "Long",
+    "profit": "15$",
+    "entry": "",
+    "lev": "20x",
+    "coin": "PEPE",
+    "res": "Closed"
+  },
+  {
+    "profit": "24$",
+    "dir": "Short",
+    "coin": "BTC",
+    "entry": "",
+    "pnl": "25%",
+    "lev": "20x",
+    "res": "TP Hit",
+    "rowColor": ""
+  },
+  {
+    "coin": "SOL",
+    "lev": "5X",
+    "dir": "Short",
+    "res": "TP Hit",
+    "profit": "24$",
+    "entry": "",
+    "pnl": "25%",
+    "rowColor": ""
+  },
+  {
+    "dir": "Long",
+    "lev": "20x",
+    "coin": "PEPE",
+    "res": "Closed",
+    "entry": "",
+    "rowColor": "",
+    "profit": "9$",
+    "pnl": "10%"
+  },
+  {
+    "rowColor": "",
+    "profit": "23$",
+    "coin": "BCH",
+    "lev": "7X",
+    "pnl": "23%",
+    "dir": "Long",
+    "res": "Closed",
+    "entry": ""
+  },
+  {
+    "res": "Closed",
+    "profit": "14$",
+    "coin": "SOL",
+    "dir": "Short",
+    "entry": "",
+    "rowColor": "",
+    "pnl": "14%",
+    "lev": "20x"
+  },
+  {
+    "lev": "5x",
+    "res": "Closed",
+    "coin": "WLFI",
+    "pnl": "19%",
+    "entry": "",
+    "rowColor": "",
+    "profit": "19$",
+    "dir": "Short"
+  },
+  {
+    "coin": "ETH",
+    "dir": "Long",
+    "pnl": "21%",
+    "profit": "20$",
+    "rowColor": "",
+    "entry": "",
+    "lev": "20x",
+    "res": "TP Hit"
+  },
+  {
+    "dir": "Short",
+    "res": "TP Hit",
+    "coin": "WLD",
+    "entry": "",
+    "rowColor": "",
+    "lev": "20x",
+    "pnl": "23%",
+    "profit": "23$"
+  },
+  {
+    "res": "TP Hit",
+    "coin": "BTC",
+    "lev": "40x",
+    "rowColor": "",
+    "profit": "56$",
+    "entry": "",
+    "pnl": "56%",
+    "dir": "Long"
+  },
+  {
+    "lev": "20x",
+    "dir": "Long",
+    "coin": "ENA",
+    "rowColor": "",
+    "res": "TP Hit",
+    "entry": "",
+    "profit": "24$",
+    "pnl": "24%"
+  },
+  {
+    "coin": "ENA",
+    "lev": "20x",
+    "profit": "40$",
+    "entry": "",
+    "res": "TP Hit",
+    "rowColor": "",
+    "pnl": "40%",
+    "dir": "Long"
+  },
+  {
+    "res": "TP Hit",
+    "coin": "BTC",
+    "entry": "",
+    "profit": "34$",
+    "lev": "30X",
+    "dir": "Long",
+    "pnl": "34%",
+    "rowColor": ""
+  },
+  {
+    "dir": "Long",
+    "lev": "20x",
+    "profit": "28$",
+    "rowColor": "",
+    "pnl": "28%",
+    "res": "TP Hit",
+    "entry": "",
+    "coin": "ENA"
+  },
+  {
+    "lev": "30X",
+    "dir": "Long",
+    "rowColor": "",
+    "pnl": "28%",
+    "profit": "28$",
+    "entry": "",
+    "res": "TP Hit",
+    "coin": "BTC"
+  },
+  {
+    "pnl": "13%",
+    "coin": "WLFI",
+    "rowColor": "",
+    "profit": "12$",
+    "dir": "Long",
+    "res": "Closed",
+    "lev": "3X",
+    "entry": ""
+  },
+  {
+    "entry": "",
+    "lev": "5x",
+    "pnl": "-33%",
+    "rowColor": "",
+    "dir": "Long",
+    "profit": "-33$",
+    "coin": "ENA",
+    "res": "SL Hit"
+  },
+  {
+    "dir": "Long",
+    "res": "Closed",
+    "pnl": "10%",
+    "coin": "MEME",
+    "profit": "10$",
+    "entry": "",
+    "lev": "10x",
+    "rowColor": ""
+  },
+  {
+    "dir": "Long",
+    "coin": "BTC",
+    "pnl": "-30%",
+    "lev": "20x",
+    "profit": "-31$",
+    "entry": "",
+    "rowColor": "",
+    "res": "SL Hit"
+  },
+  {
+    "pnl": "30%",
+    "rowColor": "",
+    "entry": "",
+    "profit": "30$",
+    "res": "TP Hit",
+    "dir": "Long",
+    "coin": "ETH",
+    "lev": "10x"
+  }
+]
