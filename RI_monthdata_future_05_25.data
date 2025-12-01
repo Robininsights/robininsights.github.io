@@ -1,0 +1,212 @@
+[
+  {
+    "coin": "NMR",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "267%",
+    "profit": "265$",
+    "rowColor": ""
+  },
+  {
+    "coin": "ENJ",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "104%",
+    "profit": "104$",
+    "rowColor": ""
+  },
+  {
+    "coin": "BSV",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "SL Hit",
+    "pnl": "-40%",
+    "profit": "-40$",
+    "rowColor": ""
+  },
+  {
+    "coin": "MAGIC",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "80%",
+    "profit": "80$",
+    "rowColor": ""
+  },
+  {
+    "coin": "LISTA",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "50%",
+    "profit": "50$",
+    "rowColor": ""
+  },
+  {
+    "coin": "FLM",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "28%",
+    "profit": "28$",
+    "rowColor": ""
+  },
+  {
+    "coin": "NMR",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "90%",
+    "profit": "90$",
+    "rowColor": ""
+  },
+  {
+    "coin": "BSW",
+    "entry": "",
+    "lev": "10x",
+    "dir": "Short",
+    "res": "TP Hit",
+    "pnl": "38%",
+    "profit": "38$",
+    "rowColor": ""
+  },
+  {
+    "coin": "SOL",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "Closed",
+    "pnl": "23%",
+    "profit": "23$",
+    "rowColor": ""
+  },
+  {
+    "coin": "SHELL",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "97%",
+    "profit": "97$",
+    "rowColor": ""
+  },
+  {
+    "coin": "KERNAL",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "139%",
+    "profit": "139$",
+    "rowColor": ""
+  },
+  {
+    "coin": "KAITO",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "TP Hit",
+    "pnl": "30%",
+    "profit": "33$",
+    "rowColor": ""
+  },
+  {
+    "coin": "DOGS",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "88%",
+    "profit": "88$",
+    "rowColor": ""
+  },
+  {
+    "coin": "PYTH",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "SL Hit",
+    "pnl": "-50%",
+    "profit": "-50$",
+    "rowColor": ""
+  },
+  {
+    "coin": "SAGA",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "56%",
+    "profit": "56$",
+    "rowColor": ""
+  },
+  {
+    "coin": "ALPINE",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "38%",
+    "profit": "38$",
+    "rowColor": ""
+  },
+  {
+    "coin": "TLM",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "56%",
+    "profit": "56$",
+    "rowColor": ""
+  },
+  {
+    "coin": "PIXEL",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "128%",
+    "profit": "125$",
+    "rowColor": ""
+  },
+  {
+    "coin": "ENA",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "62%",
+    "profit": "61$",
+    "rowColor": ""
+  },
+  {
+    "coin": "PIXEL",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "SL Hit",
+    "pnl": "-50%",
+    "profit": "-50$",
+    "rowColor": ""
+  },
+  {
+    "coin": "WIF",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "144%",
+    "profit": "144$",
+    "rowColor": ""
+  }
+]
