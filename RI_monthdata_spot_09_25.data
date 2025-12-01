@@ -1,0 +1,164 @@
+[
+  {
+    "coin": "TRUMP",
+    "rowColor": "",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "profit": "13$",
+    "entry": "",
+    "pnl": "13%"
+  },
+  {
+    "rowColor": "",
+    "coin": "IO",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "profit": "12$",
+    "entry": "",
+    "pnl": "12%"
+  },
+  {
+    "pnl": "16%",
+    "profit": "16$",
+    "res": "TP Hit",
+    "type": "Short Term",
+    "entry": "",
+    "rowColor": "",
+    "coin": "FET"
+  },
+  {
+    "res": "TP Hit",
+    "pnl": "21%",
+    "profit": "21$",
+    "coin": "RENDER",
+    "rowColor": "",
+    "type": "Short Term",
+    "entry": ""
+  },
+  {
+    "profit": "6$",
+    "type": "Short Term",
+    "pnl": "6%",
+    "res": "Closed",
+    "entry": "",
+    "coin": "AKT",
+    "rowColor": ""
+  },
+  {
+    "type": "Short Term",
+    "entry": "",
+    "rowColor": "",
+    "pnl": "25%",
+    "profit": "25$",
+    "coin": "ONDO",
+    "res": "TP Hit"
+  },
+  {
+    "res": "Closed",
+    "pnl": "5%",
+    "type": "Short Term",
+    "coin": "RAD",
+    "rowColor": "",
+    "entry": "",
+    "profit": "5$"
+  },
+  {
+    "coin": "IO",
+    "type": "Short Term",
+    "profit": "41$",
+    "rowColor": "",
+    "entry": "",
+    "res": "Closed",
+    "pnl": "41%"
+  },
+  {
+    "coin": "CYBER",
+    "rowColor": "",
+    "type": "Short Term",
+    "pnl": "7%",
+    "res": "TP Hit",
+    "entry": "",
+    "profit": "7$"
+  },
+  {
+    "profit": "26$",
+    "res": "TP Hit",
+    "entry": "",
+    "type": "Short Term",
+    "rowColor": "",
+    "pnl": "26%",
+    "coin": "NEAR"
+  },
+  {
+    "coin": "TAO",
+    "entry": "",
+    "pnl": "8%",
+    "rowColor": "",
+    "res": "TP Hit",
+    "type": "Short Term",
+    "profit": "8$"
+  },
+  {
+    "res": "TP Hit",
+    "pnl": "8%",
+    "type": "Short Term",
+    "profit": "8$",
+    "coin": "S",
+    "rowColor": "",
+    "entry": ""
+  },
+  {
+    "pnl": "200%",
+    "entry": "",
+    "coin": "ATH",
+    "type": "Swing",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "profit": "200$",
+    "res": "Closed"
+  },
+  {
+    "type": "Long Term",
+    "profit": "20$",
+    "res": "Closed",
+    "entry": "",
+    "pnl": "20%",
+    "rowColor": "",
+    "coin": "DOGE"
+  },
+  {
+    "res": "Closed",
+    "pnl": "4%",
+    "coin": "CATI",
+    "entry": "",
+    "profit": "4$",
+    "rowColor": "",
+    "type": "Short Term"
+  },
+  {
+    "res": "TP Hit",
+    "entry": "",
+    "pnl": "10%",
+    "type": "Short Term",
+    "rowColor": "",
+    "profit": "10$",
+    "coin": "PHA"
+  },
+  {
+    "coin": "DOGE",
+    "profit": "11$",
+    "pnl": "11%",
+    "entry": "",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "rowColor": ""
+  },
+  {
+    "res": "Closed",
+    "entry": "",
+    "type": "Short Term",
+    "pnl": "8%",
+    "rowColor": "",
+    "profit": "8$",
+    "coin": "WLFI"
+  }
+]
