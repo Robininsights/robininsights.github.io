@@ -12,9 +12,11 @@
     
     <style>
         :root {
+            /* Light Theme Defaults */
             --bg-app: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
             --bg-panel: rgba(255, 255, 255, 0.75);
             --bg-header: rgba(255, 255, 255, 0.85);
+            --bg-selector: #fff;
             --border-color: rgba(0, 0, 0, 0.08);
             --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
             --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -26,6 +28,24 @@
             --status-green: #10b981;
             --font-ui: 'Inter', sans-serif;
             --font-data: 'JetBrains Mono', monospace;
+            --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* Dark Theme Overrides */
+        [data-theme="dark"] {
+            --bg-app: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --bg-panel: rgba(30, 41, 59, 0.85);
+            --bg-header: rgba(30, 41, 59, 0.95);
+            --bg-selector: #334155;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-card: 0 10px 30px -5px rgba(0,0,0,0.3);
+            --shadow-hover: 0 20px 40px -5px rgba(0,0,0,0.4);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --color-up: #34d399;
+            --color-down: #f87171;
+            --accent-blue: #60a5fa;
+            --status-green: #34d399;
         }
 
         body {
@@ -42,7 +62,72 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             box-sizing: border-box;
+            transition: background 0.3s ease;
         }
+
+        /* Theme Toggle Button */
+        .theme-toggle-container {
+            display: flex;
+            align-items: center;
+            background: var(--bg-panel);
+            border-radius: 20px; 
+            padding: 0;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-snappy);
+            position: fixed;
+            top: 20px;
+            left: 20px; /* Left side to avoid logout button */
+            width: 32px; 
+            height: 32px;
+            z-index: 100;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+        }
+
+        .theme-toggle-container:hover {
+            background: var(--bg-selector);
+        }
+
+        .theme-toggle-container.expanded {
+            width: 130px;
+            background: var(--bg-selector);
+            padding-right: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .theme-icon-wrapper {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--text-secondary);
+        }
+
+        .theme-text {
+            white-space: nowrap;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s var(--ease-snappy);
+            pointer-events: none;
+        }
+
+        .theme-toggle-container.expanded .theme-text {
+            opacity: 1;
+            transform: translateX(0);
+            margin-left: 4px;
+        }
+
+        .theme-toggle-container.expanded .theme-icon-wrapper {
+            color: var(--accent-blue);
+        }
+
+        .theme-icon-wrapper .material-icons-round { font-size: 20px; }
 
         header {
             text-align: center;
@@ -71,13 +156,14 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.6);
+            background: var(--bg-panel);
             padding: 4px 12px 4px 4px;
             border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--border-color);
             backdrop-filter: blur(4px);
             font-size: 12px;
             font-weight: 500;
+            color: var(--text-primary);
         }
 
         .user-avatar {
@@ -85,11 +171,12 @@
             height: 24px;
             border-radius: 50%;
             background: var(--accent-blue);
+            object-fit: cover;
         }
 
         .btn-logout {
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(0,0,0,0.05);
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
             padding: 6px 12px;
             border-radius: 10px;
             cursor: pointer;
@@ -100,7 +187,7 @@
             transition: all 0.2s;
         }
         .btn-logout:hover {
-            background: #fff;
+            background: var(--bg-selector);
             color: var(--color-down);
             box-shadow: var(--shadow-card);
         }
@@ -117,13 +204,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            }
+        }
 
         .logo-box img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            }
+        }
 
         h1 {
             margin: 0;
@@ -147,7 +234,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(240, 244, 248, 0.8);
+            background: var(--bg-app);
             backdrop-filter: blur(15px);
             z-index: 100;
             display: flex;
@@ -157,14 +244,14 @@
         }
 
         .login-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--bg-panel);
             padding: 40px;
             border-radius: 24px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 400px;
             width: 90%;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--border-color);
             animation: fadeInDown 0.5s ease-out;
             position: relative;
             overflow: hidden;
@@ -182,9 +269,9 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            background: #fff;
-            color: #3c4043;
-            border: 1px solid #dadce0;
+            background: var(--bg-selector);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
             padding: 12px 24px;
             border-radius: 50px;
             font-family: var(--font-ui);
@@ -198,9 +285,9 @@
         }
 
         .btn-google:hover {
-            background: #f8fafc;
+            background: var(--bg-panel);
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-color: #d1d5db;
+            border-color: var(--accent-blue);
         }
 
         .btn-google img {
@@ -218,7 +305,8 @@
             box-sizing: border-box;
             margin-top: 20px;
             font-family: var(--font-ui);
-            background: rgba(255,255,255,0.8);
+            background: var(--bg-selector);
+            color: var(--text-primary);
         }
         
         .password-input:focus {
@@ -273,9 +361,9 @@
             min-width: 260px;
             max-width: 380px;
             height: 220px; 
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--bg-panel);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-color);
             border-radius: 24px;
             padding: 24px;
             display: flex;
@@ -293,7 +381,7 @@
         .category-card:hover {
             transform: translateY(-6px) scale(1.02);
             box-shadow: var(--shadow-hover);
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--bg-selector);
         }
 
         .category-card::before {
@@ -342,74 +430,6 @@
             text-transform: uppercase;
         }
 
-        .page-footer {
-            margin-top: 32px;
-            padding: 16px 24px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 16px;
-            box-shadow: var(--shadow-card);
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            z-index: 2;
-            transition: 0.3s;
-        }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding-right: 24px;
-            border-right: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .footer-logo {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-            border-radius: 6px;
-        }
-
-        .footer-text {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-        }
-
-        .social-links {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #fff;
-            color: var(--text-secondary);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-
-        .social-icon:hover {
-            color: var(--accent-blue);
-            transform: translateY(-2px);
-        }
-
-        .social-icon svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-        }
-
         .bg-blob {
             position: fixed;
             border-radius: 50%;
@@ -428,6 +448,13 @@
             background: radial-gradient(circle, rgba(200, 255, 230, 0.3) 0%, rgba(255,255,255,0) 70%); 
         }
 
+        [data-theme="dark"] .blob-1 {
+            background: radial-gradient(circle, rgba(30, 58, 138, 0.4) 0%, rgba(15, 23, 42, 0) 70%);
+        }
+        [data-theme="dark"] .blob-2 {
+            background: radial-gradient(circle, rgba(6, 78, 59, 0.3) 0%, rgba(15, 23, 42, 0) 70%);
+        }
+
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -435,12 +462,37 @@
 
         .hidden { display: none !important; }
 
+        @media (max-width: 768px) {
+            .header-controls {
+                position: relative;
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            header {
+                max-width: 100%;
+            }
+            .theme-toggle-container {
+                /* Keep fixed on mobile as well, but maybe adjust size */
+                transform: scale(0.9);
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
+
+    <!-- Expanding Theme Toggle -->
+    <div class="theme-toggle-container" id="themeToggleContainer" onclick="toggleTheme()" title="Toggle Theme">
+        <div class="theme-icon-wrapper">
+            <span class="material-icons-round" id="themeIcon">wb_sunny</span>
+        </div>
+        <span class="theme-text" id="themeText">Light Mode</span>
+    </div>
+
     <div id="login-overlay">
         <div class="login-card">
             <div class="logo-area" style="justify-content: center; margin-bottom: 20px;">
@@ -448,9 +500,9 @@
                     <img src="RI_Logo.webp" alt="RI" onerror="this.style.display='none'; this.parentNode.innerText='RI'">
                 </div>
             </div>
-            <h2 style="margin:0; font-size: 24px;">Login Admin</h2>
+            <h2 style="margin:0; font-size: 24px; color: var(--text-primary);">Login Admin</h2>
             <p style="color: var(--text-secondary); margin-top: 8px;">Please sign in to access your journals</p>
-            <p style="color:rgb(255, 111, 111);font-size: 11px;">If you're not an admin,Probably you came here by mistake.</p>
+            <p style="color: var(--color-down); font-size: 11px;">If you're not an admin, Probably you came here by mistake.</p>
             <div id="login-step-1" class="step-1">
                 <button id="google-trigger-btn" class="btn-google">
                     <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
@@ -468,8 +520,8 @@
         <header>
             <div class="header-controls">
                 <div class="user-chip" id="user-chip" style="display:none;">
-                    <img src="" alt="" class="user-avatar" id="user-avatar">
-                    <span id="user-name">User</span>
+                    <img src="admin.png" alt="Admin" class="user-avatar" id="user-avatar">
+                    <span id="user-name">Insights Admin</span>
                 </div>
                 <button class="btn-logout" id="logout-btn">Sign Out</button>
             </div>
@@ -514,12 +566,66 @@
         const userAvatar = document.getElementById('user-avatar');
         const userName = document.getElementById('user-name');
         let app, auth, provider;
-        window.addEventListener('DOMContentLoaded', () => {
+
+        // Theme Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('themechoice');
+            let themeName = 'Light Mode';
+            
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('themeIcon').textContent = 'dark_mode';
+                themeName = 'Dark Mode';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                document.getElementById('themeIcon').textContent = 'wb_sunny';
+                themeName = 'Light Mode';
+            }
+            
+            const toggleContainer = document.getElementById('themeToggleContainer');
+            const themeText = document.getElementById('themeText');
+            themeText.textContent = themeName;
+            
+            requestAnimationFrame(() => {
+                toggleContainer.classList.add('expanded');
+                setTimeout(() => {
+                    toggleContainer.classList.remove('expanded');
+                }, 1000);
+            });
+
+            // Auto-login check
             const savedPassword = localStorage.getItem('ri_app_config_pass');
             if (savedPassword) {
                 attemptUnlock(savedPassword, true); 
             }
         });
+
+        window.toggleTheme = function() {
+            const current = document.documentElement.getAttribute('data-theme');
+            let newThemeName = '';
+            
+            if (current === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('themechoice', '');
+                document.getElementById('themeIcon').textContent = 'wb_sunny';
+                newThemeName = 'Light Mode';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('themechoice', 'dark');
+                document.getElementById('themeIcon').textContent = 'dark_mode';
+                newThemeName = 'Dark Mode';
+            }
+            
+            const toggleContainer = document.getElementById('themeToggleContainer');
+            const themeText = document.getElementById('themeText');
+            themeText.textContent = newThemeName;
+            
+            toggleContainer.classList.add('expanded');
+            setTimeout(() => {
+                toggleContainer.classList.remove('expanded');
+            }, 1000);
+        }
+
         googleTriggerBtn.addEventListener('click', () => {
             if (auth) {
                 triggerGoogleSignIn();
@@ -603,8 +709,9 @@
                     }, 300);
 
                     userChip.style.display = 'flex';
-                    userAvatar.src = user.photoURL || 'https://via.placeholder.com/40';
-                    userName.textContent = user.displayName || 'Trader';
+                    // Force admin identity
+                    userAvatar.src = 'admin.png';
+                    userName.textContent = 'Insights Admin';
                 } else {
                     loginOverlay.style.display = 'flex';
                     loginOverlay.classList.remove('hidden');
