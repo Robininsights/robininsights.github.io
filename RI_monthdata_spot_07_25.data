@@ -1,0 +1,128 @@
+[
+  {
+    "res": "TP Hit",
+    "coin": "CETUS",
+    "pnl": "14%",
+    "type": "Short Term",
+    "profit": "14$",
+    "rowColor": "",
+    "entry": ""
+  },
+  {
+    "profit": "6$",
+    "entry": "",
+    "pnl": "6%",
+    "rowColor": "",
+    "coin": "COW",
+    "type": "Short Term",
+    "res": "Closed"
+  },
+  {
+    "entry": "",
+    "coin": "KEKIS",
+    "type": "Short Term",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "pnl": "36%",
+    "profit": "36$",
+    "res": "TP Hit"
+  },
+  {
+    "rowColor": "",
+    "entry": "",
+    "coin": "ENA",
+    "pnl": "-14%",
+    "res": "SL Hit",
+    "type": "Short Term",
+    "profit": "-14$"
+  },
+  {
+    "type": "Short Term",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "coin": "PNUT",
+    "profit": "42$",
+    "pnl": "42%",
+    "entry": "",
+    "res": "TP Hit"
+  },
+  {
+    "rowColor": "",
+    "profit": "24$",
+    "res": "TP Hit",
+    "coin": "TAO",
+    "type": "Short Term",
+    "pnl": "24%",
+    "entry": ""
+  },
+  {
+    "res": "SL Hit",
+    "pnl": "-16%",
+    "coin": "CFX",
+    "type": "Short Term",
+    "rowColor": "",
+    "entry": "",
+    "profit": "-16$"
+  },
+  {
+    "coin": "TAO",
+    "rowColor": "",
+    "res": "Closed",
+    "profit": "49$",
+    "type": "Long Term",
+    "entry": "",
+    "pnl": "49%"
+  },
+  {
+    "entry": "",
+    "type": "Swing",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "coin": "AGLD",
+    "pnl": "27%",
+    "profit": "27$",
+    "res": "Closed"
+  },
+  {
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "entry": "",
+    "pnl": "37%",
+    "coin": "ARKM",
+    "res": "TP Hit",
+    "profit": "37$",
+    "type": "Short Term"
+  },
+  {
+    "res": "TP Hit",
+    "entry": "",
+    "pnl": "200%",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "profit": "200$",
+    "coin": "PYTH",
+    "type": "Long Term"
+  },
+  {
+    "profit": "14$",
+    "res": "TP Hit",
+    "rowColor": "",
+    "pnl": "14%",
+    "entry": "",
+    "coin": "JUP",
+    "type": "Short Term"
+  },
+  {
+    "type": "Short Term",
+    "profit": "23$",
+    "entry": "",
+    "rowColor": "",
+    "coin": "TON",
+    "pnl": "23%",
+    "res": "TP Hit"
+  },
+  {
+    "pnl": "30%",
+    "type": "Swing",
+    "coin": "IO",
+    "entry": "",
+    "res": "Closed",
+    "profit": "30$",
+    "rowColor": ""
+  }
+]
