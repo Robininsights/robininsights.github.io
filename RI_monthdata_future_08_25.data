@@ -1,0 +1,212 @@
+[
+  {
+    "lev": "20x",
+    "profit": "49$",
+    "coin": "BTC",
+    "rowColor": "",
+    "pnl": "52%",
+    "res": "TP Hit",
+    "dir": "Long",
+    "entry": "113.25k$"
+  },
+  {
+    "coin": "SOL",
+    "pnl": "14%",
+    "profit": "13.70$",
+    "entry": "165$",
+    "lev": "5x",
+    "rowColor": "",
+    "res": "TP Hit",
+    "dir": "Long"
+  },
+  {
+    "res": "TP Hit",
+    "coin": "BTC",
+    "entry": "114.9k$",
+    "dir": "Long",
+    "lev": "30X",
+    "rowColor": "",
+    "pnl": "79%",
+    "profit": "78$"
+  },
+  {
+    "profit": "55$",
+    "pnl": "56%",
+    "coin": "BTC",
+    "dir": "Long",
+    "entry": "112.7k$",
+    "lev": "20x",
+    "res": "TP Hit",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "lev": "20x",
+    "profit": "-20$",
+    "dir": "Short",
+    "coin": "BTC",
+    "entry": "114.1k$",
+    "pnl": "-20%",
+    "res": "SL Hit"
+  },
+  {
+    "lev": "5X",
+    "entry": "1.39$",
+    "coin": "PROVE",
+    "profit": "78$",
+    "res": "TP Hit",
+    "dir": "Short",
+    "rowColor": "",
+    "pnl": "78%"
+  },
+  {
+    "res": "SL Hit",
+    "coin": "TOWNS",
+    "rowColor": "",
+    "pnl": "-38%",
+    "entry": "0.39$",
+    "lev": "5X",
+    "dir": "Long",
+    "profit": "-36$"
+  },
+  {
+    "lev": "5X",
+    "rowColor": "",
+    "profit": "-23$",
+    "dir": "Short",
+    "pnl": "-21%",
+    "entry": "3717$",
+    "coin": "ETH",
+    "res": "SL Hit"
+  },
+  {
+    "pnl": "50%",
+    "lev": "5x",
+    "res": "TP Hit",
+    "profit": "49$",
+    "entry": "1.17$",
+    "coin": "LDO",
+    "rowColor": "",
+    "dir": "Long"
+  },
+  {
+    "entry": "0.36$",
+    "profit": "-56$",
+    "lev": "20x",
+    "coin": "SCR",
+    "rowColor": "",
+    "pnl": "-55%",
+    "res": "SL Hit",
+    "dir": "Short"
+  },
+  {
+    "coin": "TAO",
+    "entry": "372$",
+    "pnl": "80%",
+    "dir": "Long",
+    "lev": "10X",
+    "profit": "79$",
+    "rowColor": "",
+    "res": "TP Hit"
+  },
+  {
+    "dir": "Short",
+    "res": "SL Hit",
+    "rowColor": "",
+    "lev": "10X",
+    "coin": "ENA",
+    "pnl": "-40%",
+    "profit": "-41$",
+    "entry": "0.78$"
+  },
+  {
+    "profit": "10$",
+    "res": "Closed",
+    "dir": "Long",
+    "rowColor": "",
+    "lev": "5X",
+    "coin": "XRP",
+    "pnl": "11%",
+    "entry": "3.274"
+  },
+  {
+    "dir": "Long",
+    "res": "TP Hit",
+    "coin": "EIGEN",
+    "lev": "5X",
+    "profit": "44$",
+    "pnl": "45%",
+    "rowColor": "",
+    "entry": "1.39$"
+  },
+  {
+    "coin": "BTC",
+    "res": "TP Hit",
+    "entry": "122.7k$",
+    "rowColor": "",
+    "profit": "58$",
+    "lev": "40x",
+    "dir": "Short",
+    "pnl": "59%"
+  },
+  {
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "coin": "LDO",
+    "pnl": "60%",
+    "lev": "10x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "entry": "1.52$",
+    "profit": "59$"
+  },
+  {
+    "dir": "Long",
+    "pnl": "-60%",
+    "lev": "20x",
+    "profit": "-61$",
+    "res": "SL Hit",
+    "coin": "SHELL",
+    "entry": "0.17$",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "entry": "1.50$",
+    "profit": "-250$",
+    "pnl": "-250%",
+    "lev": "10x",
+    "dir": "Short",
+    "coin": "EPIC",
+    "res": "SL Hit"
+  },
+  {
+    "res": "TP Hit",
+    "profit": "274$",
+    "entry": "112k$",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "dir": "Long",
+    "lev": "50X",
+    "pnl": "275%",
+    "coin": "BTC"
+  },
+  {
+    "profit": "45$",
+    "lev": "15x",
+    "rowColor": "",
+    "dir": "Short",
+    "res": "TP Hit",
+    "pnl": "45%",
+    "coin": "ONDO",
+    "entry": "0.90$"
+  },
+  {
+    "lev": "5x",
+    "coin": "PYTH",
+    "entry": "0.19$",
+    "dir": "Short",
+    "rowColor": "",
+    "profit": "-51$",
+    "res": "SL Hit",
+    "pnl": "-50%"
+  }
+]
