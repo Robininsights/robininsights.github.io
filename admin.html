@@ -730,6 +730,8 @@
             if (auth) {
                 signOut(auth).then(() => {
                     console.log("User signed out");
+                    // Remove saved password on explicit logout
+                    localStorage.removeItem('ri_app_config_pass');
                     window.location.reload(); 
                 }).catch((error) => {
                     console.error("Logout error:", error);
