@@ -1,0 +1,74 @@
+[
+  {
+    "entry": "",
+    "rowColor": "",
+    "type": "Short Term",
+    "coin": "ONDO",
+    "res": "Closed",
+    "pnl": "Break Even",
+    "profit": "Break Even"
+  },
+  {
+    "profit": "5$",
+    "rowColor": "",
+    "pnl": "5%",
+    "entry": "",
+    "type": "Short Term",
+    "res": "Closed",
+    "coin": "AVAX"
+  },
+  {
+    "res": "TP Hit",
+    "type": "Short Term",
+    "entry": "",
+    "rowColor": "",
+    "profit": "30$",
+    "coin": "WLFI",
+    "pnl": "30%"
+  },
+  {
+    "res": "Closed",
+    "profit": "11$",
+    "entry": "",
+    "type": "Short Term",
+    "coin": "SOL",
+    "pnl": "11%",
+    "rowColor": ""
+  },
+  {
+    "res": "Closed",
+    "pnl": "7%",
+    "rowColor": "",
+    "coin": "ASTER",
+    "entry": "",
+    "type": "Short Term",
+    "profit": "7$"
+  },
+  {
+    "entry": "",
+    "type": "Short Term",
+    "rowColor": "",
+    "pnl": "15%",
+    "coin": "TAO",
+    "res": "TP Hit",
+    "profit": "15$"
+  },
+  {
+    "type": "Short Term",
+    "profit": "Break Even",
+    "pnl": "Break Even",
+    "rowColor": "",
+    "entry": "",
+    "coin": "TRUMP",
+    "res": "Closed"
+  },
+  {
+    "coin": "APT",
+    "entry": "",
+    "type": "Short Term",
+    "res": "SL Hit",
+    "pnl": "-10%",
+    "profit": "-10$",
+    "rowColor": ""
+  }
+]
