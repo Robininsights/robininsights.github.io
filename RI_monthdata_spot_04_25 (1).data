@@ -1,0 +1,137 @@
+[
+  {
+    "profit": "23$",
+    "type": "Short Term",
+    "pnl": "23%",
+    "entry": "",
+    "res": "TP Hit",
+    "coin": "PEPE",
+    "rowColor": ""
+  },
+  {
+    "pnl": "9%",
+    "rowColor": "",
+    "entry": "",
+    "coin": "GROK",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "profit": "9$"
+  },
+  {
+    "type": "Short Term",
+    "entry": "",
+    "coin": "SEI",
+    "profit": "8$",
+    "res": "TP Hit",
+    "pnl": "8%",
+    "rowColor": ""
+  },
+  {
+    "coin": "BEL",
+    "type": "Swing",
+    "pnl": "46%",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "entry": "",
+    "profit": "46$",
+    "res": "TP Hit"
+  },
+  {
+    "coin": "GMT",
+    "profit": "43$",
+    "rowColor": "",
+    "type": "Short Term",
+    "entry": "",
+    "pnl": "43%",
+    "res": "TP Hit"
+  },
+  {
+    "coin": "ZK",
+    "rowColor": "",
+    "entry": "",
+    "pnl": "12%",
+    "res": "SL Hit",
+    "type": "Short Term",
+    "profit": "12$"
+  },
+  {
+    "entry": "",
+    "profit": "11$",
+    "rowColor": "",
+    "res": "TP Hit",
+    "pnl": "11%",
+    "type": "Short Term",
+    "coin": "PHA"
+  },
+  {
+    "coin": "RAD",
+    "res": "TP Hit",
+    "type": "Short Term",
+    "entry": "",
+    "profit": "10$",
+    "pnl": "10%",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "entry": "",
+    "profit": "18$",
+    "pnl": "18%",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "coin": "GHST"
+  },
+  {
+    "pnl": "9%",
+    "res": "Closed",
+    "rowColor": "",
+    "entry": "",
+    "coin": "APT",
+    "type": "Short Term",
+    "profit": "9$"
+  },
+  {
+    "type": "Swing",
+    "coin": "WIF",
+    "pnl": "60%",
+    "profit": "60$",
+    "entry": "",
+    "res": "Closed",
+    "rowColor": ""
+  },
+  {
+    "res": "TP Hit",
+    "entry": "",
+    "type": "Short Term",
+    "rowColor": "",
+    "pnl": "9%",
+    "profit": "9$",
+    "coin": "UMA"
+  },
+  {
+    "profit": "6$",
+    "rowColor": "",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "pnl": "6%",
+    "entry": "",
+    "coin": "OGN"
+  },
+  {
+    "entry": "",
+    "res": "TP Hit",
+    "rowColor": "",
+    "type": "Short Term",
+    "coin": "WLD",
+    "pnl": "15%",
+    "profit": "15$"
+  },
+  {
+    "coin": "LUMIA",
+    "res": "SL Hit",
+    "pnl": "-10%",
+    "entry": "",
+    "type": "Short Term",
+    "rowColor": "",
+    "profit": "-10$"
+  }
+]
