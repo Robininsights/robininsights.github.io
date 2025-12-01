@@ -1,0 +1,101 @@
+[
+  {
+    "pnl": "69%",
+    "res": "TP Hit",
+    "profit": "69$",
+    "entry": "",
+    "type": "Short Term",
+    "coin": "ARB",
+    "rowColor": "rgba(16, 185, 129, 0.15)"
+  },
+  {
+    "entry": "",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "res": "TP Hit",
+    "pnl": "18%",
+    "profit": "18$",
+    "coin": "1000CHEEMS",
+    "type": "Short Term"
+  },
+  {
+    "res": "TP Hit",
+    "entry": "",
+    "type": "Short Term",
+    "coin": "AMP",
+    "rowColor": "",
+    "profit": "14$",
+    "pnl": "14%"
+  },
+  {
+    "type": "Short Term",
+    "profit": "9$",
+    "rowColor": "",
+    "res": "Closed",
+    "entry": "",
+    "pnl": "9%",
+    "coin": "LUMIA"
+  },
+  {
+    "rowColor": "",
+    "entry": "",
+    "type": "Short Term",
+    "coin": "DOGE",
+    "profit": "13$",
+    "pnl": "13%",
+    "res": "TP Hit"
+  },
+  {
+    "entry": "",
+    "type": "Short Term",
+    "pnl": "16%",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "profit": "16$",
+    "coin": "LUMIA",
+    "res": "TP Hit"
+  },
+  {
+    "type": "Short Term",
+    "res": "SL Hit",
+    "rowColor": "",
+    "coin": "PYTH",
+    "pnl": "-10%",
+    "profit": "-10$",
+    "entry": ""
+  },
+  {
+    "entry": "",
+    "profit": "13$",
+    "rowColor": "",
+    "res": "TP Hit",
+    "type": "Short Term",
+    "coin": "DOGE",
+    "pnl": "13%"
+  },
+  {
+    "coin": "TLM",
+    "profit": "10$",
+    "res": "TP Hit",
+    "rowColor": "",
+    "type": "Short Term",
+    "pnl": "10%",
+    "entry": ""
+  },
+  {
+    "coin": " MEME",
+    "pnl": "7%",
+    "profit": "7$",
+    "rowColor": "",
+    "res": "TP Hit",
+    "entry": "",
+    "type": "Short Term"
+  },
+  {
+    "type": "Short Term",
+    "entry": "",
+    "coin": "HIFI",
+    "pnl": "-10%",
+    "profit": "-10$",
+    "res": "SL Hit",
+    "rowColor": ""
+  }
+]
