@@ -1,0 +1,212 @@
+[
+  {
+    "rowColor": "",
+    "pnl": "25%",
+    "entry": "",
+    "lev": "20x",
+    "profit": "25$",
+    "coin": "BTC",
+    "dir": "Short",
+    "res": "TP Hit"
+  },
+  {
+    "coin": "BTC",
+    "lev": "20x",
+    "profit": "-35$",
+    "rowColor": "",
+    "res": "SL Hit",
+    "dir": "Short",
+    "entry": "",
+    "pnl": "-35%"
+  },
+  {
+    "lev": "20x",
+    "coin": "BTC",
+    "dir": "Short",
+    "rowColor": "",
+    "res": "Closed",
+    "entry": "",
+    "profit": "10$",
+    "pnl": "10%"
+  },
+  {
+    "rowColor": "",
+    "res": "TP Hit",
+    "coin": "BTC",
+    "dir": "Short",
+    "profit": "18$",
+    "entry": "",
+    "lev": "30x",
+    "pnl": "19%"
+  },
+  {
+    "entry": "",
+    "pnl": "102%",
+    "dir": "Long",
+    "res": "TP Hit",
+    "profit": "101$",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "coin": "BTC",
+    "lev": "30x"
+  },
+  {
+    "lev": "20x",
+    "rowColor": "",
+    "profit": "24$",
+    "pnl": "24%",
+    "dir": "Short",
+    "res": "Closed",
+    "coin": "BTC",
+    "entry": ""
+  },
+  {
+    "coin": "XPL",
+    "entry": "",
+    "res": "TP Hit",
+    "pnl": "50%",
+    "dir": "Long",
+    "rowColor": "",
+    "lev": "3x",
+    "profit": "50$"
+  },
+  {
+    "pnl": "-30%",
+    "lev": "3x",
+    "res": "SL Hit",
+    "coin": "SAHARA",
+    "rowColor": "",
+    "profit": "-31$",
+    "dir": "Long",
+    "entry": ""
+  },
+  {
+    "dir": "Short",
+    "coin": "BTC",
+    "rowColor": "",
+    "lev": "20x",
+    "res": "Closed",
+    "entry": "",
+    "profit": "23$",
+    "pnl": "23%"
+  },
+  {
+    "pnl": "16%",
+    "res": "Closed",
+    "coin": "COTI",
+    "entry": "",
+    "lev": "5x",
+    "profit": "15$",
+    "dir": "Long",
+    "rowColor": ""
+  },
+  {
+    "pnl": "40%",
+    "lev": "20x",
+    "rowColor": "",
+    "coin": "SOL",
+    "dir": "Long",
+    "res": "TP Hit",
+    "profit": "39$",
+    "entry": ""
+  },
+  {
+    "pnl": "40%",
+    "entry": "",
+    "coin": "BTC",
+    "res": "TP Hit",
+    "rowColor": "",
+    "profit": "40$",
+    "dir": "Long",
+    "lev": "20x"
+  },
+  {
+    "res": "TP Hit",
+    "coin": "BTC",
+    "pnl": "50%",
+    "entry": "",
+    "dir": "Short",
+    "profit": "50$",
+    "lev": "20x",
+    "rowColor": ""
+  },
+  {
+    "lev": "20x",
+    "dir": "Long",
+    "profit": "65$",
+    "res": "TP Hit",
+    "rowColor": "",
+    "entry": "",
+    "pnl": "65%",
+    "coin": "SOL"
+  },
+  {
+    "pnl": "16%",
+    "lev": "5x",
+    "rowColor": "",
+    "entry": "",
+    "coin": "APT",
+    "dir": "Long",
+    "profit": "15$",
+    "res": "Closed"
+  },
+  {
+    "pnl": "55%",
+    "dir": "Long",
+    "rowColor": "",
+    "res": "Closed",
+    "entry": "",
+    "coin": "BTC",
+    "lev": "20x",
+    "profit": "54$"
+  },
+  {
+    "profit": "22$",
+    "coin": "DOT",
+    "lev": "20x",
+    "entry": "",
+    "pnl": "22%",
+    "res": "Closed",
+    "dir": "Long",
+    "rowColor": ""
+  },
+  {
+    "coin": "ETH",
+    "entry": "",
+    "lev": "10X",
+    "pnl": "34%",
+    "rowColor": "",
+    "profit": "34$",
+    "dir": "Long",
+    "res": "TP Hit"
+  },
+  {
+    "res": "TP Hit",
+    "coin": "BTC",
+    "rowColor": "",
+    "lev": "20x",
+    "entry": "",
+    "profit": "45$",
+    "dir": "Long",
+    "pnl": "45%"
+  },
+  {
+    "entry": "",
+    "dir": "Long",
+    "pnl": "57%",
+    "lev": "5X",
+    "profit": "56$",
+    "res": "TP Hit",
+    "rowColor": "",
+    "coin": "TAO"
+  },
+  {
+    "res": "SL Hit",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "profit": "-100$",
+    "rowColor": "",
+    "pnl": "-100%",
+    "coin": "SOL"
+  }
+]
