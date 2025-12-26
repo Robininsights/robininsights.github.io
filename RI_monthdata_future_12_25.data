@@ -1,0 +1,132 @@
+[
+  {
+    "pnl": "33%",
+    "profit": "31$",
+    "entry": "",
+    "rowColor": "",
+    "dir": "Long",
+    "res": "Closed",
+    "lev": "15x",
+    "coin": "BTC"
+  },
+  {
+    "lev": "10x",
+    "coin": "BR",
+    "rowColor": "",
+    "res": "Closed",
+    "dir": "Short",
+    "profit": "50$",
+    "entry": "",
+    "pnl": "50%"
+  },
+  {
+    "lev": "10x",
+    "res": "Closed",
+    "entry": "",
+    "pnl": "40%",
+    "dir": "Short",
+    "rowColor": "",
+    "profit": "39$",
+    "coin": "BR"
+  },
+  {
+    "dir": "Short",
+    "lev": "20x",
+    "profit": "59$",
+    "pnl": "62%",
+    "entry": "",
+    "coin": "BTC",
+    "rowColor": "",
+    "res": "Closed"
+  },
+  {
+    "dir": "Short",
+    "coin": "BTC",
+    "rowColor": "",
+    "profit": "30$",
+    "lev": "20x",
+    "res": "Closed",
+    "entry": "",
+    "pnl": "30%"
+  },
+  {
+    "lev": "20x",
+    "rowColor": "",
+    "dir": "Short",
+    "profit": "30$",
+    "pnl": "30%",
+    "res": "Closed",
+    "coin": "BTC",
+    "entry": ""
+  },
+  {
+    "pnl": "10%",
+    "entry": "",
+    "rowColor": "",
+    "res": "Closed",
+    "lev": "10x",
+    "dir": "Short",
+    "coin": "LTC",
+    "profit": "10$"
+  },
+  {
+    "dir": "Long",
+    "profit": "",
+    "coin": "ENA",
+    "rowColor": "",
+    "lev": "10x",
+    "res": "Running",
+    "entry": "",
+    "pnl": ""
+  },
+  {
+    "coin": "BTC",
+    "pnl": "45%",
+    "lev": "10x",
+    "profit": "44$",
+    "dir": "Short",
+    "entry": "",
+    "res": "Closed",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "dir": "Short",
+    "entry": "",
+    "coin": "BTC",
+    "res": "Closed",
+    "profit": "9$",
+    "pnl": "10%",
+    "lev": "10x"
+  },
+  {
+    "lev": "10X",
+    "res": "Running",
+    "entry": "",
+    "dir": "Long",
+    "profit": "6$",
+    "rowColor": "",
+    "pnl": "6%",
+    "coin": "SOL"
+  },
+  {
+    "coin": "BTC",
+    "profit": "50$",
+    "res": "Running",
+    "rowColor": "",
+    "pnl": "50%",
+    "dir": "Long",
+    "entry": "",
+    "lev": "20x"
+  },
+  {
+    "coin": "BTC",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "Closed",
+    "pnl": "41%",
+    "profit": "40$",
+    "rowColor": ""
+  }
+]
