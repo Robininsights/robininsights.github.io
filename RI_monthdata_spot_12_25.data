@@ -1,0 +1,29 @@
+[
+  {
+    "coin": "MNT",
+    "pnl": "11%",
+    "profit": "11$",
+    "entry": "",
+    "rowColor": "",
+    "res": "Closed",
+    "type": "Swing"
+  },
+  {
+    "profit": "-14$",
+    "entry": "",
+    "pnl": "-14%",
+    "coin": "ASTER",
+    "res": "SL Hit",
+    "rowColor": "",
+    "type": "Swing"
+  },
+  {
+    "profit": "8$",
+    "entry": "",
+    "coin": "C",
+    "rowColor": "",
+    "type": "Short Term",
+    "pnl": "8%",
+    "res": "Closed"
+  }
+]
