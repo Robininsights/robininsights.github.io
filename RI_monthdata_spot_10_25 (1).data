@@ -1,0 +1,119 @@
+[
+  {
+    "rowColor": "rgba(59, 130, 246, 0.15)",
+    "profit": "-10$",
+    "pnl": "-10%",
+    "coin": "OPEN",
+    "res": "SL Hit",
+    "type": "Short Term",
+    "entry": ""
+  },
+  {
+    "pnl": "5%",
+    "entry": "",
+    "res": "Closed",
+    "profit": "5%",
+    "coin": "JUP",
+    "type": "Short Term",
+    "rowColor": "rgba(16, 185, 129, 0.15)"
+  },
+  {
+    "pnl": "7%",
+    "profit": "7$",
+    "type": "Short Term",
+    "coin": "DOGS",
+    "entry": "",
+    "res": "TP Hit",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "coin": "RLC",
+    "type": "Short Term",
+    "entry": "",
+    "profit": "9$",
+    "res": "TP Hit",
+    "pnl": "9%"
+  },
+  {
+    "pnl": "24%",
+    "profit": "24$",
+    "entry": "",
+    "coin": "STRK",
+    "type": "Short Term",
+    "rowColor": "",
+    "res": "TP Hit"
+  },
+  {
+    "rowColor": "",
+    "pnl": "8%",
+    "type": "Short Term",
+    "coin": "UMA",
+    "entry": "",
+    "profit": "8$",
+    "res": "TP Hit"
+  },
+  {
+    "coin": "DOGE",
+    "entry": "",
+    "res": "SL Hit",
+    "rowColor": "rgba(59, 130, 246, 0.15)",
+    "type": "Long Term",
+    "pnl": "-10%",
+    "profit": "-10$"
+  },
+  {
+    "profit": "7$",
+    "res": "TP Hit",
+    "entry": "",
+    "type": "Short Term",
+    "coin": "LISTA",
+    "pnl": "7%",
+    "rowColor": ""
+  },
+  {
+    "profit": "-53$",
+    "res": "Running",
+    "entry": "",
+    "type": "Long Term",
+    "pnl": "-53%",
+    "coin": "ADA",
+    "rowColor": "rgba(59, 130, 246, 0.15)"
+  },
+  {
+    "coin": "IO",
+    "entry": "",
+    "profit": "-50$",
+    "rowColor": "rgba(59, 130, 246, 0.15)",
+    "pnl": "-50%",
+    "res": "Running",
+    "type": "Long Term"
+  },
+  {
+    "pnl": "15%",
+    "type": "Short Term",
+    "coin": "HYPE",
+    "res": "TP Hit",
+    "rowColor": "",
+    "entry": "",
+    "profit": "15$"
+  },
+  {
+    "res": "Closed",
+    "type": "Short Term",
+    "rowColor": "",
+    "coin": "APT",
+    "pnl": "5%",
+    "entry": "",
+    "profit": "5$"
+  },
+  {
+    "rowColor": "",
+    "pnl": "-60%",
+    "entry": "",
+    "profit": "-60$",
+    "res": "Running",
+    "type": "Holding",
+    "coin": "DYDX"
+  }
+]
