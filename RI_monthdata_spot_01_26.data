@@ -1,0 +1,182 @@
+[
+  {
+    "entry": "",
+    "coin": "IO",
+    "rowColor": "",
+    "profit": "5$",
+    "pnl": "5%",
+    "res": "Closed",
+    "type": "Short Term"
+  },
+  {
+    "res": "Closed",
+    "rowColor": "",
+    "type": "Swing",
+    "pnl": "8%",
+    "profit": "8$",
+    "coin": "LTC",
+    "entry": "75.47$"
+  },
+  {
+    "res": "Closed",
+    "entry": "",
+    "pnl": "6%",
+    "coin": "ADA",
+    "profit": "6$",
+    "type": "Long Term",
+    "rowColor": ""
+  },
+  {
+    "pnl": "8%",
+    "entry": "",
+    "res": "Running",
+    "coin": "STRK",
+    "profit": "8$",
+    "rowColor": "",
+    "type": "Short Term"
+  },
+  {
+    "pnl": "20%",
+    "res": "Running",
+    "rowColor": "",
+    "profit": "20$",
+    "coin": "ADA",
+    "entry": "",
+    "type": "Swing"
+  },
+  {
+    "entry": "",
+    "coin": "MNT",
+    "type": "Swing",
+    "profit": "10$",
+    "rowColor": "",
+    "pnl": "10%",
+    "res": "Running"
+  },
+  {
+    "profit": "10$",
+    "res": "Running",
+    "type": "Swing",
+    "coin": "AVAX",
+    "pnl": "10%",
+    "entry": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "FARTCOIN",
+    "entry": "",
+    "res": "Closed",
+    "profit": "46$",
+    "rowColor": "",
+    "pnl": "46%",
+    "type": "Swing"
+  },
+  {
+    "res": "Closed",
+    "type": "Swing",
+    "coin": "MNT",
+    "rowColor": "",
+    "profit": "13$",
+    "pnl": "13%",
+    "entry": ""
+  },
+  {
+    "entry": "",
+    "profit": "20$",
+    "coin": "TAO",
+    "res": "Closed",
+    "pnl": "20%",
+    "type": "Swing",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "entry": "",
+    "profit": "31$",
+    "type": "Long Term",
+    "coin": "SUI",
+    "res": "TP Hit",
+    "pnl": "31%"
+  },
+  {
+    "type": "Short Term",
+    "res": "TP Hit",
+    "rowColor": "",
+    "entry": "",
+    "pnl": "8%",
+    "coin": "LINK",
+    "profit": "8$"
+  },
+  {
+    "res": "TP Hit",
+    "coin": "AVAX",
+    "profit": "19$",
+    "rowColor": "",
+    "entry": "",
+    "pnl": "19%",
+    "type": "Long Term"
+  },
+  {
+    "entry": "",
+    "profit": "5$",
+    "coin": "ARPA",
+    "pnl": "5%",
+    "res": "Closed",
+    "rowColor": "",
+    "type": "Short Term"
+  },
+  {
+    "profit": "14$",
+    "pnl": "14%",
+    "entry": "",
+    "rowColor": "",
+    "coin": "ASTER",
+    "type": "Short Term",
+    "res": "TP Hit"
+  },
+  {
+    "type": "Swing",
+    "res": "TP Hit",
+    "entry": "",
+    "pnl": "44%",
+    "coin": "ZEN",
+    "profit": "44$",
+    "rowColor": ""
+  },
+  {
+    "type": "Long Term",
+    "entry": "",
+    "profit": "10$",
+    "coin": "RPL",
+    "rowColor": "",
+    "pnl": "10%",
+    "res": "TP Hit"
+  },
+  {
+    "rowColor": "",
+    "profit": "19$",
+    "pnl": "19%",
+    "entry": "",
+    "res": "TP Hit",
+    "type": "Short Term",
+    "coin": "DGB"
+  },
+  {
+    "res": "Closed",
+    "rowColor": "",
+    "entry": "",
+    "profit": "Break Even",
+    "pnl": "Break Even",
+    "type": "Swing",
+    "coin": "TAO"
+  },
+  {
+    "type": "Swing",
+    "pnl": "17%",
+    "rowColor": "",
+    "profit": "17$",
+    "res": "TP Hit",
+    "coin": "ASTER",
+    "entry": ""
+  }
+]
