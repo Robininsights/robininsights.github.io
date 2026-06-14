@@ -1,0 +1,137 @@
+[
+  {
+    "entry": "",
+    "type": "Swing",
+    "rowColor": "",
+    "pnl": "7.5%",
+    "res": "TP Hit",
+    "coin": "TAO",
+    "profit": "7.5$"
+  },
+  {
+    "profit": "5$",
+    "pnl": "5%",
+    "res": "TP Hit",
+    "coin": "PEPE",
+    "rowColor": "",
+    "type": "Holding",
+    "entry": ""
+  },
+  {
+    "pnl": "10%",
+    "res": "TP Hit",
+    "coin": "MITO",
+    "profit": "10$",
+    "entry": "",
+    "type": "Short Term",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "type": "Swing",
+    "entry": "",
+    "profit": "4$",
+    "res": "TP Hit",
+    "pnl": "4%",
+    "coin": "HYPE"
+  },
+  {
+    "profit": "Breakeven",
+    "coin": "ASTER",
+    "res": "Closed",
+    "pnl": "Breakeven",
+    "type": "Short Term",
+    "rowColor": "",
+    "entry": ""
+  },
+  {
+    "entry": "",
+    "type": "Short Term",
+    "rowColor": "",
+    "res": "SL Hit",
+    "pnl": "-10%",
+    "coin": "TAO",
+    "profit": "-10$"
+  },
+  {
+    "type": "Long Term",
+    "rowColor": "",
+    "entry": "",
+    "profit": "8$",
+    "pnl": "8%",
+    "res": "TP Hit",
+    "coin": "DOGE"
+  },
+  {
+    "type": "Long Term",
+    "rowColor": "",
+    "entry": "",
+    "profit": "-10$",
+    "coin": "RIVER",
+    "pnl": "-10%",
+    "res": "SL Hit"
+  },
+  {
+    "res": "TP Hit",
+    "pnl": "10%",
+    "coin": "IO",
+    "profit": "10$",
+    "entry": "",
+    "rowColor": "",
+    "type": "Long Term"
+  },
+  {
+    "entry": "",
+    "type": "Swing",
+    "rowColor": "",
+    "coin": "FRAX",
+    "res": "TP Hit",
+    "pnl": "6%",
+    "profit": "6$"
+  },
+  {
+    "coin": "SOL",
+    "res": "TP Hit",
+    "pnl": "1.5%",
+    "profit": "1.5$",
+    "entry": "",
+    "type": "Short Term",
+    "rowColor": ""
+  },
+  {
+    "type": "Swing",
+    "rowColor": "",
+    "entry": "",
+    "profit": "8$",
+    "coin": "OP",
+    "res": "TP Hit",
+    "pnl": "8%"
+  },
+  {
+    "type": "Short Term",
+    "rowColor": "",
+    "entry": "",
+    "profit": "10$",
+    "pnl": "10%",
+    "res": "TP Hit",
+    "coin": "DOGE"
+  },
+  {
+    "res": "TP Hit",
+    "pnl": "46%",
+    "coin": "MITO",
+    "profit": "46$",
+    "entry": "",
+    "type": "Swing",
+    "rowColor": ""
+  },
+  {
+    "entry": "",
+    "rowColor": "",
+    "type": "Swing",
+    "res": "SL Hit",
+    "pnl": "-10%",
+    "coin": "TAO",
+    "profit": "-10$"
+  }
+]
