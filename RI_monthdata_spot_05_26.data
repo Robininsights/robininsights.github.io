@@ -1,0 +1,92 @@
+[
+  {
+    "res": "TP Hit",
+    "rowColor": "",
+    "coin": "NEWT",
+    "entry": "",
+    "type": "Short Term",
+    "profit": "13$",
+    "pnl": "13%"
+  },
+  {
+    "type": "Short Term",
+    "profit": "7$",
+    "pnl": "7%",
+    "rowColor": "",
+    "res": "TP Hit",
+    "coin": "KOMA",
+    "entry": ""
+  },
+  {
+    "rowColor": "",
+    "res": "TP Hit",
+    "coin": "ETH",
+    "entry": "",
+    "pnl": "1.5%",
+    "type": "Short Term",
+    "profit": "1.5$"
+  },
+  {
+    "res": "TP Hit",
+    "rowColor": "",
+    "coin": "TON",
+    "entry": "",
+    "pnl": "87%",
+    "type": "Swing",
+    "profit": "87$"
+  },
+  {
+    "pnl": "7%",
+    "type": "Swing",
+    "profit": "7$",
+    "rowColor": "",
+    "res": "TP Hit",
+    "entry": "",
+    "coin": "PEPE"
+  },
+  {
+    "rowColor": "",
+    "res": "TP Hit",
+    "coin": "OP",
+    "entry": "",
+    "type": "Long Term",
+    "profit": "38$",
+    "pnl": "38%"
+  },
+  {
+    "entry": "",
+    "coin": "UNI",
+    "res": "TP Hit",
+    "rowColor": "",
+    "pnl": "12%",
+    "profit": "12$",
+    "type": "Long Term"
+  },
+  {
+    "rowColor": "",
+    "res": "TP Hit",
+    "entry": "",
+    "coin": "SEI",
+    "pnl": "16%",
+    "type": "Long Term",
+    "profit": "16$"
+  },
+  {
+    "coin": "RARE",
+    "entry": "",
+    "rowColor": "",
+    "res": "TP Hit",
+    "pnl": "8%",
+    "profit": "8$",
+    "type": "Swing"
+  },
+  {
+    "type": "Short Term",
+    "profit": "1.5$",
+    "pnl": "1.5%",
+    "coin": "ETH",
+    "entry": "",
+    "rowColor": "",
+    "res": "TP Hit"
+  }
+]
