@@ -1,0 +1,83 @@
+[
+  {
+    "coin": "HYPE",
+    "entry": "55$",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "pnl": "17%",
+    "profit": "17$",
+    "rowColor": ""
+  },
+  {
+    "coin": "ROBO",
+    "entry": "",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "pnl": "19%",
+    "profit": "19$",
+    "rowColor": ""
+  },
+  {
+    "coin": "WLD",
+    "entry": "",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "pnl": "42%",
+    "profit": "42$",
+    "rowColor": ""
+  },
+  {
+    "coin": "DUSK",
+    "entry": "",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "pnl": "11%",
+    "profit": "11$",
+    "rowColor": ""
+  },
+  {
+    "coin": "ARKM",
+    "entry": "",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "pnl": "18%",
+    "profit": "18$",
+    "rowColor": ""
+  },
+  {
+    "coin": "TON",
+    "entry": "",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "pnl": "9%",
+    "profit": "9$",
+    "rowColor": ""
+  },
+  {
+    "coin": "ETH",
+    "entry": "1679$",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "pnl": "9%",
+    "profit": "9$",
+    "rowColor": ""
+  },
+  {
+    "coin": "STRK",
+    "entry": "",
+    "type": "Swing",
+    "res": "TP Hit",
+    "pnl": "8%",
+    "profit": "8$",
+    "rowColor": ""
+  },
+  {
+    "coin": "HBAR",
+    "entry": "",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "pnl": "5%",
+    "profit": "5$",
+    "rowColor": ""
+  }
+]
