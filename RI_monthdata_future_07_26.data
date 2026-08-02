@@ -1,0 +1,162 @@
+[
+  {
+    "dir": "Long",
+    "profit": "236$",
+    "rowColor": "",
+    "lev": "20x",
+    "res": "TP Hit",
+    "entry": "",
+    "pnl": "236%",
+    "coin": "BTC"
+  },
+  {
+    "coin": "ENA",
+    "pnl": "-68%",
+    "rowColor": "",
+    "entry": "",
+    "dir": "Short",
+    "lev": "20x",
+    "res": "SL Hit",
+    "profit": "-68$"
+  },
+  {
+    "dir": "Short",
+    "lev": "20x",
+    "res": "TP Hit",
+    "coin": "SOL",
+    "pnl": "65%",
+    "entry": "",
+    "rowColor": "",
+    "profit": "65$"
+  },
+  {
+    "profit": "90$",
+    "entry": "",
+    "rowColor": "",
+    "pnl": "90%",
+    "coin": "BTC",
+    "lev": "50x",
+    "res": "TP Hit",
+    "dir": "Short"
+  },
+  {
+    "pnl": "Break-even",
+    "dir": "Short",
+    "coin": "BTC",
+    "rowColor": "",
+    "profit": "Break-even",
+    "entry": "",
+    "res": "Closed",
+    "lev": "50x"
+  },
+  {
+    "lev": "20x",
+    "res": "Closed",
+    "rowColor": "",
+    "dir": "Long",
+    "profit": "50$",
+    "pnl": "50%",
+    "entry": "",
+    "coin": "TAO"
+  },
+  {
+    "coin": "EDEN",
+    "pnl": "100%",
+    "rowColor": "",
+    "dir": "Short",
+    "entry": "",
+    "lev": "20x",
+    "res": "TP Hit",
+    "profit": "100$"
+  },
+  {
+    "dir": "Short",
+    "lev": "10x",
+    "res": "SL Hit",
+    "entry": "",
+    "profit": "-40$",
+    "rowColor": "",
+    "pnl": "-40%",
+    "coin": "M"
+  },
+  {
+    "entry": "",
+    "coin": "SKL",
+    "pnl": "110%",
+    "profit": "110$",
+    "rowColor": "",
+    "dir": "Short",
+    "res": "TP Hit",
+    "lev": "10x"
+  },
+  {
+    "dir": "Short",
+    "rowColor": "",
+    "lev": "20x",
+    "res": "Closed",
+    "pnl": "Break-even",
+    "profit": "Break-even",
+    "coin": "ENA",
+    "entry": ""
+  },
+  {
+    "dir": "Long",
+    "res": "TP Hit",
+    "lev": "20x",
+    "rowColor": "",
+    "entry": "",
+    "profit": "37$",
+    "pnl": "37%",
+    "coin": "BTC"
+  },
+  {
+    "coin": "GIGGLE",
+    "pnl": "40%",
+    "entry": "",
+    "lev": "20x",
+    "res": "TP Hit",
+    "rowColor": "",
+    "profit": "40$",
+    "dir": "Long"
+  },
+  {
+    "rowColor": "",
+    "entry": "",
+    "coin": "BTC",
+    "pnl": "110%",
+    "lev": "20x",
+    "res": "Running",
+    "profit": "110$",
+    "dir": "Long"
+  },
+  {
+    "entry": "",
+    "pnl": "40%",
+    "profit": "40$",
+    "lev": "10x",
+    "res": "TP Hit",
+    "coin": "DOGE",
+    "dir": "Long",
+    "rowColor": ""
+  },
+  {
+    "pnl": "223%",
+    "entry": "",
+    "coin": "PIXELVERSE",
+    "profit": "223$",
+    "dir": "Short",
+    "rowColor": "",
+    "res": "TP Hit",
+    "lev": "10x"
+  },
+  {
+    "pnl": "100%",
+    "rowColor": "",
+    "entry": "",
+    "profit": "100$",
+    "coin": "GPS",
+    "dir": "Long",
+    "res": "Closed",
+    "lev": "20x"
+  }
+]
