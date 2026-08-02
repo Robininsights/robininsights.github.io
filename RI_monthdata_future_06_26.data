@@ -1,0 +1,122 @@
+[
+  {
+    "rowColor": "",
+    "pnl": "230%",
+    "lev": "10x",
+    "dir": "Short",
+    "profit": "230$",
+    "res": "TP Hit",
+    "entry": "",
+    "coin": "PORTA"
+  },
+  {
+    "coin": "HYPE",
+    "profit": "45$",
+    "rowColor": "",
+    "entry": "",
+    "res": "TP Hit",
+    "dir": "Short",
+    "pnl": "45%",
+    "lev": "20x"
+  },
+  {
+    "rowColor": "",
+    "res": "SL Hit",
+    "coin": "BTC",
+    "lev": "20x",
+    "profit": "-150$",
+    "pnl": "-150$",
+    "dir": "Short",
+    "entry": ""
+  },
+  {
+    "entry": "",
+    "pnl": "-40%",
+    "lev": "20x",
+    "coin": "SOL",
+    "profit": "-40$",
+    "dir": "Long",
+    "res": "SL Hit",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "entry": "",
+    "profit": "250$",
+    "coin": "BTC",
+    "res": "TP Hit",
+    "dir": "Short",
+    "pnl": "250%",
+    "lev": "50x"
+  },
+  {
+    "rowColor": "",
+    "dir": "Long",
+    "lev": "5x",
+    "pnl": "25%",
+    "profit": "25$",
+    "entry": "",
+    "res": "TP Hit",
+    "coin": "ROBO"
+  },
+  {
+    "dir": "Long",
+    "entry": "",
+    "profit": "54$",
+    "lev": "20x",
+    "pnl": "54%",
+    "coin": "BTC",
+    "res": "TP Hit",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "res": "SL Hit",
+    "entry": "",
+    "dir": "Short",
+    "lev": "20x",
+    "pnl": "-40%",
+    "coin": "BTC",
+    "profit": "-40$"
+  },
+  {
+    "dir": "Long",
+    "lev": "20x",
+    "pnl": "120%",
+    "coin": "WLD",
+    "res": "Closed",
+    "rowColor": "",
+    "entry": "",
+    "profit": "120$"
+  },
+  {
+    "pnl": "63%",
+    "lev": "20x",
+    "entry": "",
+    "coin": "HYPE",
+    "dir": "Short",
+    "profit": "63$",
+    "res": "Closed",
+    "rowColor": ""
+  },
+  {
+    "entry": "",
+    "dir": "Long",
+    "lev": "50x",
+    "pnl": "100%",
+    "coin": "BTC",
+    "profit": "100$",
+    "res": "TP Hit",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "entry": "",
+    "coin": "BTC",
+    "profit": "350$",
+    "res": "TP Hit",
+    "dir": "Short",
+    "pnl": "350%",
+    "lev": "50x"
+  }
+]
