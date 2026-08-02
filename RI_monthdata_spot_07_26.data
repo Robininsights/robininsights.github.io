@@ -1,0 +1,83 @@
+[
+  {
+    "rowColor": "",
+    "type": "Swing",
+    "coin": "SAGA",
+    "res": "TP Hit",
+    "pnl": "8%",
+    "profit": "8$",
+    "entry": ""
+  },
+  {
+    "coin": "TAO",
+    "rowColor": "",
+    "entry": "",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "pnl": "5%",
+    "profit": "5$"
+  },
+  {
+    "entry": "",
+    "pnl": "117%",
+    "res": "TP Hit",
+    "coin": "BULLA",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "type": "Long Term",
+    "profit": "117$"
+  },
+  {
+    "profit": "6$",
+    "entry": "",
+    "rowColor": "",
+    "type": "Short Term",
+    "pnl": "6%",
+    "res": "Closed",
+    "coin": "RPL"
+  },
+  {
+    "entry": "",
+    "coin": "MMT",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "profit": "160$",
+    "type": "Swing",
+    "res": "Running",
+    "pnl": "160%"
+  },
+  {
+    "type": "Long Term",
+    "res": "Closed",
+    "pnl": "-1%",
+    "entry": "",
+    "rowColor": "",
+    "profit": "-1$",
+    "coin": "SENT"
+  },
+  {
+    "pnl": "110%",
+    "res": "TP Hit",
+    "profit": "110$",
+    "type": "Long Term",
+    "entry": "",
+    "rowColor": "rgba(16, 185, 129, 0.15)",
+    "coin": "GIGGLE"
+  },
+  {
+    "profit": "5$",
+    "type": "Long Term",
+    "res": "Closed",
+    "pnl": "5%",
+    "coin": "LTC",
+    "entry": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "FORM",
+    "entry": "",
+    "type": "Short Term",
+    "res": "Closed",
+    "pnl": "7%",
+    "profit": "7$",
+    "rowColor": ""
+  }
+]
