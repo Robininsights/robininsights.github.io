@@ -266,29 +266,27 @@
 <script src="SDK.js"></script>
 <script src="script.js"></script>
 <script>
- const chronosShift = () => {
+const chronosShift = () => {
     const moonPhase = document.getElementById('monthInput').value;
     const starCycles = parseInt(document.getElementById('yearInput').value, 10) || 0;
     const shinyPillar = document.querySelector('.col-profit');
-    
     if (!shinyPillar) return;
+    const table = shinyPillar.closest('table');
+    if (!table) return;
+    let styleTag = document.getElementById('chronos-style');
+    if (!styleTag) {
+        const nthChildIndex = shinyPillar.cellIndex + 1;
+        styleTag = document.createElement('style');
+        styleTag.id = 'chronos-style';
+        styleTag.textContent = `.hide-rift-col tr > :nth-child(${nthChildIndex}) { display: none !important; }`;
+        document.head.appendChild(styleTag);
+    }
 
     const timeSlices = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const sliceIndex = timeSlices.indexOf(moonPhase);
     
     const isBeyondTheRift = starCycles > 2026 || (starCycles === 2026 && sliceIndex > 6);
-    const displayState = isBeyondTheRift ? 'none' : '';
-
-    const table = shinyPillar.closest('table');
-    const colIndex = shinyPillar.cellIndex;
-
-    if (table && colIndex !== undefined) {
-        for (let i = 0; i < table.rows.length; i++) {
-            if (table.rows[i].cells[colIndex]) {
-                table.rows[i].cells[colIndex].style.display = displayState;
-            }
-        }
-    }
+    table.classList.toggle('hide-rift-col', isBeyondTheRift);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -296,8 +294,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const moonSelect = document.getElementById('monthInput');
     const sunType = document.getElementById('yearInput');
     
-    moonSelect.addEventListener('change', chronosShift);
-    sunType.addEventListener('input', chronosShift);
+    if (moonSelect) moonSelect.addEventListener('change', chronosShift);
+    if (sunType) sunType.addEventListener('input', chronosShift);
     setInterval(chronosShift, 1000);
 });
 </script>
