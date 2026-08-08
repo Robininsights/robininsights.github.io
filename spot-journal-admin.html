@@ -266,7 +266,7 @@
 <script src="SDK.js"></script>
 <script src="script.js"></script>
 <script>
-    const chronosShift = () => {
+  const chronosShift = () => {
     const moonPhase = document.getElementById('monthInput').value;
     const starCycles = parseInt(document.getElementById('yearInput').value, 10) || 0;
     const shinyPillar = document.querySelector('.col-profit');
@@ -278,8 +278,7 @@
     
     const isBeyondTheRift = starCycles > 2026 || (starCycles === 2026 && sliceIndex > 6);
 
-    shinyPillar.textContent = isBeyondTheRift ? 'RISK/REWARD RATIO' : 'Profit/Loss';
-    shinyPillar.style.width = isBeyondTheRift ? '20%' : '15%';
+    shinyPillar.style.display = isBeyondTheRift ? 'none' : '';
 };
 
 document.addEventListener('DOMContentLoaded', () => {
