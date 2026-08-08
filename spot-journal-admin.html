@@ -266,7 +266,7 @@
 <script src="SDK.js"></script>
 <script src="script.js"></script>
 <script>
-  const chronosShift = () => {
+ const chronosShift = () => {
     const moonPhase = document.getElementById('monthInput').value;
     const starCycles = parseInt(document.getElementById('yearInput').value, 10) || 0;
     const shinyPillar = document.querySelector('.col-profit');
@@ -277,8 +277,18 @@
     const sliceIndex = timeSlices.indexOf(moonPhase);
     
     const isBeyondTheRift = starCycles > 2026 || (starCycles === 2026 && sliceIndex > 6);
+    const displayState = isBeyondTheRift ? 'none' : '';
 
-    shinyPillar.style.display = isBeyondTheRift ? 'none' : '';
+    const table = shinyPillar.closest('table');
+    const colIndex = shinyPillar.cellIndex;
+
+    if (table && colIndex !== undefined) {
+        for (let i = 0; i < table.rows.length; i++) {
+            if (table.rows[i].cells[colIndex]) {
+                table.rows[i].cells[colIndex].style.display = displayState;
+            }
+        }
+    }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
