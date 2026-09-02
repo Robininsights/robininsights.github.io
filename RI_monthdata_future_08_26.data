@@ -1,0 +1,172 @@
+[
+  {
+    "dir": "Short",
+    "profit": "x",
+    "res": "SL Hit",
+    "pnl": "-20%",
+    "coin": "ADA",
+    "rowColor": "",
+    "entry": "",
+    "lev": "20x"
+  },
+  {
+    "rowColor": "",
+    "lev": "30x",
+    "entry": "",
+    "profit": "1:1",
+    "pnl": "16%",
+    "res": "Closed",
+    "coin": "BTC",
+    "dir": "Short"
+  },
+  {
+    "lev": "10x",
+    "coin": "GRAM",
+    "pnl": "-30%",
+    "profit": "x",
+    "entry": "",
+    "res": "SL Hit",
+    "rowColor": "",
+    "dir": "Long"
+  },
+  {
+    "coin": "FOGO",
+    "profit": "1:2",
+    "dir": "Long",
+    "res": "TP Hit",
+    "rowColor": "",
+    "entry": "",
+    "lev": "10x",
+    "pnl": "50%"
+  },
+  {
+    "entry": "",
+    "lev": "20x",
+    "pnl": "86%",
+    "coin": "DOGE",
+    "rowColor": "",
+    "profit": "1:3",
+    "dir": "Long",
+    "res": "TP Hit"
+  },
+  {
+    "res": "SL Hit",
+    "rowColor": "",
+    "dir": "Long",
+    "entry": "",
+    "coin": "AAVE",
+    "pnl": "-50%",
+    "profit": "x",
+    "lev": "10x"
+  },
+  {
+    "dir": "Long",
+    "res": "TP Hit",
+    "rowColor": "",
+    "pnl": "34%",
+    "coin": "OP",
+    "profit": "1:1",
+    "entry": "",
+    "lev": "20x"
+  },
+  {
+    "rowColor": "",
+    "dir": "Long",
+    "res": "TP Hit",
+    "coin": "ETH",
+    "profit": "1:2",
+    "lev": "20x",
+    "pnl": "45%",
+    "entry": ""
+  },
+  {
+    "dir": "Long",
+    "coin": "HYPER",
+    "entry": "",
+    "res": "Closed",
+    "pnl": "28%",
+    "rowColor": "",
+    "profit": "1:1",
+    "lev": "10x"
+  },
+  {
+    "lev": "30x",
+    "entry": "",
+    "profit": "x",
+    "pnl": "-65%",
+    "res": "SL Hit",
+    "coin": "BTC",
+    "rowColor": "",
+    "dir": "Short"
+  },
+  {
+    "res": "SL Hit",
+    "dir": "Short",
+    "profit": "x",
+    "rowColor": "",
+    "coin": "BTC",
+    "pnl": "-51%",
+    "lev": "30x",
+    "entry": ""
+  },
+  {
+    "coin": "BTC",
+    "entry": "",
+    "lev": "50x",
+    "dir": "Short",
+    "res": "Closed",
+    "pnl": "60%",
+    "profit": "1:1",
+    "rowColor": ""
+  },
+  {
+    "coin": "HYPER",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "Closed",
+    "pnl": "50%",
+    "profit": "1:1",
+    "rowColor": ""
+  },
+  {
+    "coin": "TAO",
+    "entry": "",
+    "lev": "10x",
+    "dir": "Short",
+    "res": "TP Hit",
+    "pnl": "267%",
+    "profit": "1:2",
+    "rowColor": ""
+  },
+  {
+    "coin": "BTC",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "Closed",
+    "pnl": "41%",
+    "profit": "1:1",
+    "rowColor": ""
+  },
+  {
+    "coin": "O ",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "80%",
+    "profit": "1:2",
+    "rowColor": ""
+  },
+  {
+    "coin": "WIF",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "TP Hit",
+    "pnl": "70%",
+    "profit": "1:1",
+    "rowColor": ""
+  }
+]
