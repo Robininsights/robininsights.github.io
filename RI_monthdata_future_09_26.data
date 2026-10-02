@@ -1,0 +1,162 @@
+[
+  {
+    "coin": "BTC",
+    "entry": "",
+    "dir": "Long",
+    "pnl": "56%",
+    "lev": "50x",
+    "profit": "1:1",
+    "res": "Closed",
+    "rowColor": ""
+  },
+  {
+    "res": "TP Hit",
+    "profit": "1:1",
+    "entry": "",
+    "rowColor": "",
+    "dir": "Long",
+    "pnl": "30%",
+    "coin": "ETH",
+    "lev": "20x"
+  },
+  {
+    "res": "TP Hit",
+    "rowColor": "",
+    "profit": "1:2",
+    "coin": "XRP",
+    "dir": "Long",
+    "entry": "",
+    "lev": "20x",
+    "pnl": "100%"
+  },
+  {
+    "entry": "",
+    "res": "TP Hit",
+    "coin": "SOL",
+    "profit": "1:2",
+    "dir": "Long",
+    "rowColor": "",
+    "pnl": "100%",
+    "lev": "20x"
+  },
+  {
+    "rowColor": "",
+    "profit": "1:1",
+    "res": "TP Hit",
+    "coin": "BTC",
+    "pnl": "50%",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long"
+  },
+  {
+    "lev": "20x",
+    "pnl": "50%",
+    "coin": "STX",
+    "dir": "Long",
+    "rowColor": "",
+    "profit": "1:1",
+    "entry": "",
+    "res": "TP Hit"
+  },
+  {
+    "pnl": "50%",
+    "profit": "X",
+    "lev": "50x",
+    "coin": "BTC",
+    "dir": "Short",
+    "entry": "",
+    "res": "SL Hit",
+    "rowColor": ""
+  },
+  {
+    "profit": "1:1",
+    "rowColor": "",
+    "res": "TP Hit",
+    "coin": "HYPE",
+    "entry": "",
+    "lev": "20x",
+    "pnl": "50%",
+    "dir": "Short"
+  },
+  {
+    "lev": "10x",
+    "pnl": "56%",
+    "dir": "Short",
+    "entry": "",
+    "coin": "IOST",
+    "rowColor": "",
+    "profit": "1:1",
+    "res": "TP Hit"
+  },
+  {
+    "dir": "Short",
+    "rowColor": "",
+    "lev": "20x",
+    "pnl": "-100%",
+    "coin": "IOST",
+    "profit": "X",
+    "res": "SL Hit",
+    "entry": ""
+  },
+  {
+    "res": "TP Hit",
+    "coin": "ETH",
+    "entry": "",
+    "dir": "Short",
+    "profit": "1:1",
+    "rowColor": "",
+    "lev": "20x",
+    "pnl": "60%"
+  },
+  {
+    "rowColor": "",
+    "res": "TP Hit",
+    "entry": "",
+    "pnl": "90%",
+    "lev": "50x",
+    "profit": "1:1",
+    "dir": "Short",
+    "coin": "BTC"
+  },
+  {
+    "dir": "Long",
+    "pnl": "20%",
+    "profit": "1:1",
+    "lev": "BTC",
+    "entry": "",
+    "coin": "BTC",
+    "res": "TP Hit",
+    "rowColor": ""
+  },
+  {
+    "rowColor": "",
+    "entry": "",
+    "profit": "",
+    "res": "SL Hit",
+    "lev": "20x",
+    "pnl": "-100%",
+    "dir": "Short",
+    "coin": "TAO"
+  },
+  {
+    "dir": "Long",
+    "coin": "GRAM",
+    "lev": "10x",
+    "pnl": "100%",
+    "rowColor": "",
+    "profit": "1:1",
+    "res": "TP Hit",
+    "entry": ""
+  },
+  {
+    "rowColor": "",
+    "res": "TP Hit",
+    "coin": "AIXBT",
+    "entry": "",
+    "dir": "Long",
+    "profit": "1:1",
+    "lev": "10x",
+    "pnl": "90%"
+  }
+]
