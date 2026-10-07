@@ -1,0 +1,191 @@
+[
+  {
+    "pnl": "20%",
+    "res": "TP Hit",
+    "rowColor": "",
+    "type": "Swing",
+    "coin": "OGN",
+    "entry": "",
+    "profit": "1"
+  },
+  {
+    "pnl": "25%",
+    "res": "TP Hit",
+    "type": "Short Term",
+    "coin": "FORM",
+    "rowColor": "",
+    "entry": "",
+    "profit": "25$"
+  },
+  {
+    "rowColor": "",
+    "entry": "",
+    "profit": "",
+    "pnl": "-3%",
+    "type": "Short Term",
+    "res": "SL Hit",
+    "coin": "GRAM"
+  },
+  {
+    "entry": "",
+    "coin": "ID",
+    "type": "Swing",
+    "res": "TP Hit",
+    "pnl": "18%",
+    "rowColor": "",
+    "profit": ""
+  },
+  {
+    "pnl": "9%",
+    "rowColor": "",
+    "type": "Short Term",
+    "coin": "FOGO",
+    "res": "TP Hit",
+    "entry": "",
+    "profit": ""
+  },
+  {
+    "rowColor": "",
+    "coin": "HYPER",
+    "type": "Short Term",
+    "res": "TP Hit",
+    "entry": "",
+    "profit": "",
+    "pnl": "25%"
+  },
+  {
+    "pnl": "5%",
+    "type": "Short Term",
+    "rowColor": "",
+    "res": "TP Hit",
+    "coin": "DOGE",
+    "entry": "",
+    "profit": ""
+  },
+  {
+    "pnl": "-5%",
+    "rowColor": "",
+    "res": "SL Hit",
+    "profit": "",
+    "type": "Swing",
+    "coin": "AAVE",
+    "entry": ""
+  },
+  {
+    "profit": "",
+    "entry": "",
+    "type": "Long Term",
+    "coin": "TREE",
+    "pnl": "-5%",
+    "rowColor": "",
+    "res": "SL Hit"
+  },
+  {
+    "res": "TP Hit",
+    "coin": "ALICE",
+    "entry": "",
+    "profit": "",
+    "rowColor": "",
+    "type": "Long Term",
+    "pnl": "33%"
+  },
+  {
+    "profit": "",
+    "rowColor": "",
+    "entry": "",
+    "pnl": "40%",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "coin": "DOGE"
+  },
+  {
+    "type": "Long Term",
+    "entry": "",
+    "coin": "OP",
+    "pnl": "36%",
+    "rowColor": "",
+    "res": "TP Hit",
+    "profit": ""
+  },
+  {
+    "coin": "TAO",
+    "res": "TP Hit",
+    "type": "Long Term",
+    "pnl": "22%",
+    "entry": "",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "res": "TP Hit",
+    "profit": "",
+    "entry": "",
+    "pnl": "27%",
+    "rowColor": "",
+    "coin": "PIXEL",
+    "type": "Long Term"
+  },
+  {
+    "type": "Long Term",
+    "entry": "",
+    "pnl": "17%",
+    "coin": "XAI",
+    "res": "TP Hit",
+    "rowColor": "",
+    "profit": ""
+  },
+  {
+    "profit": "",
+    "pnl": "8%",
+    "entry": "",
+    "res": "TP Hit",
+    "type": "Long Term",
+    "coin": "SOON",
+    "rowColor": ""
+  },
+  {
+    "profit": "",
+    "rowColor": "",
+    "coin": "MEME",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "entry": "",
+    "pnl": "18%"
+  },
+  {
+    "coin": "COW",
+    "type": "Long Term",
+    "rowColor": "",
+    "entry": "",
+    "res": "TP Hit",
+    "profit": "",
+    "pnl": "16%"
+  },
+  {
+    "coin": "AI",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "rowColor": "",
+    "pnl": "7%",
+    "entry": "",
+    "profit": ""
+  },
+  {
+    "rowColor": "",
+    "profit": "",
+    "pnl": "5%",
+    "type": "Long Term",
+    "res": "TP Hit",
+    "entry": "",
+    "coin": "IO"
+  },
+  {
+    "rowColor": "",
+    "res": "TP Hit",
+    "entry": "",
+    "pnl": "10%",
+    "coin": "OGN",
+    "type": "Long Term",
+    "profit": "10$"
+  }
+]
