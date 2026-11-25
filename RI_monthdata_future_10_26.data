@@ -1,0 +1,182 @@
+[
+  {
+    "dir": "Long",
+    "res": "TP Hit",
+    "profit": "",
+    "rowColor": "",
+    "pnl": "34%",
+    "coin": "DYM",
+    "lev": "20x",
+    "entry": ""
+  },
+  {
+    "lev": "20x",
+    "entry": "",
+    "profit": "",
+    "rowColor": "",
+    "coin": "FIDA",
+    "pnl": "30%",
+    "dir": "Long",
+    "res": "TP Hit"
+  },
+  {
+    "rowColor": "",
+    "profit": "",
+    "res": "TP Hit",
+    "dir": "Long",
+    "pnl": "112%",
+    "entry": "",
+    "lev": "50x",
+    "coin": "BTC"
+  },
+  {
+    "res": "TP Hit",
+    "dir": "Short",
+    "pnl": "100%",
+    "entry": "",
+    "rowColor": "",
+    "coin": "XRP",
+    "profit": "",
+    "lev": "20x"
+  },
+  {
+    "coin": "TAO",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "SL Hit",
+    "pnl": "-60%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "APT",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "SL Hit",
+    "pnl": "-60%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "HYPE",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "TP Hit",
+    "pnl": "135%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "BTC",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "TP Hit",
+    "pnl": "100%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "ETH",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "SL Hit",
+    "pnl": "-120%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "BTC",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "SL Hit",
+    "pnl": "-63%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "BTC",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "112%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "DYM",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Long",
+    "res": "TP Hit",
+    "pnl": "34%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "BTC",
+    "entry": "",
+    "lev": "50x",
+    "dir": "Short",
+    "res": "SL Hit",
+    "pnl": "-59%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "ETH",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "SL Hit",
+    "pnl": "-75%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "FIDA",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "TP Hit",
+    "pnl": "38%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "BTC",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "TP Hit",
+    "pnl": "121%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "BTC",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "TP Hit",
+    "pnl": "50%",
+    "profit": "",
+    "rowColor": ""
+  },
+  {
+    "coin": "ETHFI",
+    "entry": "",
+    "lev": "20x",
+    "dir": "Short",
+    "res": "SL Hit",
+    "pnl": "-50%",
+    "profit": "",
+    "rowColor": ""
+  }
+]
