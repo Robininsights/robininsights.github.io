@@ -1,0 +1,155 @@
+[
+  {
+    "res": "TP Hit",
+    "entry": "",
+    "pnl": "18%",
+    "coin": "OPN",
+    "profit": "",
+    "type": "Swing",
+    "rowColor": ""
+  },
+  {
+    "res": "TP Hit",
+    "rowColor": "",
+    "coin": "CRV",
+    "pnl": "24%",
+    "entry": "",
+    "type": "Long Term",
+    "profit": ""
+  },
+  {
+    "type": "Short Term",
+    "pnl": "6%",
+    "rowColor": "",
+    "profit": "",
+    "res": "TP Hit",
+    "coin": "ASTER",
+    "entry": ""
+  },
+  {
+    "pnl": "19%",
+    "rowColor": "",
+    "profit": "",
+    "entry": "",
+    "res": "TP Hit",
+    "coin": "API3 ",
+    "type": "Swing"
+  },
+  {
+    "profit": "",
+    "type": "Long Term",
+    "coin": "RLC",
+    "pnl": "85%",
+    "rowColor": "",
+    "entry": "",
+    "res": "TP Hit"
+  },
+  {
+    "rowColor": "",
+    "pnl": "20%",
+    "coin": "UMA",
+    "res": "TP Hit",
+    "type": "Swing",
+    "entry": "",
+    "profit": ""
+  },
+  {
+    "res": "SL Hit",
+    "type": "Swing",
+    "entry": "",
+    "rowColor": "",
+    "pnl": "-11%",
+    "profit": "",
+    "coin": "EIGEN"
+  },
+  {
+    "coin": "ARB",
+    "profit": "",
+    "entry": "",
+    "pnl": "-17%",
+    "rowColor": "",
+    "type": "Swing",
+    "res": "SL Hit"
+  },
+  {
+    "type": "Swing",
+    "rowColor": "",
+    "coin": "ANIME",
+    "pnl": "-12%",
+    "profit": "",
+    "entry": "",
+    "res": "SL Hit"
+  },
+  {
+    "rowColor": "",
+    "res": "TP Hit",
+    "type": "Long Term",
+    "profit": "",
+    "pnl": "26%",
+    "coin": "CYBER",
+    "entry": ""
+  },
+  {
+    "rowColor": "",
+    "type": "Short Term",
+    "profit": "",
+    "pnl": "4%",
+    "coin": "VANA",
+    "res": "TP Hit",
+    "entry": ""
+  },
+  {
+    "res": "TP Hit",
+    "type": "Long Term",
+    "pnl": "16%",
+    "entry": "",
+    "profit": "",
+    "coin": "DYM",
+    "rowColor": ""
+  },
+  {
+    "type": "Long Term",
+    "pnl": "16%",
+    "profit": "",
+    "res": "TP Hit",
+    "rowColor": "",
+    "entry": "",
+    "coin": "TAO"
+  },
+  {
+    "res": "SL Hit",
+    "rowColor": "",
+    "entry": "",
+    "pnl": "-10%",
+    "coin": "MMT",
+    "profit": "",
+    "type": "Long Term"
+  },
+  {
+    "res": "SL Hit",
+    "type": "Long Term",
+    "entry": "",
+    "pnl": "-10%",
+    "profit": "",
+    "rowColor": "",
+    "coin": "FET"
+  },
+  {
+    "type": "Short Term",
+    "profit": "",
+    "pnl": "-10%",
+    "entry": "",
+    "res": "SL Hit",
+    "rowColor": "",
+    "coin": "ONDO"
+  },
+  {
+    "coin": "AIXBT",
+    "rowColor": "",
+    "res": "SL Hit",
+    "entry": "",
+    "pnl": "-15%",
+    "profit": "",
+    "type": "Swing"
+  }
+]
